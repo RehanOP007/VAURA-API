@@ -1,0 +1,156 @@
+[
+  {
+    "module": 7,
+    "category": "Designation APIs",
+    "apis": [
+      {
+        "id": "add-designation",
+        "name": "Add Designation",
+        "method": "POST",
+        "endpoint": "http://localhost:8080/api/designations",
+        "description": "Creates a new designation for a branch.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "designationName": "Software Engineer",
+            "hierarchyLevel": "4"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-designations-in-branch",
+        "name": "Get Designation In Branch",
+        "method": "GET",
+        "endpoint": "http://localhost:8080/api/designations",
+        "description": "Fetches all designations for a specific branch.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-designation",
+        "name": "Update Designation In Branch",
+        "method": "PUT",
+        "endpoint": "http://localhost:8080/api/designations",
+        "description": "Updates a designation for a specific branch.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "designationName": "Software Engineer",
+            "hierarchyLevel": "1"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-designation",
+        "name": "Delete Designation",
+        "method": "DELETE",
+        "endpoint": "http://localhost:8080/api/designations/{designationId}",
+        "description": "Deletes a designation by ID.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "designationId",
+            "type": "number",
+            "required": true,
+            "description": "Designation ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+] 

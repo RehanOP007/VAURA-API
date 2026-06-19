@@ -1,0 +1,129 @@
+[ 
+  {
+    "module": 5,
+    "category": "Bank APIs",
+    "apis": [
+      {
+        "id": "create-bank",
+        "name": "Create Bank Account",
+        "method": "POST",
+        "endpoint": "http://3.22.171.185:8080/api/banks",
+        "description": "Creates a bank account entry for a branch.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "companyId": 1,
+            "branchId": 2,
+            "bankName": "Commercial Bank PLC",
+            "bankCode": "COM001"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-bank-in-branch",
+        "name": "Get Bank In Branch",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/banks",
+        "description": "Fetches bank records for a specific branch.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-bank",
+        "name": "Update Bank In Branch",
+        "method": "PUT",
+        "endpoint": "http://3.22.171.185:8080/api/banks/{bankId}",
+        "description": "Updates bank details by bank ID.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "bankId",
+            "type": "number",
+            "required": true,
+            "description": "Bank ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "companyId": 1,
+            "branchId": 2,
+            "bankName": "Commercial Bank PLC - Updated",
+            "bankCode": "COM002"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-bank",
+        "name": "Delete Bank",
+        "method": "DELETE",
+        "endpoint": "http://3.22.171.185:8080/api/banks/{bankId}",
+        "description": "Deletes a bank record by bank ID.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "bankId",
+            "type": "number",
+            "required": true,
+            "description": "Bank ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+]

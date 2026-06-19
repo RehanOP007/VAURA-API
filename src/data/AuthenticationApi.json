@@ -1,0 +1,110 @@
+[
+  {
+    "module": 1,
+    "category": "Authentication API",
+    "apis": [
+      {
+        "id": "user-login",
+        "name": "User Login",
+        "method": "POST",
+        "endpoint": "http://3.148.245.51:8080/api/auth/login",
+        "description": "Authenticates a user and returns an access token",
+        "headers": [{
+            "key": "Content-Type",
+            "value": "application/json"
+          }],
+        "queryParams": [{
+            "name": "User Email",
+            "type": "string",
+            "required": true,
+            "description": "useremail"
+          },
+          {
+            "name": "User Password",
+            "type": "string",
+            "required": true,
+            "description": "user password"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "fields": [
+            {
+              "name": "email",
+              "type": "String",
+              "required": true,
+              "description": "User email address"
+            },
+            {
+              "name": "password",
+              "type": "String",
+              "required": true,
+              "description": "User password"
+            }
+          ],
+          "sample": {
+            "email": "user@example.com",
+            "password": "password123"
+          }
+        },
+        "response": {
+          "description": "Returns JWT access token. Token is used for authorized APIs.",
+          "sample": {
+            "success": true,
+            "token": "jwt_token_here",
+            "user": {
+              "id": 1,
+              "name": "John Doe"
+            }
+          }
+        },
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Login successful"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        
+        ]
+        
+      },
+      {
+        "id": "change-own-password",
+        "name": "Change Own Password",
+        "method": "PUT",
+        "endpoint": "http://localhost:8080/api/admins/me/password",
+        "description": "Allows currently logged-in admin to change own password. Validates current password before updating. Works for SUPERADMIN / BRANCHADMIN.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "currentPassword",
+            "type": "string",
+            "required": true,
+            "description": "Existing Password"
+          },
+          {
+            "name": "newPassword",
+            "type": "string",
+            "required": true,
+            "description": "New Password"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+]

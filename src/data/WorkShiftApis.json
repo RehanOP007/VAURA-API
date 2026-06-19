@@ -1,0 +1,173 @@
+[ 
+ {
+    "module": 8,
+    "category": "Work Shift APIs",
+    "apis": [
+      {
+        "id": "add-shift",
+        "name": "Add Shift",
+        "method": "POST",
+        "endpoint": "http://localhost:8080/api/work-shifts",
+        "description": "Creates a new work shift for a branch.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "name": "Morning Shift",
+            "startTime": "09:00",
+            "endTime": "18:00",
+            "isOvernight": false,
+            "graceMinutes": 15,
+            "halfDayMinutes": 240,
+            "fullDayMinutes": 480
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-shifts-in-branch",
+        "name": "Get Shift In Branch",
+        "method": "GET",
+        "endpoint": "http://localhost:8080/api/work-shifts",
+        "description": "Fetches all work shifts for a specific branch.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-shift",
+        "name": "Update Shift In Branch",
+        "method": "PUT",
+        "endpoint": "http://localhost:8080/api/work-shifts/{shiftId}",
+        "description": "Updates an existing work shift by ID.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "shiftId",
+            "type": "number",
+            "required": true,
+            "description": "Shift ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "name": "Morning Shift Updated",
+            "startTime": "09:00",
+            "endTime": "17:00",
+            "graceMinutes": 5,
+            "halfDayMinutes": 240,
+            "fullDayMinutes": 480
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-shift",
+        "name": "Delete Shift",
+        "method": "DELETE",
+        "endpoint": "http://localhost:8080/api/work-shifts/{shiftId}",
+        "description": "Deletes a work shift by ID.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "shiftId",
+            "type": "number",
+            "required": true,
+            "description": "Shift ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+] 

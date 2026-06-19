@@ -1,0 +1,286 @@
+[
+  {
+    "category": "Authentication API",
+    "apis": [
+      {
+        "id": "login",
+        "name": "User Login",
+        "method": "POST",
+        "endpoint": "http://3.148.245.51:8080/api/auth/login",
+        "description": "Authenticates a user and returns an access token",
+        "headers": [],
+        "queryParams": [],
+        "body": {
+          "email": "user@example.com",
+          "password": "password123"
+        },
+        "response": {
+          "success": true,
+          "token": "jwt_token_here",
+          "user": {
+            "id": 1,
+            "name": "John Doe"
+          }
+        },
+        "statusCodes": [
+          { "code": 200, "desc": "Login successful" },
+          { "code": 401, "desc": "Invalid credentials" },
+          { "code": 500, "desc": "Internal server error" }
+        ]
+      },
+      {
+        "id": "change-own-password",
+        "name": "Change Own Password",
+        "method": "PUT",
+        "endpoint": "http://localhost:8080/api/admins/me/password",
+        "description": "Allows logged-in admin to change own password after validating current password",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": [
+          { "name": "currentPassword","type":"string", "required": true ,"description": "Existing Password" },
+          { "name": "newPassword","type":"string", "required": true, "description": "New Password" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Admin Management APIs",
+    "apis": [
+      {
+        "id": "create-admin-branch-company",
+        "name": "Create Admin (Branch/Company)",
+        "method": "POST",
+        "endpoint": "http://localhost:8080/api/admins/create",
+        "description": "Creates a branch or company admin with assigned role",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": [
+          { "name": "username", "required": true },
+          { "name": "password", "required": true },
+          { "name": "roles", "required": true },
+          { "name": "companyId", "required": true },
+          { "name": "branchId", "required": true }
+        ]
+      },
+      {
+        "id": "create-superadmin",
+        "name": "Create SUPERADMIN",
+        "method": "POST",
+        "endpoint": "http://localhost:8080/api/admins/create",
+        "description": "Creates a SUPERADMIN account (only accessible by SUPERADMIN)",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": [
+          { "name": "username", "required": true },
+          { "name": "password", "required": true },
+          { "name": "roles", "required": true }
+        ]
+      },
+      {
+        "id": "get-all-admins",
+        "name": "Get All Admins",
+        "method": "GET",
+        "endpoint": "http://localhost:8080/api/admins",
+        "description": "Returns all admins accessible by current user",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": []
+      },
+      {
+        "id": "delete-admin",
+        "name": "Delete Admin",
+        "method": "DELETE",
+        "endpoint": "http://localhost:8080/api/admins/{adminId}",
+        "description": "Deletes an admin by ID",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": []
+      },
+      {
+        "id": "create-employee-admin",
+        "name": "Create Employee Admin",
+        "method": "POST",
+        "endpoint": "http://3.22.171.185:8080/api/admins/create",
+        "description": "Creates login credentials for an employee",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": [
+          { "name": "username", "required": true },
+          { "name": "password", "required": true },
+          { "name": "roles", "required": true },
+          { "name": "employeeId", "required": true },
+          { "name": "companyId", "required": true },
+          { "name": "branchId", "required": true }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Company Profile APIs",
+    "apis": [
+      {
+        "id": "create-company-profile",
+        "name": "Create Company Profile",
+        "method": "POST",
+        "endpoint": "http://3.22.171.185:8080/api/company-profiles",
+        "description": "Creates a company profile with image upload",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" },
+          { "key": "Content-Type", "value": "multipart/form-data" }
+        ],
+        "body": {
+          "company": {
+            "name": "VentureCrop",
+            "phoneNumber": "0771234567",
+            "email": "info@venturecrop.com",
+            "remark": "Main company",
+            "logoLink": "",
+            "location": "Colombo",
+            "address": "No 10, Colombo",
+            "prefix": "VC",
+            "companyCode": "VC001"
+          },
+          "photo": "file"
+        }
+      },
+      {
+        "id": "get-company-profiles",
+        "name": "Get Company Profiles",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/company-profiles",
+        "description": "Fetch all company profiles",
+        "headers": []
+      },
+      {
+        "id": "get-company-by-id",
+        "name": "Get Company Profile By ID",
+        "method": "GET",
+        "endpoint": "http://18.222.187.216:8080/api/company-profiles/{id}",
+        "description": "Fetch specific company profile",
+        "headers": []
+      },
+      {
+        "id": "update-company-profile",
+        "name": "Update Company Profile",
+        "method": "PUT",
+        "endpoint": "http://3.22.171.185:8080/api/company-profiles/{id}",
+        "description": "Updates company profile with new data and image",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "company": {
+            "name": "VentureCorp Holdings",
+            "phoneNumber": "0779999999",
+            "email": "contact@venturecorp.com",
+            "remark": "Updated",
+            "logoLink": "",
+            "location": "Kandy",
+            "address": "Peradeniya Road",
+            "prefix": "VCH",
+            "companyCode": "VC001"
+          }
+        }
+      },
+      {
+        "id": "delete-company-profile",
+        "name": "Delete Company Profile",
+        "method": "DELETE",
+        "endpoint": "http://localhost:8080/api/company-profiles/{id}",
+        "description": "Deletes a company profile",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Branch Management APIs",
+    "apis": [
+      {
+        "id": "create-branch",
+        "name": "Create Branch",
+        "method": "POST",
+        "endpoint": "http://3.22.171.185:8080/api/branches",
+        "description": "Creates a new branch under a company",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" },
+          { "key": "Content-Type", "value": "multipart/form-data" }
+        ],
+        "queryParams": [
+          { "name": "companyId", "required": true }
+        ],
+        "body": {
+          "branch": {
+            "branchName": "Colombo Branch",
+            "branchCode": "BR001",
+            "latitude": 6.9271,
+            "longitude": 79.8612,
+            "prefix": "CMB",
+            "location": "Colombo",
+            "address": "No 10, Colombo",
+            "phoneNumber": "0771234567",
+            "remark": "Main branch",
+            "email": "colombo@venturecrop.com",
+            "logoLink": "",
+            "managerName": "Rashen",
+            "timezoneString": "Asia/Colombo",
+            "currenzyString": "LKR"
+          },
+          "logo": "file"
+        }
+      },
+      {
+        "id": "get-branch-by-id",
+        "name": "Get Branch By ID",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/branches/{id}",
+        "description": "Fetch branch profile",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ]
+      },
+      {
+        "id": "get-branches-by-company",
+        "name": "Get Branches By Company",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/branches",
+        "description": "Fetch all branches of a company",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ],
+        "queryParams": [
+          { "name": "companyId", "required": true }
+        ]
+      },
+      {
+        "id": "update-branch",
+        "name": "Update Branch",
+        "method": "PUT",
+        "endpoint": "http://18.222.187.216:8080/api/branches/{id}",
+        "description": "Update branch details",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" },
+          { "key": "Content-Type", "value": "application/json" }
+        ]
+      },
+      {
+        "id": "delete-branch",
+        "name": "Delete Branch",
+        "method": "DELETE",
+        "endpoint": "http://3.22.171.185:8080/api/branches/{id}",
+        "description": "Deletes a branch",
+        "headers": [
+          { "key": "Authorization", "value": "Bearer JWT_TOKEN" }
+        ]
+      }
+    ]
+  }
+]

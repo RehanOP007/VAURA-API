@@ -1,0 +1,256 @@
+[ 
+ {
+    "module": 11,
+    "category": "Holiday APIs",
+    "apis": [
+      {
+        "id": "add-holiday",
+        "name": "Add Holiday",
+        "method": "POST",
+        "endpoint": "http://localhost:8080/api/holidays",
+        "description": "Creates a single holiday for a branch.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "holidayDate": "2026-01-01",
+            "name": "New Year Day",
+            "isRecurring": true,
+            "description": "Public holiday"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "add-holiday-bulk",
+        "name": "Add Holiday Bulk",
+        "method": "POST",
+        "endpoint": "http://localhost:8080/api/holidays/bulk",
+        "description": "Creates multiple holidays at once for a branch.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": [
+            {
+              "holidayDate": "2026-04-14",
+              "name": "Sinhala & Tamil New Year",
+              "isRecurring": true,
+              "description": "Sri Lanka National Holiday"
+            },
+            {
+              "holidayDate": "2026-05-01",
+              "name": "Labour Day",
+              "isRecurring": true,
+              "description": "Workers day"
+            }
+          ]
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-holidays-in-branch",
+        "name": "Get Holidays In Branch",
+        "method": "GET",
+        "endpoint": "http://localhost:8080/api/holidays",
+        "description": "Fetches all holidays for a specific branch.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-holidays-by-year",
+        "name": "Get Holidays In Branch By Year",
+        "method": "GET",
+        "endpoint": "http://localhost:8080/api/holidays/year/{year}",
+        "description": "Fetches all holidays for a specific branch filtered by year.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "year",
+            "type": "number",
+            "required": true,
+            "description": "Year (e.g. 2026)"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-holiday",
+        "name": "Update Holiday In Branch",
+        "method": "PUT",
+        "endpoint": "http://localhost:8080/api/holidays/{holidayId}",
+        "description": "Updates a holiday record by ID.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "holidayId",
+            "type": "number",
+            "required": true,
+            "description": "Holiday ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "sample": {
+            "holidayDate": "2026-01-02",
+            "name": "Updated Holiday",
+            "isRecurring": true,
+            "description": "Updated"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-holiday",
+        "name": "Delete Holiday",
+        "method": "DELETE",
+        "endpoint": "http://localhost:8080/api/holidays/{holidayId}",
+        "description": "Deletes a holiday record by ID.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "holidayId",
+            "type": "number",
+            "required": true,
+            "description": "Holiday ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+]

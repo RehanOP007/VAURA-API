@@ -1,0 +1,208 @@
+ [ 
+  {
+    "module": 4,
+    "category": "Branch Management APIs",
+    "apis": [
+      {
+        "id": "create-branch",
+        "name": "Create Branch",
+        "method": "POST",
+        "endpoint": "http://3.22.171.185:8080/api/branches",
+        "description": "Creates a new branch under a company.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          }
+        ],
+        "requestBody": {
+          "type": "multipart/form-data",
+          "fields": [
+            {
+              "name": "branch",
+              "type": "JSON String",
+              "required": true,
+              "description": "Branch details"
+            },
+            {
+              "name": "logo",
+              "type": "File",
+              "required": false,
+              "description": "Branch logo image"
+            }
+          ],
+          "sample": {
+            "branch": {
+              "branchName": "Colombo Branch",
+              "branchCode": "BR001",
+              "latitude": 6.9271,
+              "longitude": 79.8612,
+              "prefix": "CMB",
+              "location": "Colombo",
+              "address": "No 10, Colombo",
+              "phoneNumber": "0771234567",
+              "remark": "Main branch",
+              "email": "colombo@venturecrop.com",
+              "logoLink": "",
+              "managerName": "Rashen",
+              "timezoneString": "Asia/Colombo",
+              "currenzyString": "LKR"
+            },
+            "logo": "<file>"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-branch-by-id",
+        "name": "Get Branch By ID",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/branches/{id}",
+        "description": "Fetches a specific branch profile.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "id",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-branches-by-company",
+        "name": "Get Branches By Company",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/branches",
+        "description": "Fetches all branches belonging to a company.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-branch",
+        "name": "Update Branch",
+        "method": "PUT",
+        "endpoint": "http://18.222.187.216:8080/api/branches/{id}",
+        "description": "Updates branch details.",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "id",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": {
+          "type": "multipart/form-data",
+          "fields": [
+            {
+              "name": "branch",
+              "type": "JSON String",
+              "required": true,
+              "description": "Branch details"
+            },
+            {
+              "name": "logo",
+              "type": "File",
+              "required": false,
+              "description": "Branch logo image"
+            }
+          ],
+          "sample": {
+            "branch": {
+              "branchName": "Colombo Branch",
+              "branchCode": "BR001",
+              "latitude": 6.9271,
+              "longitude": 79.8612,
+              "prefix": "CMB",
+              "location": "Colombo",
+              "address": "No 10, Colombo",
+              "phoneNumber": "0771234567",
+              "remark": "Main branch",
+              "email": "colombo@venturecorp.com",
+              "logoLink": "",
+              "managerName": "Rashen",
+              "timezoneString": "Asia/Colombo",
+              "currenzyString": "LKR"
+            }
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-branch",
+        "name": "Delete Branch",
+        "method": "DELETE",
+        "endpoint": "http://3.22.171.185:8080/api/branches/{id}",
+        "description": "Deletes a branch.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "id",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+ ]

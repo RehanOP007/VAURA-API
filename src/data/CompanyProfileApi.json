@@ -1,0 +1,174 @@
+[ 
+ {
+    "module": 3,
+    "category": "Company Profile APIs",
+    "apis": [
+      {
+        "id": "create-company-profile",
+        "name": "Create Company Profile",
+        "method": "POST",
+        "endpoint": "http://3.22.171.185:8080/api/company-profiles",
+        "description": "Creates a company profile with image upload.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": {
+          "type": "multipart/form-data",
+          "fields": [
+            {
+              "name": "company",
+              "type": "JSON String",
+              "required": true,
+              "description": "Company information as JSON"
+            },
+            {
+              "name": "photo",
+              "type": "File",
+              "required": true,
+              "description": "Company image"
+            }
+          ],
+          "sample": {
+            "company": {
+              "name": "VentureCorp",
+              "phoneNumber": "0771234567",
+              "email": "info@venturecorp.com",
+              "remark": "Main company",
+              "logoLink": "",
+              "location": "Colombo",
+              "address": "No 10, Colombo",
+              "prefix": "VC",
+              "companyCode": "VC001"
+            },
+            "photo": "<file>"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-company-profiles",
+        "name": "View Company Profiles",
+        "method": "GET",
+        "endpoint": "http://3.22.171.185:8080/api/company-profiles",
+        "description": "Fetches all company profiles.",
+        "headers": [],
+        "queryParams": [],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-company-by-id",
+        "name": "Get Specific Company Profile",
+        "method": "GET",
+        "endpoint": "http://18.222.187.216:8080/api/company-profiles/{id}",
+        "description": "Fetches a specific company profile by ID.",
+        "headers": [],
+        "pathVariables": [
+          {
+            "name": "id",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-company-profile",
+        "name": "Update Company Profile",
+        "method": "PUT",
+        "endpoint": "http://3.22.171.185:8080/api/company-profiles/{id}",
+        "description": "Updates company profile with new data and image.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "id",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": {
+          "type": "multipart/form-data",
+          "fields": [
+            {
+              "name": "company",
+              "type": "JSON String",
+              "required": true,
+              "description": "Updated company details"
+            },
+            {
+              "name": "photo",
+              "type": "File",
+              "required": true,
+              "description": "New company image"
+            }
+          ],
+          "sample": {
+            "company": {
+              "name": "VentureCorp Holdings",
+              "phoneNumber": "0779999999",
+              "email": "contact@venturecorp.com",
+              "remark": "Updated",
+              "logoLink": "",
+              "location": "Kandy",
+              "address": "Peradeniya Road",
+              "prefix": "VCH",
+              "companyCode": "VC001"
+            }
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-company-profile",
+        "name": "Delete Company Profile",
+        "method": "DELETE",
+        "endpoint": "http://localhost:8080/api/company-profiles/{id}",
+        "description": "Deletes a company profile.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "id",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+    ]
+  }
+]
