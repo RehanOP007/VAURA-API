@@ -691,7 +691,36 @@
           }
         ],
         "requestBody": null,
-        "response": null,
+        "response": [
+            {
+    "content": [],
+    "pageable": {
+        "pageNumber": 0,
+        "pageSize": 10,
+        "sort": {
+            "empty": false,
+            "sorted": true,
+            "unsorted": false
+        },
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "totalPages": 0,
+    "totalElements": 0,
+    "last": true,
+    "size": 10,
+    "number": 0,
+    "sort": {
+        "empty": false,
+        "sorted": true,
+        "unsorted": false
+    },
+    "numberOfElements": 0,
+    "first": true,
+    "empty": true
+}
+        ],
         "statusCodes": []
       },
       {
@@ -739,7 +768,36 @@
           }
         ],
         "requestBody": null,
-        "response": null,
+        "response": [
+            {
+    "content": [],
+    "pageable": {
+        "pageNumber": 0,
+        "pageSize": 10,
+        "sort": {
+            "empty": false,
+            "sorted": true,
+            "unsorted": false
+        },
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "totalPages": 0,
+    "totalElements": 0,
+    "last": true,
+    "size": 10,
+    "number": 0,
+    "sort": {
+        "empty": false,
+        "sorted": true,
+        "unsorted": false
+    },
+    "numberOfElements": 0,
+    "first": true,
+    "empty": true
+}
+        ],
         "statusCodes": []
       },
       {
@@ -793,7 +851,36 @@
           }
         ],
         "requestBody": null,
-        "response": null,
+        "response": [
+            {
+    "content": [],
+    "pageable": {
+        "pageNumber": 0,
+        "pageSize": 10,
+        "sort": {
+            "empty": false,
+            "sorted": true,
+            "unsorted": false
+        },
+        "offset": 0,
+        "paged": true,
+        "unpaged": false
+    },
+    "totalPages": 0,
+    "totalElements": 0,
+    "last": true,
+    "size": 10,
+    "number": 0,
+    "sort": {
+        "empty": false,
+        "sorted": true,
+        "unsorted": false
+    },
+    "numberOfElements": 0,
+    "first": true,
+    "empty": true
+}
+        ],
         "statusCodes": []
       }
   ]
