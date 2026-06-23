@@ -1,0 +1,458 @@
+{
+  "module": 19,
+  "category": "Attendance Management APIs",
+  "apis": [
+    {
+      "id": "create-attendance-single-date",
+      "name": "Create Attendance (Single Future Date)",
+      "method": "POST",
+      "endpoint": "/api/attendance/create-date?{companyId}&{branchId}",
+      "description": "Creates attendance records for all employees for a single future date. Past or today’s dates are not allowed.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "date": "2026-02-15"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "create-attendance-full-month",
+      "name": "Create Attendance (Full Month – Future Days Only)",
+      "method": "POST",
+      "endpoint": "/api/attendance/create-month?{companyId}&{branchId}",
+      "description": "Creates attendance records for all future days only in the specified month. Existing or past attendance records are skipped automatically.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "year": 2026,
+          "month": 3
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "delete-future-attendance",
+      "name": "Delete Future Attendance Records",
+      "method": "DELETE",
+      "endpoint": "/api/attendance/delete-future?{companyId}&{branchId}&{fromDate}",
+      "description": "Deletes only future attendance records starting from the given date. Past and current day attendance cannot be deleted.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "fromDate",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "Delete attendance from this future date onward (e.g., 2026-03-01)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-punch-records-by-date",
+      "name": "Get Punch Records (By Date)",
+      "method": "GET",
+      "endpoint": "/api/attendance-punches/date?{companyId}&{branchId}&{date}",
+      "description": "Returns all punch records (IN/OUT) of employees for a specific day.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "date",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "Date to filter punch records"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-punch-records-by-month",
+      "name": "Get Punch Records (By Month)",
+      "method": "GET",
+      "endpoint": "/api/attendance-punches/month?{companyId}&{branchId}&{year}&{month}",
+      "description": "Returns all punch records for the selected month.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Year component of the month view"
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "required": true,
+          "description": "Month component of the month view"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-punch-records-date-range",
+      "name": "Get Punch Records (Date Range)",
+      "method": "GET",
+      "endpoint": "/api/attendance-punches/range?{companyId}&{branchId}&{fromDate}&{toDate}",
+      "description": "Returns all punch records within a date range.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "fromDate",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "Start date of the range"
+        },
+        {
+          "name": "toDate",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "End date of the range"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-attendance-day-view",
+      "name": "Get Attendance – Day View",
+      "method": "GET",
+      "endpoint": "/api/attendance/day?{companyId}&{branchId}&{date}",
+      "description": "Returns attendance details of all employees for a specific day.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "date",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "Specific date for day view summary"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-attendance-month-view",
+      "name": "Get Attendance – Month View",
+      "method": "GET",
+      "endpoint": "/api/attendance/month?{companyId}&{branchId}&{year}&{month}",
+      "description": "Returns attendance summary for the given month.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Year of attendance"
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "required": true,
+          "description": "Month of attendance"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-attendance-year-view",
+      "name": "Get Attendance – Year View",
+      "method": "GET",
+      "endpoint": "/api/attendance/year?{companyId}&{branchId}&{year}",
+      "description": "Returns year-wise attendance data for all employees.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Year to get analytics for"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "edit-attendance-record",
+      "name": "Edit Attendance Record (Admin Manual Correction)",
+      "method": "PUT",
+      "endpoint": "/api/attendance/edit?{companyId}&{branchId}",
+      "description": "Allows admin-level manual correction of attendance records: Change status (PRESENT / ABSENT / LEAVE), Modify IN / OUT times, Adjust work, late & overtime minutes, and manually change assigned shift.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "fields": [
+          {
+            "name": "attendanceId",
+            "type": "number",
+            "required": true,
+            "description": "Attendance record unique identifier"
+          },
+          {
+            "name": "status",
+            "type": "string",
+            "required": false,
+            "description": "Attendance status (PRESENT / ABSENT / LEAVE)"
+          },
+          {
+            "name": "location",
+            "type": "string",
+            "required": false,
+            "description": "Work location flag"
+          },
+          {
+            "name": "shiftId",
+            "type": "number",
+            "required": false,
+            "description": "ID of assigned schedule shift"
+          },
+          {
+            "name": "firstInTime",
+            "type": "string (HH:mm)",
+            "required": false,
+            "description": "First clock in timestamp"
+          },
+          {
+            "name": "lastOutTime",
+            "type": "string (HH:mm)",
+            "required": false,
+            "description": "Last clock out timestamp"
+          },
+          {
+            "name": "workedMinutes",
+            "type": "number",
+            "required": false,
+            "description": "Total duration worked inside shift in minutes"
+          },
+          {
+            "name": "lateMinutes",
+            "type": "number",
+            "required": false,
+            "description": "Late arrival variance in minutes"
+          },
+          {
+            "name": "overtimeMinutes",
+            "type": "number",
+            "required": false,
+            "description": "Overtime logging in minutes"
+          }
+        ],
+        "sample": {
+          "attendanceId": 55,
+          "status": "PRESENT",
+          "location": "OFFICE",
+          "shiftId": 4,
+          "firstInTime": "09:02",
+          "lastOutTime": "18:01",
+          "workedMinutes": 535,
+          "lateMinutes": 2,
+          "overtimeMinutes": 15
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

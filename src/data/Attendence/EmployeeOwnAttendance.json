@@ -1,0 +1,156 @@
+{
+  "module": 21,
+  "category": "Employee Self-Service Attendance APIs",
+  "apis": [
+    {
+      "id": "employee-own-attendance-date-only",
+      "name": "Employee Own Attendance - Date Only",
+      "method": "GET",
+      "endpoint": "/api/attendance/own?{companyId}&{branchId}&{date}",
+      "description": "Gets logged-in employee’s own attendance for a specific date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "date",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "Attendance date"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "employee-own-attendance-year-month",
+      "name": "Employee Own Attendance - Year + Month",
+      "method": "GET",
+      "endpoint": "/api/attendance/own?{companyId}&{branchId}&{year}&{month}",
+      "description": "Gets logged-in employee’s own attendance for a selected year and month.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Attendance year"
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "required": true,
+          "description": "Attendance month"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "employee-own-attendance-year-only",
+      "name": "Employee Own Attendance - Year Only",
+      "method": "GET",
+      "endpoint": "/api/attendance/own?{companyId}&{branchId}&{year}",
+      "description": "Gets logged-in employee’s own attendance for the selected year.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Attendance year"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "employee-own-attendance-month-only",
+      "name": "Employee Own Attendance - Month Only",
+      "method": "GET",
+      "endpoint": "/api/attendance/own?{companyId}&{branchId}&{month}",
+      "description": "Gets logged-in employee’s own attendance for the selected month.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "required": true,
+          "description": "Attendance month"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

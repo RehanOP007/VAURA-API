@@ -1,0 +1,156 @@
+{
+  "module": 22,
+  "category": "Manager Department Attendance ",
+  "apis": [
+    {
+      "id": "manager-department-attendance-date-only",
+      "name": "Manager Department Attendance - Date Only",
+      "method": "GET",
+      "endpoint": "/api/attendance/department?{companyId}&{branchId}&{date}",
+      "description": "Gets attendance records of employees in the logged-in manager’s department for a specific date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "date",
+          "type": "string (YYYY-MM-DD)",
+          "required": true,
+          "description": "Attendance date"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "manager-department-attendance-year-month",
+      "name": "Manager Department Attendance - Year + Month",
+      "method": "GET",
+      "endpoint": "/api/attendance/department?{companyId}&{branchId}&{year}&{month}",
+      "description": "Gets attendance records of employees in the logged-in manager’s department for a selected year and month.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Attendance year"
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "required": true,
+          "description": "Attendance month"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "manager-department-attendance-year-only",
+      "name": "Manager Department Attendance - Year Only",
+      "method": "GET",
+      "endpoint": "/api/attendance/department?{companyId}&{branchId}&{year}",
+      "description": "Gets attendance records of employees in the logged-in manager’s department for the selected year.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Attendance year"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "manager-department-attendance-month-only",
+      "name": "Manager Department Attendance - Month Only",
+      "method": "GET",
+      "endpoint": "/api/attendance/department?{companyId}&{branchId}&{month}",
+      "description": "Gets attendance records of employees in the logged-in manager’s department for the selected month.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "month",
+          "type": "number",
+          "required": true,
+          "description": "Attendance month"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

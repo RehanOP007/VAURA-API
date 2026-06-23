@@ -18,6 +18,10 @@ import EmployeeLeaveManagement from "./Employees/EmployeeLeavePolicyApi.json";
 import EmployeeShiftManagement from "./Employees/EmployeeShiftManagementApi.json";
 import WorkFromHome from "./WorkFromHome/WfhManagementApi.json";
 import WFHRequest from "./WorkFromHome/WorkFromHomeRequestApi.json";
+import AttendenceManagement from "./Attendence/AttendenceManagementApi.json";
+import QrAttendance from "./Attendence/QrAttendance.json";
+import OwnAttendance from "./Attendence/EmployeeOwnAttendance.json";
+import ManagerDepartmentAttendance from "./Attendence/ManagerDepartmentApi.json";
 
 const apiData = [
   {
@@ -119,6 +123,31 @@ const apiData = [
           apis: WFHRequest.apis,
        },
       ],
+  },
+  {
+    category: "Attendence",
+    apis: [AttendenceManagement.apis, 
+      ...QrAttendance.apis, 
+      ...OwnAttendance.apis, 
+      ...ManagerDepartmentAttendance.apis],
+    subModules: [
+      {
+        name: "Attendence Management APIs",
+        apis: AttendenceManagement.apis,
+      },
+      {
+        name: "QR Attendance APIs",
+        apis: QrAttendance.apis,
+      },
+      {
+        name: "Employee Own Attendance APIs",
+        apis: OwnAttendance.apis,
+      },
+      {
+        name: "Manager Department Attendance APIs",
+        apis: ManagerDepartmentAttendance.apis,
+      }
+    ]
   },
 ];
 
