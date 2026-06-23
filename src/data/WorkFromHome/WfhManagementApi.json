@@ -1,0 +1,800 @@
+{
+  "module": 17,
+  "category": "Work From Home (WFH) Management APIs",
+  "apis": [
+    {
+      "id": "assign-extend-wfh",
+      "name": "Assign / Extend WFH (Auto-merge Overlaps)",
+      "method": "POST",
+      "endpoint": "/api/admin/wfh/assign?{CompanyId}&{BranchId}",
+      "description": "Assigns or extends a Work From Home period for an employee. Overlapping or adjacent WFH periods are automatically merged.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "variants": [
+          {
+            "label": "Temporary WFH",
+            "sample": {
+              "employeeId": 12,
+              "startDate": "2026-02-01",
+              "endDate": "2026-02-10"
+            }
+          },
+          {
+            "label": "Permanent WFH",
+            "sample": {
+              "employeeId": 12,
+              "startDate": "2026-02-01",
+              "endDate": null
+            }
+          }
+        ]
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "end-wfh",
+      "name": "End WFH (Temporary or Permanent)",
+      "method": "PUT",
+      "endpoint": "/api/admin/wfh/end/{wfhId}?{companyId}&{branchId}&{endDate}",
+      "description": "Ends an active WFH record, including permanent WFH, either today or on a specified date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "wfhId",
+          "type": "number",
+          "required": true,
+          "description": "WFH record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "required": false,
+          "description": "End WFH on a specific date (defaults to today if not provided)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-wfh-history-by-employee",
+      "name": "Get WFH History by Employee",
+      "method": "GET",
+      "endpoint": "/api/admin/wfh/employee/{employeeId}?{companyId}&{branchId}",
+      "description": "Returns the complete WFH history of an employee, including past and current records.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-current-active-wfh-of-employee",
+      "name": "Get Current Active WFH of an Employee",
+      "method": "GET",
+      "endpoint": "/api/admin/wfh/current/{employeeId}?{companyId}&{branchId}",
+      "description": "Checks whether an employee is currently working from home today. Returns the WFH record if active, or 404 if no active WFH exists. Used by attendance and daily status systems.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "delete-wfh-record",
+      "name": "Delete WFH Record",
+      "method": "DELETE",
+      "endpoint": "/api/admin/wfh/{wfhId}?{companyId}&{branchId}",
+      "description": "Deletes a Work From Home record permanently.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "wfhId",
+          "type": "number",
+          "required": true,
+          "description": "WFH record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "check-wfh-active-for-date",
+      "name": "Check WFH Is Active for a Certain Date",
+      "method": "GET",
+      "endpoint": "/api/admin/wfh/check?{companyId}&{branchId}&{employeeId}&{date}",
+      "description": "Checks whether an employee has an active WFH record for a specific date. Can be used to conditionally show or hide the WFH button on the employee UI.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": true,
+          "description": "Date to check WFH status (e.g. 2026-02-01)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "mark-attendance-through-wfh",
+      "name": "Mark Attendance Through WFH",
+      "method": "POST",
+      "endpoint": "/api/attendance/workfromhome/mark?{companyId}&{branchId}",
+      "description": "Marks attendance for an employee through the Work From Home system.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 12
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+        "id": "bulk-assign-wfh",
+        "name": "Bulk Assign WFH",
+        "method": "POST",
+        "endpoint": "/api/admin/wfh/assign/bulk?{companyId}&{branchId}",
+        "description": "Assigns work from home to multiple employees at once using a date range.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "required": false
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "fields": [
+            {
+              "name": "employeeIds",
+              "type": "Array<number>",
+              "required": true,
+              "description": "List of employee IDs to assign WFH"
+            },
+            {
+              "name": "startDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "WFH start date"
+            },
+            {
+              "name": "endDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "WFH end date"
+            }
+          ],
+          "sample": {
+            "employeeIds": [
+              12,
+              13,
+              14
+            ],
+            "startDate": "2026-03-20",
+            "endDate": "2026-03-25"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "bulk-assign-wfh-selected-dates",
+        "name": "Bulk Assign WFH Selected Dates",
+        "method": "POST",
+        "endpoint": "/api/admin/wfh/assign/bulk-dates?{companyId}&{branchId}",
+        "description": "Assigns Work From Home dates to multiple employees using individually selected dates instead of a date range.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "required": false
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "fields": [
+            {
+              "name": "employeeDates",
+              "type": "Array<Object>",
+              "required": true,
+              "description": "List of employees with their selected WFH dates"
+            },
+            {
+              "name": "employeeDates[].employeeId",
+              "type": "number (Long)",
+              "required": true,
+              "description": "Employee ID"
+            },
+            {
+              "name": "employeeDates[].dates",
+              "type": "Array<string (YYYY-MM-DD)>",
+              "required": true,
+              "description": "Selected WFH dates for the employee"
+            }
+          ],
+          "sample": {
+            "employeeDates": [
+              {
+                "employeeId": 1,
+                "dates": [
+                  "2026-05-01",
+                  "2026-05-04",
+                  "2026-05-08"
+                ]
+              },
+              {
+                "employeeId": 2,
+                "dates": [
+                  "2026-05-01",
+                  "2026-05-04",
+                  "2026-05-08"
+                ]
+              }
+            ]
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "bulk-end-wfh",
+        "name": "Bulk End WFH",
+        "method": "PUT",
+        "endpoint": "/api/admin/wfh/end/bulk?{companyId}&{branchId}",
+        "description": "Ends multiple active WFH records at once by setting an end date.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "required": false
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "fields": [
+            {
+              "name": "wfhIds",
+              "type": "Array<number>",
+              "required": true,
+              "description": "List of WFH record IDs to end"
+            },
+            {
+              "name": "endDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "End date to apply to all specified WFH records"
+            }
+          ],
+          "sample": {
+            "wfhIds": [
+              1,
+              2,
+              3
+            ],
+            "endDate": "2026-03-25"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "edit-single-wfh",
+        "name": "Edit Single WFH",
+        "method": "PUT",
+        "endpoint": "/api/admin/wfh/{wfhId}?{companyId}&{branchId}",
+        "description": "Edits a single WFH record. Use this to correct a wrong assigned date.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "required": false
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "wfhId",
+            "type": "number",
+            "required": true,
+            "description": "WFH record ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "fields": [
+            {
+              "name": "startDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "Corrected WFH start date"
+            },
+            {
+              "name": "endDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "Corrected WFH end date"
+            }
+          ],
+          "sample": {
+            "startDate": "2026-03-21",
+            "endDate": "2026-03-26"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "bulk-edit-wfh",
+        "name": "Bulk Edit WFH",
+        "method": "PUT",
+        "endpoint": "/api/admin/wfh/bulk?{companyId}&{branchId}",
+        "description": "Edits multiple WFH records at once, applying the same start and end date to all specified records.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "required": false
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "application/json",
+          "fields": [
+            {
+              "name": "wfhIds",
+              "type": "Array<number>",
+              "required": true,
+              "description": "List of WFH record IDs to edit"
+            },
+            {
+              "name": "startDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "New start date to apply to all records"
+            },
+            {
+              "name": "endDate",
+              "type": "string (YYYY-MM-DD)",
+              "required": true,
+              "description": "New end date to apply to all records"
+            }
+          ],
+          "sample": {
+            "wfhIds": [
+              1,
+              2,
+              3
+            ],
+            "startDate": "2026-03-21",
+            "endDate": "2026-03-26"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-active-wfh-records",
+        "name": "Get Active WFH Records",
+        "method": "GET",
+        "endpoint": "/api/admin/wfh/active?{companyId}&{branchId}&{page}&{size}&{sort}",
+        "description": "Retrieves all currently active Work From Home records for employees in the selected company and branch. Supports pagination and sorting.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          },
+          {
+            "name": "page",
+            "type": "number",
+            "required": true,
+            "description": "Page number starting from 0"
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": true,
+            "description": "Number of records per page"
+          },
+          {
+            "name": "sort",
+            "type": "string",
+            "required": false,
+            "description": "Sorting field and direction (e.g. employee.employeeId,asc)"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "get-branch-wfh-history",
+        "name": "Get Branch WFH History",
+        "method": "GET",
+        "endpoint": "/api/admin/wfh/history?{companyId}&{branchId}&{page}&{size}&{sort}",
+        "description": "Retrieves historical Work From Home records for the selected company and branch. Supports pagination and sorting.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          },
+          {
+            "name": "page",
+            "type": "number",
+            "required": true,
+            "description": "Page number starting from 0"
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": true,
+            "description": "Number of records per page"
+          },
+          {
+            "name": "sort",
+            "type": "string",
+            "required": false,
+            "description": "Sorting field and direction (e.g. startDate,desc)"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "search-wfh-records",
+        "name": "Search WFH Records",
+        "method": "GET",
+        "endpoint": "/api/admin/wfh/search?{companyId}&{branchId}&{keyword}&{page}&{size}&{sort}",
+        "description": "Searches Work From Home records using a keyword within the selected company and branch. Keyword can match employee name, employee ID, or status.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          },
+          {
+            "name": "keyword",
+            "type": "string",
+            "required": true,
+            "description": "Search keyword — matches employee name, employee ID, or status"
+          },
+          {
+            "name": "page",
+            "type": "number",
+            "required": false,
+            "description": "Page number starting from 0"
+          },
+          {
+            "name": "size",
+            "type": "number",
+            "required": true,
+            "description": "Number of records per page"
+          },
+          {
+            "name": "sort",
+            "type": "string",
+            "required": false,
+            "description": "Sorting field and direction (e.g. startDate,desc)"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      }
+  ]
+}

@@ -1,14 +1,14 @@
-[
-  {
-    "module": 7,
-    "category": "Designation APIs",
+
+ {
+    "module": 10,
+    "category": "Leave Policy APIs",
     "apis": [
       {
-        "id": "add-designation",
-        "name": "Add Designation",
+        "id": "add-leave-policy",
+        "name": "Add Leave Policy",
         "method": "POST",
-        "endpoint": "http://localhost:8080/api/designations",
-        "description": "Creates a new designation for a branch.",
+        "endpoint": "/api/leave-policies?{companyId}&{branchId}",
+        "description": "Creates a new leave policy for a branch.",
         "headers": [
           {
             "key": "Content-Type",
@@ -36,19 +36,25 @@
         "requestBody": {
           "type": "application/json",
           "sample": {
-            "designationName": "Software Engineer",
-            "hierarchyLevel": "4"
+            "name": "Annual Leave",
+            "leaveType": "FULL",
+            "maxPerMonth": 2,
+            "maxPerYear": 24,
+            "medicalRequired": false,
+            "allowHalfDay": true,
+            "allowShortLeave": false,
+            "carryForward": true
           }
         },
         "response": null,
         "statusCodes": []
       },
       {
-        "id": "get-designations-in-branch",
-        "name": "Get Designation In Branch",
+        "id": "get-leave-policy-in-branch",
+        "name": "Get Leave Policy In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/designations",
-        "description": "Fetches all designations for a specific branch.",
+        "endpoint": "/api/leave-policies?{companyId}&{branchId}",
+        "description": "Fetches all leave policies for a specific branch.",
         "headers": [
           {
             "key": "Authorization",
@@ -74,11 +80,11 @@
         "statusCodes": []
       },
       {
-        "id": "update-designation",
-        "name": "Update Designation In Branch",
+        "id": "update-leave-policy",
+        "name": "Update Leave Policy In Branch",
         "method": "PUT",
-        "endpoint": "http://localhost:8080/api/designations",
-        "description": "Updates a designation for a specific branch.",
+        "endpoint": "/api/leave-policies/3?{companyId}&{branchId}",
+        "description": "Updates a leave policy by ID.",
         "headers": [
           {
             "key": "Content-Type",
@@ -87,6 +93,14 @@
           {
             "key": "Authorization",
             "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "policyId",
+            "type": "number",
+            "required": true,
+            "description": "Leave Policy ID"
           }
         ],
         "queryParams": [
@@ -106,19 +120,25 @@
         "requestBody": {
           "type": "application/json",
           "sample": {
-            "designationName": "Software Engineer",
-            "hierarchyLevel": "1"
+            "name": "Annual Leave Updated",
+            "leaveType": "FULL",
+            "maxPerMonth": 2,
+            "maxPerYear": 20,
+            "medicalRequired": false,
+            "allowHalfDay": true,
+            "allowShortLeave": false,
+            "carryForward": true
           }
         },
         "response": null,
         "statusCodes": []
       },
       {
-        "id": "delete-designation",
-        "name": "Delete Designation",
+        "id": "delete-leave-policy",
+        "name": "Delete Leave Policy",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/designations/{designationId}",
-        "description": "Deletes a designation by ID.",
+        "endpoint": "/api/leave-policies/3?{companyId}&{branchId}",
+        "description": "Deletes a leave policy by ID.",
         "headers": [
           {
             "key": "Authorization",
@@ -127,10 +147,10 @@
         ],
         "pathVariables": [
           {
-            "name": "designationId",
+            "name": "policyId",
             "type": "number",
             "required": true,
-            "description": "Designation ID"
+            "description": "Leave Policy ID"
           }
         ],
         "queryParams": [
@@ -153,4 +173,3 @@
       }
     ]
   }
-] 

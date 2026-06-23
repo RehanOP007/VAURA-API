@@ -1,14 +1,14 @@
- [ 
+
   {
-    "module": 9,
-    "category": "Asset APIs",
+    "module": 7,
+    "category": "Designation APIs",
     "apis": [
       {
-        "id": "add-asset",
-        "name": "Add Asset",
+        "id": "add-designation",
+        "name": "Add Designation",
         "method": "POST",
-        "endpoint": "http://localhost:8080/api/assets",
-        "description": "Creates a new asset record for a branch.",
+        "endpoint": "/api/designations?{companyId}&{branchId}",
+        "description": "Creates a new designation for a branch.",
         "headers": [
           {
             "key": "Content-Type",
@@ -36,26 +36,19 @@
         "requestBody": {
           "type": "application/json",
           "sample": {
-            "assetCode": "LAP-001",
-            "assetName": "Dell Latitude 5420",
-            "category": "LAPTOP",
-            "brand": "DELL",
-            "model": "5420",
-            "serialNumber": "SN-12345",
-            "conditionStatus": "GOOD",
-            "description": "Office laptop",
-            "active": true
+            "designationName": "Software Engineer",
+            "hierarchyLevel": "4"
           }
         },
         "response": null,
         "statusCodes": []
       },
       {
-        "id": "get-available-assets",
-        "name": "Get Available Assets In Branch",
+        "id": "get-designations-in-branch",
+        "name": "Get Designation In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/assets/available",
-        "description": "Fetches all available (unassigned) assets in a branch.",
+        "endpoint": "/api/designations?{companyId}&{branchId}",
+        "description": "Fetches all designations for a specific branch.",
         "headers": [
           {
             "key": "Authorization",
@@ -81,41 +74,11 @@
         "statusCodes": []
       },
       {
-        "id": "get-assets-in-branch",
-        "name": "Get Assets In Branch",
-        "method": "GET",
-        "endpoint": "http://localhost:8080/api/assets/filter",
-        "description": "Fetches all assets filtered by branch.",
-        "headers": [
-          {
-            "key": "Authorization",
-            "value": "Bearer JWT_TOKEN"
-          }
-        ],
-        "queryParams": [
-          {
-            "name": "companyId",
-            "type": "number",
-            "required": true,
-            "description": "Company ID"
-          },
-          {
-            "name": "branchId",
-            "type": "number",
-            "required": true,
-            "description": "Branch ID"
-          }
-        ],
-        "requestBody": null,
-        "response": null,
-        "statusCodes": []
-      },
-      {
-        "id": "update-asset",
-        "name": "Update Asset In Branch",
+        "id": "update-designation",
+        "name": "Update Designation In Branch",
         "method": "PUT",
-        "endpoint": "http://localhost:8080/api/assets/{assetId}",
-        "description": "Updates an asset record by ID.",
+        "endpoint": "/api/designations?{companyId}&{branchId}",
+        "description": "Updates a designation for a specific branch.",
         "headers": [
           {
             "key": "Content-Type",
@@ -124,14 +87,6 @@
           {
             "key": "Authorization",
             "value": "Bearer JWT_TOKEN"
-          }
-        ],
-        "pathVariables": [
-          {
-            "name": "assetId",
-            "type": "number",
-            "required": true,
-            "description": "Asset ID"
           }
         ],
         "queryParams": [
@@ -151,26 +106,19 @@
         "requestBody": {
           "type": "application/json",
           "sample": {
-            "assetCode": "HR-AS-06001",
-            "assetName": "Dell Laptop Updated",
-            "category": "IT",
-            "brand": "Dell",
-            "model": "Latitude 7420",
-            "serialNumber": "SN123456",
-            "description": "Office Laptop Updated",
-            "conditionStatus": "GOOD",
-            "active": true
+            "designationName": "Software Engineer",
+            "hierarchyLevel": "1"
           }
         },
         "response": null,
         "statusCodes": []
       },
       {
-        "id": "delete-asset",
-        "name": "Delete Asset",
+        "id": "delete-designation",
+        "name": "Delete Designation",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/assets/{assetId}",
-        "description": "Deletes an asset record by ID.",
+        "endpoint": "/api/designations/5?{companyId}&{branchId}",
+        "description": "Deletes a designation by ID.",
         "headers": [
           {
             "key": "Authorization",
@@ -179,17 +127,30 @@
         ],
         "pathVariables": [
           {
-            "name": "assetId",
+            "name": "designationId",
             "type": "number",
             "required": true,
-            "description": "Asset ID"
+            "description": "Designation ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
         "requestBody": null,
         "response": null,
         "statusCodes": []
       }
     ]
   }
-] 
+ 

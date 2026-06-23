@@ -1,0 +1,228 @@
+{
+    "module": 13,
+    "category": "Employee Bank Account APIs",
+    "apis": [
+      {
+        "id": "create-employee-bank-account",
+        "name": "Create Employee Bank Account",
+        "method": "POST",
+        "endpoint": "/api/admin/employees/{employeeId}/bank-account",
+        "description": "Creates a bank account record for an employee with optional document upload.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "employeeId",
+            "type": "number",
+            "required": true,
+            "description": "Employee ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "multipart/form-data",
+          "fields": [
+            {
+              "name": "data",
+              "type": "JSON String",
+              "required": true,
+              "description": "Bank account details as JSON"
+            },
+            {
+              "name": "file",
+              "type": "File",
+              "required": false,
+              "description": "Bank document attachment (e.g. PDF or image)"
+            }
+          ],
+          "sample": {
+            "data": {
+              "bankId": 3,
+              "bankBranchName": "Malabe",
+              "bankBranchCode": "MLB001",
+              "accountNumber": "1234567890",
+              "accountHolderName": "Kasun Perera",
+              "bankDocumentAttachment": null
+            },
+            "file": "<file>"
+          }
+        },
+        "response": {
+          "sample": "Employee bank account created successfully"
+        },
+        "statusCodes": []
+      },
+      {
+        "id": "update-employee-bank-account",
+        "name": "Update Employee Bank Account",
+        "method": "PUT",
+        "endpoint": "/api/admin/employees/{employeeId}/bank-account",
+        "description": "Updates an employee's bank account details with optional new document upload.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "employeeId",
+            "type": "number",
+            "required": true,
+            "description": "Employee ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+          "type": "multipart/form-data",
+          "fields": [
+            {
+              "name": "data",
+              "type": "JSON String",
+              "required": true,
+              "description": "Updated bank account details as JSON"
+            },
+            {
+              "name": "file",
+              "type": "File",
+              "required": false,
+              "description": "New bank document attachment"
+            }
+          ],
+          "sample": {
+            "data": {
+              "bankId": 3,
+              "bankBranchName": "Colombo Main",
+              "bankBranchCode": "CMB002",
+              "accountNumber": "9876543210",
+              "accountHolderName": "Kasun Perera",
+              "bankDocumentAttachment": null
+            },
+            "file": "<file>"
+          }
+        },
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "delete-employee-bank-account",
+        "name": "Delete Employee Bank Account",
+        "method": "DELETE",
+        "endpoint": "/api/admin/employees/{employeeId}/bank-account",
+        "description": "Deletes the bank account record for a specific employee.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "employeeId",
+            "type": "number",
+            "required": true,
+            "description": "Employee ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": {
+          "sample": "Employee bank account deleted successfully"
+        },
+        "statusCodes": []
+      },
+      {
+        "id": "get-employee-bank-account",
+        "name": "Get Employee Bank Account",
+        "method": "GET",
+        "endpoint": "/api/admin/employees/{employeeId}/bank-account",
+        "description": "Fetches the bank account details of a specific employee.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "employeeId",
+            "type": "number",
+            "required": true,
+            "description": "Employee ID"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": [
+            {
+              "status": 403,
+              "error": "Forbidden",
+              "message": "Employee does not belong to given company/branch",
+              "timestamp": "2026-06-22T15:28:25.387002505Z"
+            }
+        ],
+        "statusCodes": [
+            {
+            "code": 403,
+            "description": "Forbidden"
+          }
+        ]
+      }
+    ]
+}

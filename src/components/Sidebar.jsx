@@ -18,15 +18,53 @@ function Sidebar({ onSelectApi, selectedApiId }) {
   };
 
   const filteredData = apiData
-    .map((category) => {
-      const filteredApis = category.apis.filter(
-        (api) =>
-          api.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          api.endpoint?.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      return { ...category, apis: filteredApis };
-    })
-    .filter((category) => category.apis.length > 0);
+  .map((category) => {
+    // Category with submodules (Employee)
+    if (category.subModules) {
+      const filteredSubModules = category.subModules
+        .map((subModule) => ({
+          ...subModule,
+          apis: subModule.apis.filter(
+            (api) =>
+              api.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              api.endpoint?.toLowerCase().includes(searchTerm.toLowerCase())
+          ),
+        }))
+        .filter((subModule) => subModule.apis.length > 0);
+
+      return {
+        ...category,
+        subModules: filteredSubModules,
+      };
+    }
+
+    // Normal category
+    const filteredApis = category.apis.filter(
+      (api) =>
+        api.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        api.endpoint?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    return {
+      ...category,
+      apis: filteredApis,
+    };
+  })
+  .filter((category) => {
+    if (category.subModules) {
+      return category.subModules.length > 0;
+    }
+
+    return category.apis.length > 0;
+  });
+
+  const [openSubModules, setOpenSubModules] = useState({});
+  const toggleSubModule = (name) => {
+  setOpenSubModules((prev) => ({
+    ...prev,
+    [name]: !prev[name],
+  }));
+};
 
   return (
     <div className="w-80 h-screen border-r border-slate-800 bg-slate-900 text-slate-300 flex flex-col font-sans">
@@ -95,38 +133,107 @@ function Sidebar({ onSelectApi, selectedApiId }) {
 
               {isCurrentOpen && (
                 <div className="pl-2 my-1 space-y-1 border-l border-slate-800 ml-3">
-                  {category.apis.map((api) => {
-                    const isSelected = selectedApiId === api.id;
-                    const methodUpper = (api.method || "GET").toUpperCase();
-                    const methodClass =
-                      methodColors[methodUpper] ||
-                      "bg-slate-700 text-slate-300";
+                  {category.subModules ? (
+                     category.subModules.map((subModule) => {
+                      const isSubOpen = openSubModules[subModule.name] || searchTerm !== "";
 
-                    return (
-                      <button
-                        key={api.id}
-                        onClick={() => onSelectApi(api)}
-                        className={`w-full flex items-center gap-2.5 p-2 rounded-md text-xs font-normal transition-all text-left ${
-                          isSelected
-                            ? "bg-blue-950/40 text-blue-400 border-l-2 border-blue-500 font-medium pl-1.5"
-                            : "hover:bg-slate-800/30 text-slate-400 hover:text-slate-200"
+                      return (
+                       <div key={subModule.name} className="mb-2">
+                        <button
+                         onClick={() => toggleSubModule(subModule.name)}
+                          className="w-full flex items-center justify-between px-2 py-1 text-xs font-semibold text-slate-400 hover:text-white"
+                        >
+                         <span>{subModule.name}</span>
+
+                      <svg
+                         className={`w-3 h-3 transition-transform ${
+                         isSubOpen ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        >
+                        <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                      </button>
+
+                      {isSubOpen && (
+                       <div className="ml-4 mt-1 space-y-1">
+                        {subModule.apis.map((api) => {
+                         const isSelected = selectedApiId === api.id;
+                         const methodUpper = (api.method || "GET").toUpperCase();
+                         const methodClass =
+                           methodColors[methodUpper] ||
+                           "bg-slate-700 text-slate-300";
+
+                        return (
+                         <button
+                           key={api.id}
+                           onClick={() => onSelectApi(api)}
+                           className={`w-full flex items-center gap-2.5 p-2 rounded-md text-xs font-normal transition-all text-left ${
+                             isSelected
+                                ? "bg-blue-950/40 text-blue-400 border-l-2 border-blue-500 font-medium pl-1.5"
+                                : "hover:bg-slate-800/30 text-slate-400 hover:text-slate-200"
                         }`}
                       >
-                        {/* API METHOD */}
                         <span
-                          className={`px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wide border ${methodClass}`}
+                           className={`px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wide border ${methodClass}`}
                         >
                           {methodUpper}
                         </span>
-                        <span className="truncate flex-1">{api.name}</span>
+
+                        <span className="truncate flex-1">
+                         {api.name}
+                        </span>
                       </button>
                     );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                })}
+             </div>
+           )}
+         </div>
+       );
+      })
+   ) : (
+  category.apis.map((api) => {
+    const isSelected = selectedApiId === api.id;
+    const methodUpper = (api.method || "GET").toUpperCase();
+    const methodClass =
+      methodColors[methodUpper] ||
+      "bg-slate-700 text-slate-300";
+
+       return (
+         <button
+           key={api.id}
+           onClick={() => onSelectApi(api)}
+           className={`w-full flex items-center gap-2.5 p-2 rounded-md text-xs font-normal transition-all text-left ${
+            isSelected
+              ? "bg-blue-950/40 text-blue-400 border-l-2 border-blue-500 font-medium pl-1.5"
+              : "hover:bg-slate-800/30 text-slate-400 hover:text-slate-200"
+           }`}
+          >
+          <span
+             className={`px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wide border ${methodClass}`}
+          >
+             {methodUpper}
+           </span>
+
+            <span className="truncate flex-1">
+               {api.name}
+             </span>
+           </button>
+         );
+       })
+      )}
+      </div>
+    )}
+  </div>
+  );
+})}
 
         {filteredData.length === 0 && (
           <div className="text-center py-8 text-xs text-slate-600">

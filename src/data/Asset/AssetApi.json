@@ -1,14 +1,14 @@
-[
- {
-    "module": 10,
-    "category": "Leave Policy APIs",
+  
+  {
+    "module": 9,
+    "category": "Asset APIs",
     "apis": [
       {
-        "id": "add-leave-policy",
-        "name": "Add Leave Policy",
+        "id": "add-asset",
+        "name": "Add Asset",
         "method": "POST",
-        "endpoint": "http://localhost:8080/api/leave-policies",
-        "description": "Creates a new leave policy for a branch.",
+        "endpoint": "/api/assets?{companyId}&{branchId}",
+        "description": "Creates a new asset record for a branch.",
         "headers": [
           {
             "key": "Content-Type",
@@ -36,25 +36,26 @@
         "requestBody": {
           "type": "application/json",
           "sample": {
-            "name": "Annual Leave",
-            "leaveType": "FULL",
-            "maxPerMonth": 2,
-            "maxPerYear": 24,
-            "medicalRequired": false,
-            "allowHalfDay": true,
-            "allowShortLeave": false,
-            "carryForward": true
+            "assetCode": "LAP-001",
+            "assetName": "Dell Latitude 5420",
+            "category": "LAPTOP",
+            "brand": "DELL",
+            "model": "5420",
+            "serialNumber": "SN-12345",
+            "conditionStatus": "GOOD",
+            "description": "Office laptop",
+            "active": true
           }
         },
         "response": null,
         "statusCodes": []
       },
       {
-        "id": "get-leave-policy-in-branch",
-        "name": "Get Leave Policy In Branch",
+        "id": "get-available-assets",
+        "name": "Get Available Assets In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/leave-policies",
-        "description": "Fetches all leave policies for a specific branch.",
+        "endpoint": "/api/assets/available?{companyId}&{branchId}",
+        "description": "Fetches all available (unassigned) assets in a branch.",
         "headers": [
           {
             "key": "Authorization",
@@ -80,11 +81,41 @@
         "statusCodes": []
       },
       {
-        "id": "update-leave-policy",
-        "name": "Update Leave Policy In Branch",
+        "id": "get-assets-in-branch",
+        "name": "Get Assets In Branch",
+        "method": "GET",
+        "endpoint": " /api/assets/filter?{companyId}&{branchId}",
+        "description": "Fetches all assets filtered by branch.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": null,
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "update-asset",
+        "name": "Update Asset In Branch",
         "method": "PUT",
-        "endpoint": "http://localhost:8080/api/leave-policies/{policyId}",
-        "description": "Updates a leave policy by ID.",
+        "endpoint": "/api/assets/{assetId}?{companyId}&{branchId}",
+        "description": "Updates an asset record by ID.",
         "headers": [
           {
             "key": "Content-Type",
@@ -97,10 +128,10 @@
         ],
         "pathVariables": [
           {
-            "name": "policyId",
+            "name": "assetId",
             "type": "number",
             "required": true,
-            "description": "Leave Policy ID"
+            "description": "Asset ID"
           }
         ],
         "queryParams": [
@@ -120,25 +151,26 @@
         "requestBody": {
           "type": "application/json",
           "sample": {
-            "name": "Annual Leave Updated",
-            "leaveType": "FULL",
-            "maxPerMonth": 2,
-            "maxPerYear": 20,
-            "medicalRequired": false,
-            "allowHalfDay": true,
-            "allowShortLeave": false,
-            "carryForward": true
+            "assetCode": "HR-AS-06001",
+            "assetName": "Dell Laptop Updated",
+            "category": "IT",
+            "brand": "Dell",
+            "model": "Latitude 7420",
+            "serialNumber": "SN123456",
+            "description": "Office Laptop Updated",
+            "conditionStatus": "GOOD",
+            "active": true
           }
         },
         "response": null,
         "statusCodes": []
       },
       {
-        "id": "delete-leave-policy",
-        "name": "Delete Leave Policy",
+        "id": "delete-asset",
+        "name": "Delete Asset",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/leave-policies/{policyId}",
-        "description": "Deletes a leave policy by ID.",
+        "endpoint": "/api/assets/{assetId}",
+        "description": "Deletes an asset record by ID.",
         "headers": [
           {
             "key": "Authorization",
@@ -147,30 +179,16 @@
         ],
         "pathVariables": [
           {
-            "name": "policyId",
+            "name": "assetId",
             "type": "number",
             "required": true,
-            "description": "Leave Policy ID"
+            "description": "Asset ID"
           }
         ],
-        "queryParams": [
-          {
-            "name": "companyId",
-            "type": "number",
-            "required": true,
-            "description": "Company ID"
-          },
-          {
-            "name": "branchId",
-            "type": "number",
-            "required": true,
-            "description": "Branch ID"
-          }
-        ],
+        "queryParams": [],
         "requestBody": null,
         "response": null,
         "statusCodes": []
       }
     ]
   }
-] 

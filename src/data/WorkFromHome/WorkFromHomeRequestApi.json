@@ -1,0 +1,342 @@
+{
+  "module": 18,
+  "category": "WFH Request Management APIs",
+  "apis": [
+    {
+      "id": "apply-wfh-request",
+      "name": "Apply WFH Request",
+      "method": "POST",
+      "endpoint": "/api/wfh-request/apply",
+      "description": "Creates a work-from-home request for an employee. If the requester is a manager, the request becomes manager-approved automatically.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN / EMPLOYEE_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "startDate": "2026-03-20",
+          "endDate": "2026-03-22",
+          "reason": "Need to work from home due to personal reason"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "manager-approve-wfh-request",
+      "name": "Manager Approve WFH Request",
+      "method": "PUT",
+      "endpoint": "/api/wfh-request/manager-approve/{requestId}",
+      "description": "Manager approves a pending WFH request.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer MANAGER_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "requestId",
+          "type": "number",
+          "required": true,
+          "description": "WFH Request ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "notes": "Approved by manager"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "final-admin-approve-wfh-request",
+      "name": "Final Admin Approve WFH Request",
+      "method": "PUT",
+      "endpoint": "/api/wfh-request/final-approve/{requestId}",
+      "description": "Admin gives final approval to a WFH request. After this, the actual Work From Home record is created.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "requestId",
+          "type": "number",
+          "required": true,
+          "description": "WFH Request ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "notes": "Final approval completed by HR admin"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "reject-wfh-request",
+      "name": "Reject WFH Request",
+      "method": "PUT",
+      "endpoint": "/api/wfh-request/reject/{requestId}",
+      "description": "Rejects a pending or manager-approved WFH request.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer MANAGER_TOKEN / ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "requestId",
+          "type": "number",
+          "required": true,
+          "description": "WFH Request ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "notes": "Rejected due to staff shortage"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-wfh-requests-by-employee",
+      "name": "Get WFH Requests By Employee",
+      "method": "GET",
+      "endpoint": "/api/wfh-request/employee/{employeeId}",
+      "description": "Returns WFH request history for a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN / EMPLOYEE_TOKEN"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-pending-wfh-requests",
+      "name": "Get Pending WFH Requests",
+      "method": "GET",
+      "endpoint": "/api/wfh-request/pending",
+      "description": "Returns all pending WFH requests for manager review.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer MANAGER_TOKEN / ADMIN_TOKEN"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "queryParams": [],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-manager-approved-wfh-requests",
+      "name": "Get Manager Approved WFH Requests",
+      "method": "GET",
+      "endpoint": "/api/wfh-request/manager-approved",
+      "description": "Returns manager-approved WFH requests waiting for final admin approval.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "queryParams": [],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-department-wise-wfh-requests-manager",
+      "name": "Get Department-wise WFH Requests (Manager)",
+      "method": "GET",
+      "endpoint": "/api/wfh-request/manager/department",
+      "description": "Returns all WFH requests for the departments managed by the specified manager.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer MANAGER_TOKEN"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "managerId",
+          "type": "number",
+          "required": true,
+          "description": "Manager's employee ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

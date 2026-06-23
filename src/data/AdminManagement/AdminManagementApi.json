@@ -1,0 +1,491 @@
+
+  {
+    "module": 2,
+    "category": "Admin Management APIs",
+    "apis": [
+      {
+        "id": "create-admin-branch-company",
+        "name": "Create Admin (Branch / Company)",
+        "method": "POST",
+        "endpoint": "/api/admins/create?{username}&{password}&roles=SUPERADMIN",
+        "description": "Creates a new administrator account for a branch or company. The admin is restricted to the assigned company and branch. Must be executed by SUPERADMIN.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "username",
+            "type": "string",
+            "required": true,
+            "description": "Admin username"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "required": true,
+            "description": "Admin password"
+          },
+          {
+            "name": "roles",
+            "type": "enum",
+            "required": true,
+            "description": "Role (e.g. SUPERADMIN)"
+          },
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+  "type": "application/json",
+  "fields": [
+    {
+      "name": "username",
+      "type": "String",
+      "required": true,
+      "description": "Admin username"
+    },
+    {
+      "name": "password",
+      "type": "String",
+      "required": true,
+      "description": "Admin password"
+    },
+    {
+      "name": "roles",
+      "type": "String",
+      "required": true,
+      "description": "Role (BRANCHADMIN)"
+    },
+    {
+      "name": "companyId",
+      "type": "Number",
+      "required": true,
+      "description": "Company ID"
+    },
+    {
+      "name": "branchId",
+      "type": "Number",
+      "required": true,
+      "description": "Branch ID"
+    }
+  ],
+  "sample": {
+    "username": "branchadmin01",
+    "password": "Admin@123",
+    "roles": "BRANCHADMIN",
+    "companyId": 1,
+    "branchId": 101
+  }
+},
+        "response": null,
+        "statusCodes": []
+      },
+      {
+        "id": "create-superadmin",
+        "name": "Create Admin (Super Admin)",
+        "method": "POST",
+        "endpoint": "/api/admins/create?{username}&{password}&roles=SUPERADMIN",
+        "description": "Creates another SUPERADMIN account. Only an existing SUPERADMIN can create this role. No company/branch binding.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "username",
+            "type": "string",
+            "required": true,
+            "description": "Admin username"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "required": true,
+            "description": "Admin password"
+          },
+          {
+            "name": "roles",
+            "type": "enum",
+            "required": true,
+            "description": "Role (SUPERADMIN)"
+          }
+        ],
+        "requestBody": {
+  "type": "application/json",
+  "fields": [
+    {
+      "name": "username",
+      "type": "String",
+      "required": true,
+      "description": "Admin username"
+    },
+    {
+      "name": "password",
+      "type": "String",
+      "required": true,
+      "description": "Admin password"
+    },
+    {
+      "name": "roles",
+      "type": "String",
+      "required": true,
+      "description": "Role (SUPERADMIN)"
+    }
+  ],
+  "sample": {
+    "username": "superadmin01",
+    "password": "Admin@123",
+    "roles": "SUPERADMIN"
+  }
+},
+        "response": null,
+        "statusCodes": []
+      },
+      {
+  "id": "get-all-admins",
+  "name": "Get All Admins",
+  "method": "GET",
+  "endpoint": "/api/admins",
+  "description": "Returns all administrators accessible by the currently logged-in administrator.",
+  "headers": [
+    {
+      "key": "Authorization",
+      "value": "Bearer JWT_TOKEN"
+    }
+  ],
+  "queryParams": [],
+  "requestBody": null,
+  "response": [
+    {
+        "id": 2,
+        "username": "superadmin1",
+        "password": "$2a$10$l43tM3DbAZumF53FLHM3H.LWMbXbFpJfctlSphAppskbgDgQPSFOu",
+        "roles": "SUPERADMIN",
+        "employeeId": null,
+        "companyId": null,
+        "branchId": null,
+        "status": "ACTIVE",
+        "roleSet": [
+            "SUPERADMIN"
+        ]
+    },
+    {
+        "id": 3,
+        "username": "companyadmin",
+        "password": "$2a$10$S/AhDIaSln..tuPuhMcNhumnIxxaiv0Je8jCmqfzY6CalWO.HjGm2",
+        "roles": "COMPANYADMIN",
+        "employeeId": null,
+        "companyId": 1,
+        "branchId": null,
+        "status": "ACTIVE",
+        "roleSet": [
+            "COMPANYADMIN"
+        ]
+    },
+    {
+        "id": 4,
+        "username": "branchadminCRCM",
+        "password": "$2a$10$8LVNtk9kIZUTn2Jwx3ORv.UwixZ3iWGBFdVOvXDklIhF4EbvkG.fe",
+        "roles": "BRANCHADMIN",
+        "employeeId": null,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "BRANCHADMIN"
+        ]
+    },
+    {
+        "id": 5,
+        "username": "companyadmin2",
+        "password": "$2a$10$P0AJWoFnjruhLalGzoIOv.h/6ZPQvfRDx52g/LN.Bbf3l0mua/myG",
+        "roles": "COMPANYADMIN",
+        "employeeId": null,
+        "companyId": 2,
+        "branchId": null,
+        "status": "ACTIVE",
+        "roleSet": [
+            "COMPANYADMIN"
+        ]
+    },
+    {
+        "id": 6,
+        "username": "branchadminIB",
+        "password": "$2a$10$0eijNLRBgBho2ly.imB95.IpSKk47fj08TQbKlqbwPtsn5ANOwhme",
+        "roles": "BRANCHADMIN",
+        "employeeId": null,
+        "companyId": 2,
+        "branchId": 3,
+        "status": "ACTIVE",
+        "roleSet": [
+            "BRANCHADMIN"
+        ]
+    },
+    {
+        "id": 7,
+        "username": "badminCRCM2",
+        "password": "$2a$10$q9RXHcMCcjG4mLZa9IZIquNaMi6yNUnKZGoza77Zw0xL0sBYl8a4S",
+        "roles": "BRANCHADMIN",
+        "employeeId": null,
+        "companyId": 1,
+        "branchId": 2,
+        "status": "ACTIVE",
+        "roleSet": [
+            "BRANCHADMIN"
+        ]
+    },
+    {
+        "id": 8,
+        "username": "emp55rrr",
+        "password": "$2a$10$X82oVMhfcipQUbY4KVSCS.mehCg8c3gZ07S8ooG5Ri9MHlVYncZNi",
+        "roles": "EMPLOYEE",
+        "employeeId": 16,
+        "companyId": null,
+        "branchId": null,
+        "status": "ACTIVE",
+        "roleSet": [
+            "EMPLOYEE"
+        ]
+    },
+    {
+        "id": 9,
+        "username": "emp55rrrll",
+        "password": "$2a$10$xAF5eJvAWz2c8m3U8AyXY.0u9rqOwPxQP79FkU6bsx5f3KTf4Gpnm",
+        "roles": "EMPLOYEE",
+        "employeeId": 17,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "EMPLOYEE"
+        ]
+    },
+    {
+        "id": 10,
+        "username": "emp55rrrlll",
+        "password": "$2a$10$rTMYzYSW3H.3Vsz12gs4YusXEIaQXzrj7KkJj/Ycw7ISE6dyrwyse",
+        "roles": "MANAGER",
+        "employeeId": 18,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "MANAGER"
+        ]
+    },
+    {
+        "id": 12,
+        "username": "johndd",
+        "password": "$2a$10$K.hHGCWpbL7xG6.ZRyYGP.N/09cat7XuMqCEZYRndFlZb.xI1KSLq",
+        "roles": "EMPLOYEE",
+        "employeeId": 19,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "EMPLOYEE"
+        ]
+    },
+    {
+        "id": 13,
+        "username": "johnd",
+        "password": "$2a$10$fHS/LBvyB9KtZZA2NYcCXOmZxfZtcV2JrCgc1wfjJOL7uWtZC03ry",
+        "roles": "MANAGER",
+        "employeeId": 21,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "MANAGER"
+        ]
+    },
+    {
+        "id": 18,
+        "username": "employee22",
+        "password": "$2a$10$7Neuxuxwrh20cjZ3/E5EgehWjpnJOsbdvJPv94ln6PznEhphvzcCW",
+        "roles": "EMPLOYEE",
+        "employeeId": 22,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "EMPLOYEE"
+        ]
+    },
+    {
+        "id": 22,
+        "username": "rash.collective.crcmh1.com",
+        "password": "$2a$10$6xlMHAAUNKuJ9GfMPoojcO.CVpBCFMun9DxuSS8hL4EG4Iwwrs7g6",
+        "roles": "EMPLOYEE",
+        "employeeId": 27,
+        "companyId": 1,
+        "branchId": 1,
+        "status": "ACTIVE",
+        "roleSet": [
+            "EMPLOYEE"
+        ]
+    }
+  ],
+  "statusCodes": []
+},
+      {
+        "id": "delete-admin",
+        "name": "Delete Admin",
+        "method": "DELETE",
+        "endpoint": "/api/admins/{adminId}",
+        "description": "Deletes an admin by ID.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "pathVariables": [
+          {
+            "name": "adminId",
+            "type": "number",
+            "required": true,
+            "description": "Admin ID"
+          }
+        ],
+        "queryParams": [],
+        "requestBody": null,
+        "response": [
+          {
+            "success": true,
+            "message": "Admin deleted successfully"
+         } 
+        ],
+        "statusCodes": []
+      },
+      {
+        "id": "create-employee-admin",
+        "name": "Create Admin (Employee)",
+        "method": "POST",
+        "endpoint": "/api/admins/create?{username}&{password}&roles=EMPLOYEE&{employeeId}&{companyId}&{branchId}",
+        "description": "Creates login credentials for an employee.",
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "Bearer JWT_TOKEN"
+          }
+        ],
+        "queryParams": [
+          {
+            "name": "username",
+            "type": "string",
+            "required": true,
+            "description": "Login username for employee"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "required": true,
+            "description": "Login password"
+          },
+          {
+            "name": "roles",
+            "type": "enum",
+            "required": true,
+            "description": "Role must be EMPLOYEE"
+          },
+          {
+            "name": "employeeId",
+            "type": "number",
+            "required": true,
+            "description": "Linked employee ID"
+          },
+          {
+            "name": "companyId",
+            "type": "number",
+            "required": true,
+            "description": "Company ID"
+          },
+          {
+            "name": "branchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "requestBody": {
+  "type": "application/json",
+  "fields": [
+    {
+      "name": "username",
+      "type": "String",
+      "required": true,
+      "description": "Login username for employee"
+    },
+    {
+      "name": "password",
+      "type": "String",
+      "required": true,
+      "description": "Login password"
+    },
+    {
+      "name": "roles",
+      "type": "String",
+      "required": true,
+      "description": "Role must be EMPLOYEE"
+    },
+    {
+      "name": "employeeId",
+      "type": "Number",
+      "required": true,
+      "description": "Link employee ID"
+    },
+    {
+      "name": "companyId",
+      "type": "Number",
+      "required": true,
+      "description": "Company ID"
+    },
+    {
+      "name": "branchId",
+      "type": "Number",
+      "required": true,
+      "description": "Branch ID"
+    }
+  ],
+  "sample": {
+    "username": "employee01",
+    "password": "Password@123",
+    "roles": "EMPLOYEE",
+    "employeeId": 101,
+    "companyId": 1,
+    "branchId": 1
+  }
+},
+        "response": [
+          {
+            "success": true,
+            "message": "Employee admin created successfully",
+            "data": {
+                 "id": 1,
+                 "username": "employee01",
+                 "roles": "EMPLOYEE",
+                 "employeeId": 101,
+                 "companyId": 1,
+                "branchId": 10
+              }
+         } 
+        ],
+        "statusCodes": []
+      }
+    ]
+  }

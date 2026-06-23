@@ -1,4 +1,4 @@
- [ 
+  
   {
     "module": 4,
     "category": "Branch Management APIs",
@@ -7,7 +7,7 @@
         "id": "create-branch",
         "name": "Create Branch",
         "method": "POST",
-        "endpoint": "http://3.22.171.185:8080/api/branches",
+        "endpoint": "/api/branches?{companyId}",
         "description": "Creates a new branch under a company.",
         "headers": [
           {
@@ -70,7 +70,7 @@
         "id": "get-branch-by-id",
         "name": "Get Branch By ID",
         "method": "GET",
-        "endpoint": "http://3.22.171.185:8080/api/branches/{id}",
+        "endpoint": "/api/branches/{id}",
         "description": "Fetches a specific branch profile.",
         "headers": [
           {
@@ -88,14 +88,48 @@
         ],
         "queryParams": [],
         "requestBody": null,
-        "response": null,
+        "response": [
+          {
+    "id": 1,
+    "company": {
+        "id": 1,
+        "name": "Collective",
+        "phoneNumber": "0121321356",
+        "photo": null,
+        "email": "collective@gmail.com",
+        "remark": "CRCM",
+        "logoLink": null,
+        "location": "Nawala",
+        "address": "Lake view drive, Nawala",
+        "prefix": "CRCM",
+        "companyCode": "CRCM"
+    },
+    "branchName": "Head Branch",
+    "photo": null,
+    "latitude": 6.896419099999999,
+    "longitude": 79.8884819,
+    "prefix": "CRCMH",
+    "location": "Nawala, Sri Jayawardenepura Kotte, Sri Lanka",
+    "address": "lake viuew drive nawala",
+    "phoneNumber": "076423232",
+    "remark": "CRCMH1",
+    "branchCode": "CRCMH1",
+    "email": "crcmh1@example.com",
+    "logoLink": "",
+    "managerName": "silvaa",
+    "timezoneString": "Asia/Colombo",
+    "currenzyString": "LKR",
+    "qrSecret": "293f2863-0ac6-4d6c-abc6-bb4421364aa4",
+    "companyId": 1
+}
+        ],
         "statusCodes": []
       },
       {
         "id": "get-branches-by-company",
         "name": "Get Branches By Company",
         "method": "GET",
-        "endpoint": "http://3.22.171.185:8080/api/branches",
+        "endpoint": "/api/branches?{companyId}",
         "description": "Fetches all branches belonging to a company.",
         "headers": [
           {
@@ -112,14 +146,114 @@
           }
         ],
         "requestBody": null,
-        "response": null,
+        "response": [
+          {
+        "id": 1,
+        "company": {
+            "id": 1,
+            "name": "Collective",
+            "phoneNumber": "0121321356",
+            "photo": null,
+            "email": "collective@gmail.com",
+            "remark": "CRCM",
+            "logoLink": null,
+            "location": "Nawala",
+            "address": "Lake view drive, Nawala",
+            "prefix": "CRCM",
+            "companyCode": "CRCM"
+        },
+        "branchName": "Head Branch",
+        "photo": null,
+        "latitude": 6.896419099999999,
+        "longitude": 79.8884819,
+        "prefix": "CRCMH",
+        "location": "Nawala, Sri Jayawardenepura Kotte, Sri Lanka",
+        "address": "lake viuew drive nawala",
+        "phoneNumber": "076423232",
+        "remark": "CRCMH1",
+        "branchCode": "CRCMH1",
+        "email": "crcmh1@example.com",
+        "logoLink": "",
+        "managerName": "silvaa",
+        "timezoneString": "Asia/Colombo",
+        "currenzyString": "LKR",
+        "qrSecret": "293f2863-0ac6-4d6c-abc6-bb4421364aa4",
+        "companyId": 1
+    },
+    {
+        "id": 2,
+        "company": {
+            "id": 1,
+            "name": "Collective",
+            "phoneNumber": "0121321356",
+            "photo": null,
+            "email": "collective@gmail.com",
+            "remark": "CRCM",
+            "logoLink": null,
+            "location": "Nawala",
+            "address": "Lake view drive, Nawala",
+            "prefix": "CRCM",
+            "companyCode": "CRCM"
+        },
+        "branchName": "Colombo Sub Branch",
+        "photo": null,
+        "latitude": 6.927079,
+        "longitude": 79.861244,
+        "prefix": "COL",
+        "location": "Colombo",
+        "address": "No. 125, Galle Road, Colombo 03, Sri Lanka",
+        "phoneNumber": "+94 11 234 5678",
+        "remark": "Main operational branch",
+        "branchCode": "COL-002",
+        "email": "colombo.branch@vauratech.com",
+        "logoLink": "https://cdn.vauratech.com/logos/colombo.png",
+        "managerName": "Nimal Perera",
+        "timezoneString": "Asia/Colombo",
+        "currenzyString": "LKR",
+        "qrSecret": null,
+        "companyId": 1
+    },
+    {
+        "id": 4,
+        "company": {
+            "id": 1,
+            "name": "Collective",
+            "phoneNumber": "0121321356",
+            "photo": null,
+            "email": "collective@gmail.com",
+            "remark": "CRCM",
+            "logoLink": null,
+            "location": "Nawala",
+            "address": "Lake view drive, Nawala",
+            "prefix": "CRCM",
+            "companyCode": "CRCM"
+        },
+        "branchName": "ColomfbEo Branch",
+        "photo": null,
+        "latitude": 6.9271,
+        "longitude": 79.8612,
+        "prefix": "CMEfB",
+        "location": "Colofmbo",
+        "address": "No 20, fGalle Road",
+        "phoneNumber": "011f2345678",
+        "remark": "Main bfranch",
+        "branchCode": "VC-CMEfB4-01",
+        "email": "colombo@fventurecorp.com",
+        "logoLink": "https://branfchlogo.png",
+        "managerName": "John fSilva",
+        "timezoneString": "Asia/Colombo",
+        "currenzyString": "LKR",
+        "qrSecret": null,
+        "companyId": 1
+    }
+        ],
         "statusCodes": []
       },
       {
         "id": "update-branch",
         "name": "Update Branch",
         "method": "PUT",
-        "endpoint": "http://18.222.187.216:8080/api/branches/{id}",
+        "endpoint": "/api/branches/{id}",
         "description": "Updates branch details.",
         "headers": [
           {
@@ -182,7 +316,7 @@
         "id": "delete-branch",
         "name": "Delete Branch",
         "method": "DELETE",
-        "endpoint": "http://3.22.171.185:8080/api/branches/{id}",
+        "endpoint": "/api/branches/{id}",
         "description": "Deletes a branch.",
         "headers": [
           {
@@ -205,4 +339,3 @@
       }
     ]
   }
- ]

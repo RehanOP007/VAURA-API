@@ -11,6 +11,8 @@ function ApiDetails({ api }) {
     );
   }
 
+   const fullUrl = `${import.meta.env.VITE_API_BASE_URL}${api.endpoint}`;
+
   return (
     <div className="p-6 space-y-4">
       <h1 className="text-2xl font-bold">{api.name}</h1>
@@ -33,7 +35,7 @@ function ApiDetails({ api }) {
           </span>
 
           <code className="text-sm text-green-500 bg-gray-100 px-3 py-1 rounded-md break-all">
-            {api.endpoint}
+            {fullUrl}
           </code>
         </div>
       </div>
@@ -77,7 +79,7 @@ function ApiDetails({ api }) {
           </div>
 
           <div className="p-5">
-            <pre className="bg-gray-900 text-blue-200 text-xs p-4 rounded-lg overflow-auto max-h-[500px] font mono">
+            <pre className="bg-gray-900 text-blue-200 text-xs p-4 rounded-lg overflow-auto max-h-[300px] font mono">
               {JSON.stringify(api.response, null, 2)}
             </pre>
           </div>

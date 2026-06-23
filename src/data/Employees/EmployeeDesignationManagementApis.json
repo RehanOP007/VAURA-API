@@ -1,0 +1,386 @@
+{
+  "module": 14,
+  "category": "Employee Designation Management APIs",
+  "apis": [
+    {
+      "id": "assign-designation-to-employee",
+      "name": "Assign Designation to Employee",
+      "method": "POST",
+      "endpoint": "/api/employee-designation/assign?{companyId}&{branchId}&{employeeId}&{designationId}&{startDate}",
+      "description": "Assigns a designation to an employee for the first time within the specified company and branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "designationId",
+          "type": "number",
+          "required": true,
+          "description": "Designation ID"
+        },
+        {
+          "name": "startDate",
+          "type": "string",
+          "required": true,
+          "description": "Start date of the designation (e.g. 2026-01-01)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "assign-designation-to-employee-with-end-date",
+      "name": "Assign Designation to Employee with End Date",
+      "method": "POST",
+      "endpoint": "/api/employee-designation/assign?{companyId}&{branchId}&{employeeId}&{designationId}&{startDate}&{endDate}",
+      "description": "Assigns a designation to an employee for the first time within the specified company and branch, including an end date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "designationId",
+          "type": "number",
+          "required": true,
+          "description": "Designation ID"
+        },
+        {
+          "name": "startDate",
+          "type": "string",
+          "required": true,
+          "description": "Start date of the designation (e.g. 2026-01-01)"
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "required": true,
+          "description": "End date of the designation (e.g. 2026-12-31)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "transfer-employee-to-new-designation",
+      "name": "Transfer Employee to New Designation",
+      "method": "PUT",
+      "endpoint": "/api/employee-designation /transfer?{companyId}&{branchId}&{employeeId}&{newDesignationId}&{startDate}",
+      "description": "Transfers an employee to a new designation within the specified company and branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "newDesignationId",
+          "type": "number",
+          "required": true,
+          "description": "New Designation ID"
+        },
+        {
+          "name": "startDate",
+          "type": "string",
+          "required": true,
+          "description": "Start date of the new designation (e.g. 2026-01-01)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "transfer-employee-to-new-designation-with-end-date",
+      "name": "Transfer Employee to New Designation with End Date",
+      "method": "PUT",
+      "endpoint": "/api/employee-designation / transfer?{companyId}&{branchId}&{employeeId}&{newDesignationId}&{startDate}&{endDate}",
+      "description": "Transfers an employee to a new designation within the specified company and branch, including an end date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "newDesignationId",
+          "type": "number",
+          "required": true,
+          "description": "New Designation ID"
+        },
+        {
+          "name": "startDate",
+          "type": "string",
+          "required": true,
+          "description": "Start date of the new designation (e.g. 2026-01-01)"
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "required": true,
+          "description": "End date of the new designation (e.g. 2026-12-31)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "end-permanent-designation",
+      "name": "End Permanent Designation",
+      "method": "PATCH",
+      "endpoint": "/api/employee-designation/end-current?{companyId}&{branchId}&{employeeId}&{endDate}",
+      "description": "Ends the current permanent designation of an employee by setting an end date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "required": true,
+          "description": "End date of the current designation (e.g. 2026-12-31)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "extend-current-designation",
+      "name": "Extend Current Designation of an Employee",
+      "method": "PATCH",
+      "endpoint": "/api/employee-designation/extend-current?{companyId}&{branchId}&{employeeId}&{newEndDate}",
+      "description": "Extends the current designation of an employee by updating the end date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "newEndDate",
+          "type": "string",
+          "required": true,
+          "description": "New end date for the current designation (e.g. 2026-12-31)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-designation-history-of-employee",
+      "name": "Get Designation History of an Employee",
+      "method": "GET",
+      "endpoint": "/api/employee-designation/end-current?{companyId}&{branchId}&{employeeId}&{endDate}",
+      "description": "Fetches the full designation history of a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-employee-designation-record",
+      "name": "Update Employee Designation Record",
+      "method": "PUT",
+      "endpoint": "/api/employee-designation/history/{employeeId}?{companyId}&{branchId}",
+      "description": "Updates an employee designation history record by ID.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Employee designation history record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "designationId": 8,
+          "startDate": "2026-04-01",
+          "endDate": null
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-[ 
+
  {
     "module": 11,
     "category": "Holiday APIs",
@@ -7,7 +7,7 @@
         "id": "add-holiday",
         "name": "Add Holiday",
         "method": "POST",
-        "endpoint": "http://localhost:8080/api/holidays",
+        "endpoint": "/api/holidays?{companyId}&{branchId}",
         "description": "Creates a single holiday for a branch.",
         "headers": [
           {
@@ -49,7 +49,7 @@
         "id": "add-holiday-bulk",
         "name": "Add Holiday Bulk",
         "method": "POST",
-        "endpoint": "http://localhost:8080/api/holidays/bulk",
+        "endpoint": "/api/holidays/bulk?{companyId}&{branchId}",
         "description": "Creates multiple holidays at once for a branch.",
         "headers": [
           {
@@ -99,7 +99,7 @@
         "id": "get-holidays-in-branch",
         "name": "Get Holidays In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/holidays",
+        "endpoint": "/api/holidays?{companyId}&{branchId}",
         "description": "Fetches all holidays for a specific branch.",
         "headers": [
           {
@@ -129,7 +129,7 @@
         "id": "get-holidays-by-year",
         "name": "Get Holidays In Branch By Year",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/holidays/year/{year}",
+        "endpoint": "/api/holidays/year/2026?{companyId}&{branchId}",
         "description": "Fetches all holidays for a specific branch filtered by year.",
         "headers": [
           {
@@ -167,7 +167,7 @@
         "id": "update-holiday",
         "name": "Update Holiday In Branch",
         "method": "PUT",
-        "endpoint": "http://localhost:8080/api/holidays/{holidayId}",
+        "endpoint": "/api/holidays/5?{companyId}&{branchId}",
         "description": "Updates a holiday record by ID.",
         "headers": [
           {
@@ -217,7 +217,7 @@
         "id": "delete-holiday",
         "name": "Delete Holiday",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/holidays/{holidayId}",
+        "endpoint": "/api/holidays/4?{companyId}&{branchId}",
         "description": "Deletes a holiday record by ID.",
         "headers": [
           {
@@ -253,4 +253,3 @@
       }
     ]
   }
-]

@@ -1,0 +1,300 @@
+{
+  "module": 15,
+  "category": "Employee Leave Policy Management APIs",
+  "apis": [
+    {
+      "id": "assign-leave-policy-to-employee",
+      "name": "Assign Leave Policy to Employee",
+      "method": "POST",
+      "endpoint": "/api/employee-leave-policies/assign?{companyId}&{branchId}",
+      "description": "Assigns a leave policy to an employee with an opening balance and effective period.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 12,
+          "leavePolicyId": 1,
+          "effectiveFrom": "2026-01-02",
+          "expireDate": null,
+          "priority": 1,
+          "openingBalance": 14
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-employee-leave-balance",
+      "name": "Update Employee Leave Balance",
+      "method": "PUT",
+      "endpoint": "/api/employee-leave-policies/balance?{companyId}&{branchId}",
+      "description": "Updates the leave balance of an employee for a specific year and leave policy.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 12,
+          "leavePolicyId": 2,
+          "year": 2025,
+          "openingBalance": 12,
+          "used": 3,
+          "remaining": 11
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "delete-assigned-leave-policy",
+      "name": "Delete Assigned Leave Policy",
+      "method": "DELETE",
+      "endpoint": "/api/employee-leave-policies/{id}?{companyId}&{branchId}",
+      "description": "Removes an assigned leave policy from an employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Assigned leave policy record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "generate-leave-balances-for-year",
+      "name": "Generate Leave Balances for Year",
+      "method": "POST",
+      "endpoint": "/api/employee-leave-policies/generate-balances/{year}?{companyId}&{branchId}",
+      "description": "Automatically generates leave balances for all employees for the given year.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Year for which to generate leave balances (e.g. 2026)"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-assigned-leave-policies-of-employee",
+      "name": "Get Assigned Leave Policies of an Employee",
+      "method": "GET",
+      "endpoint": "/api/employee-leave-policies/assigned/{employeeId}?{companyId}&{branchId}",
+      "description": "Retrieves all leave policies assigned to a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-employee-leave-balances-by-year",
+      "name": "Get Employee Leave Balances by Year",
+      "method": "GET",
+      "endpoint": "/api/employee-leave-policies/balances/{employeeId}?{companyId}&{branchId}&{year}",
+      "description": "Retrieves the leave balances of a specific employee filtered by year.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Year to filter leave balances (e.g. 2025)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-assigned-leave-policies-employee-login",
+      "name": "Get Assigned Leave Policies of an Employee (Employee Login)",
+      "method": "GET",
+      "endpoint": "/api/employee-leave-policies/me/assigned?{activeOnly}",
+      "description": "Retrieves all leave policies assigned to the currently logged-in employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "activeOnly",
+          "type": "boolean",
+          "required": false,
+          "description": "Filter to return only active leave policies (e.g. true)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-employee-leave-balances-by-year-employee-login",
+      "name": "Get Employee Leave Balances by Year (Employee Login)",
+      "method": "GET",
+      "endpoint": "/api/employee-leave-policies/me/balances?{year}",
+      "description": "Retrieves the leave balances of the currently logged-in employee filtered by year.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "description": "Year to filter leave balances (e.g. 2025)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

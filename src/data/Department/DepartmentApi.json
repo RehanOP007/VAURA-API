@@ -1,4 +1,4 @@
-[
+
   {
     "module": 6,
     "category": "Department APIs",
@@ -7,7 +7,7 @@
         "id": "add-department",
         "name": "Add Department",
         "method": "POST",
-        "endpoint": "http://3.22.171.185:8080/api/departments",
+        "endpoint": "/api/departments?{companyId}&{branchId}",
         "description": "Creates a new department under a company/branch.",
         "headers": [
           {
@@ -46,7 +46,7 @@
         "id": "get-departments-in-branch",
         "name": "Get Department In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/departments/by-company-branch",
+        "endpoint": "/api/departments/by-company-branch?{companyId}&{branchId}",
         "description": "Fetches all departments for a specific company and branch.",
         "headers": [
           {
@@ -76,7 +76,7 @@
         "id": "update-department",
         "name": "Update Department In Branch",
         "method": "PUT",
-        "endpoint": "http://3.22.171.185:8080/api/departments/{departmentId}",
+        "endpoint": "/api/departments/{departmentId}",
         "description": "Updates department details including optional manager assignment.",
         "headers": [
           {
@@ -113,7 +113,7 @@
         "id": "delete-department",
         "name": "Delete Department",
         "method": "DELETE",
-        "endpoint": "http://3.22.171.185:8080/api/departments/{departmentId}",
+        "endpoint": "/api/departments/{departmentId}",
         "description": "Deletes a department by ID.",
         "headers": [
           {
@@ -136,4 +136,3 @@
       }
     ]
   }
-]

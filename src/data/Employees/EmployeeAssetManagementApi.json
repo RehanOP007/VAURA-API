@@ -1,0 +1,131 @@
+{
+  "module": 14,
+  "category": "Employee Asset Management APIs",
+  "apis": [
+    {
+      "id": "assign-asset-to-employee",
+      "name": "Assign Asset to Employee",
+      "method": "POST",
+      "endpoint": "/api/employee-assets/assign?{companyId}&{branchId}",
+      "description": "Assigns an asset to an employee within the specified company and branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 11,
+          "assetId": 2
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "return-employee-asset",
+      "name": "Return Employee Asset",
+      "method": "PUT",
+      "endpoint": "/api/employee-assets/return",
+      "description": "Marks an assigned asset as returned by the employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "assetId",
+          "type": "number",
+          "required": true,
+          "description": "Asset ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-assets-assigned-to-employee",
+      "name": "Get Assets Assigned to an Employee",
+      "method": "GET",
+      "endpoint": "/api/employee-assets/employee/{employeeId}?{companyId}&{branchId}",
+      "description": "Fetches all assets currently assigned to a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        {
+           "success": false,
+           "message": "403 FORBIDDEN \"Employee does not belong to given company/branch\"",
+           "data": null
+      }
+      ],
+      "statusCodes": [
+         {
+            "code": 400,
+            "description": "Bad Request"
+          }
+      ]
+    }
+  ]
+}

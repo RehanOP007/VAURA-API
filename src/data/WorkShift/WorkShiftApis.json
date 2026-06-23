@@ -1,4 +1,4 @@
-[ 
+
  {
     "module": 8,
     "category": "Work Shift APIs",
@@ -7,7 +7,7 @@
         "id": "add-shift",
         "name": "Add Shift",
         "method": "POST",
-        "endpoint": "http://localhost:8080/api/work-shifts",
+        "endpoint": "/api/work-shifts?{companyId}&{branchId}",
         "description": "Creates a new work shift for a branch.",
         "headers": [
           {
@@ -52,7 +52,7 @@
         "id": "get-shifts-in-branch",
         "name": "Get Shift In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/work-shifts",
+        "endpoint": "http://localhost:8080/api/work-shifts?companyId=1&branchId=1",
         "description": "Fetches all work shifts for a specific branch.",
         "headers": [
           {
@@ -75,14 +75,54 @@
           }
         ],
         "requestBody": null,
-        "response": null,
+        "response": [
+           {
+        "shiftId": 1,
+        "name": "Morning Shift",
+        "startTime": "09:00",
+        "endTime": "18:00",
+        "graceMinutes": 15,
+        "halfDayMinutes": null,
+        "fullDayMinutes": 480,
+        "isOvernight": false,
+        "companyId": 1,
+        "branchId": 1,
+        "timezone": "Asia/Colombo"
+    },
+    {
+        "shiftId": 4,
+        "name": "Night Shift",
+        "startTime": "19:00",
+        "endTime": "04:00",
+        "graceMinutes": 30,
+        "halfDayMinutes": null,
+        "fullDayMinutes": 540,
+        "isOvernight": true,
+        "companyId": 1,
+        "branchId": 1,
+        "timezone": "Asia/Colombo"
+    },
+    {
+        "shiftId": 5,
+        "name": "Evening shift",
+        "startTime": "15:00",
+        "endTime": "00:00",
+        "graceMinutes": 30,
+        "halfDayMinutes": null,
+        "fullDayMinutes": 480,
+        "isOvernight": true,
+        "companyId": 1,
+        "branchId": 1,
+        "timezone": "Asia/Colombo"
+    }
+        ],
         "statusCodes": []
       },
       {
         "id": "update-shift",
         "name": "Update Shift In Branch",
         "method": "PUT",
-        "endpoint": "http://localhost:8080/api/work-shifts/{shiftId}",
+        "endpoint": "http://localhost:8080/api/work-shifts/1?companyId=1&branchId=1",
         "description": "Updates an existing work shift by ID.",
         "headers": [
           {
@@ -134,7 +174,7 @@
         "id": "delete-shift",
         "name": "Delete Shift",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/work-shifts/{shiftId}",
+        "endpoint": "http://localhost:8080/api/work-shifts/2?companyId=1&branchId=2",
         "description": "Deletes a work shift by ID.",
         "headers": [
           {
@@ -170,4 +210,4 @@
       }
     ]
   }
-] 
+ 

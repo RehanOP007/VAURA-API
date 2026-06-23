@@ -1,0 +1,115 @@
+{
+  "module": 16,
+  "category": "Employee Shift Management APIs",
+  "apis": [
+    {
+      "id": "assign-shift-to-employee",
+      "name": "Assign Shift to Employee",
+      "method": "POST",
+      "endpoint": "/api/admin/employee-shifts/assign?{companyId}&{branchId}",
+      "description": "Assigns a working shift to an employee starting from the specified date and time.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 12,
+          "shiftId": 3,
+          "startDateTime": "2026-01-30T09:00:00"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-active-shift-of-employee",
+      "name": "Get Active Shift of an Employee",
+      "method": "GET",
+      "endpoint": "/api/admin/employee-shifts/employee/{employeeId}?{companyId}&{branchId}",
+      "description": "Retrieves the currently active shift assigned to a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-all-active-employee-shifts-in-branch",
+      "name": "Get All Active Employee Shifts in a Branch",
+      "method": "GET",
+      "endpoint": "/api/admin/employee-shifts/active?{companyId}&{branchId}",
+      "description": "Retrieves all currently active shifts assigned to employees within a specific branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

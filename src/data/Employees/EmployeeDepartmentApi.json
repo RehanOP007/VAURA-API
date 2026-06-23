@@ -1,0 +1,231 @@
+{
+  "module": 15,
+  "category": "Employee Department Management APIs",
+  "apis": [
+    {
+      "id": "assign-employee-to-department",
+      "name": "Assign Employee to Department",
+      "method": "POST",
+      "endpoint": "/api/employee-department/assign?{companyId}&{branchId}&{employeeId}&{departmentId}",
+      "description": "Assigns an employee to a department for the first time within the specified company and branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "departmentId",
+          "type": "number",
+          "required": true,
+          "description": "Department ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "transfer-employee-to-department",
+      "name": "Transfer Employee to Another Department",
+      "method": "PUT",
+      "endpoint": "/api/employee-department/transfer?{companyId}&{branchId}&{employeeId}&{newDepartmentId}",
+      "description": "Transfers an employee from their current department to a new department.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "newDepartmentId",
+          "type": "number",
+          "required": true,
+          "description": "New Department ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-current-department-of-employee",
+      "name": "Get Current Department of an Employee",
+      "method": "GET",
+      "endpoint": "/api/employee-department/current/{employeeId}?{companyId}&{branchId}",
+      "description": "Fetches the current department assigned to a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        {
+               "success": false,
+               "message": "403 FORBIDDEN \"Employee does not belong to given company/branch\"",
+              "data": null
+        }
+      ],
+      "statusCodes": [
+         {
+            "code": 400,
+            "description": "Bad Request "
+          }
+      ]
+    },
+    {
+      "id": "get-department-history-of-employee",
+      "name": "Get Department History of an Employee",
+      "method": "GET",
+      "endpoint": "/api/employee-department/history/{employeeId}?{companyId}&{branchId}",
+      "description": "Fetches the full department assignment history of a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-employee-department-record",
+      "name": "Update Employee Department Record",
+      "method": "PUT",
+      "endpoint": "/api/employee-department/{id}?{companyId}&{branchId}",
+      "description": "Updates an employee department history record by ID. Use this when a wrong department was assigned, wrong start or end date was entered, the current department needs correction, or a historical record needs correction.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json",
+          "required": false
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Employee department history record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "departmentId": 7,
+          "startDate": "2026-03-01",
+          "endDate": null
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

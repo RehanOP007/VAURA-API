@@ -1,4 +1,4 @@
-[ 
+ 
  {
     "module": 3,
     "category": "Company Profile APIs",
@@ -7,7 +7,7 @@
         "id": "create-company-profile",
         "name": "Create Company Profile",
         "method": "POST",
-        "endpoint": "http://3.22.171.185:8080/api/company-profiles",
+        "endpoint": "/api/company-profiles",
         "description": "Creates a company profile with image upload.",
         "headers": [
           {
@@ -58,19 +58,111 @@
         "id": "get-company-profiles",
         "name": "View Company Profiles",
         "method": "GET",
-        "endpoint": "http://3.22.171.185:8080/api/company-profiles",
+        "endpoint": "/api/company-profiles",
         "description": "Fetches all company profiles.",
         "headers": [],
         "queryParams": [],
         "requestBody": null,
-        "response": null,
+        "response": [
+    {
+        "id": 1,
+        "name": "Collective",
+        "phoneNumber": "0121321356",
+        "photo": null,
+        "email": "collective@gmail.com",
+        "remark": "CRCM",
+        "logoLink": null,
+        "location": "Nawala",
+        "address": "Lake view drive, Nawala",
+        "prefix": "CRCM",
+        "companyCode": "CRCM"
+    },
+    {
+        "id": 2,
+        "name": "Innobot",
+        "phoneNumber": "0764233831",
+        "photo": null,
+        "email": "omaya@example.com",
+        "remark": "innobot",
+        "logoLink": "",
+        "location": "Kotte",
+        "address": "Ananda balika rd, kotte",
+        "prefix": "IB",
+        "companyCode": "IB"
+    },
+    {
+        "id": 3,
+        "name": "VentureCorp",
+        "phoneNumber": "+94778193721",
+        "photo": null,
+        "email": "omindupeter@gmail.com",
+        "remark": "",
+        "logoLink": "",
+        "location": "50/6A 1st Cross Street",
+        "address": "50/6A 1st Cross Street",
+        "prefix": "VC",
+        "companyCode": "VC-11"
+    },
+    {
+        "id": 6,
+        "name": "bmf",
+        "phoneNumber": "+94778193721",
+        "photo": null,
+        "email": "omindupeter@gmail.com",
+        "remark": "qwed",
+        "logoLink": "",
+        "location": "Nawala",
+        "address": "50/6A 1st Cross Street",
+        "prefix": "bmf",
+        "companyCode": "bmf1"
+    },
+    {
+        "id": 7,
+        "name": "pulsar",
+        "phoneNumber": "0121321355",
+        "photo": null,
+        "email": "omindcpeter@gmail.com",
+        "remark": "qwef",
+        "logoLink": "",
+        "location": "Nawala, Sri Jayawardenepura Kotte, Sri Lanka",
+        "address": "50/6A 1st Cross Street",
+        "prefix": "CRCM",
+        "companyCode": "CRCMw"
+    },
+    {
+        "id": 8,
+        "name": "Collectiveqefqed",
+        "phoneNumber": "0121321354",
+        "photo": null,
+        "email": "omindupeter@gmail.com",
+        "remark": "sxws",
+        "logoLink": "",
+        "location": "Nawala, Sri Jayawardenepura Kotte, Sri Lanka",
+        "address": "Lake view drive, Nawala",
+        "prefix": "CRCM",
+        "companyCode": "VC-11s"
+    },
+    {
+        "id": 9,
+        "name": "Annual Leave",
+        "phoneNumber": "0121321355",
+        "photo": null,
+        "email": "omindupeter@gmail.com",
+        "remark": "waef",
+        "logoLink": "",
+        "location": "Nawala",
+        "address": "50/6A 1st Cross Street",
+        "prefix": "CRCMHqwf",
+        "companyCode": "VC-11ss"
+    }
+        ],
         "statusCodes": []
       },
       {
         "id": "get-company-by-id",
         "name": "Get Specific Company Profile",
         "method": "GET",
-        "endpoint": "http://18.222.187.216:8080/api/company-profiles/{id}",
+        "endpoint": "/api/company-profiles/{id}",
         "description": "Fetches a specific company profile by ID.",
         "headers": [],
         "pathVariables": [
@@ -83,14 +175,28 @@
         ],
         "queryParams": [],
         "requestBody": null,
-        "response": null,
+        "response": [
+   {
+           "id": 9,
+           "name": "Annual Leave",
+           "phoneNumber": "0121321355",
+           "photo": null,
+           "email": "omindupeter@gmail.com",
+           "remark": "waef",
+           "logoLink": "",
+           "location": "Nawala",
+           "address": "50/6A 1st Cross Street",
+           "prefix": "CRCMHqwf",
+           "companyCode": "VC-11ss"
+    }
+        ],
         "statusCodes": []
       },
       {
         "id": "update-company-profile",
         "name": "Update Company Profile",
         "method": "PUT",
-        "endpoint": "http://3.22.171.185:8080/api/company-profiles/{id}",
+        "endpoint": "/api/company-profiles/{id}",
         "description": "Updates company profile with new data and image.",
         "headers": [
           {
@@ -148,7 +254,7 @@
         "id": "delete-company-profile",
         "name": "Delete Company Profile",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/company-profiles/{id}",
+        "endpoint": "/api/company-profiles/{id}",
         "description": "Deletes a company profile.",
         "headers": [
           {
@@ -171,4 +277,3 @@
       }
     ]
   }
-]

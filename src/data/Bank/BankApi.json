@@ -1,4 +1,4 @@
-[ 
+
   {
     "module": 5,
     "category": "Bank APIs",
@@ -7,7 +7,7 @@
         "id": "create-bank",
         "name": "Create Bank Account",
         "method": "POST",
-        "endpoint": "http://3.22.171.185:8080/api/banks",
+        "endpoint": "/api/banks",
         "description": "Creates a bank account entry for a branch.",
         "headers": [
           {
@@ -36,7 +36,7 @@
         "id": "get-bank-in-branch",
         "name": "Get Bank In Branch",
         "method": "GET",
-        "endpoint": "http://3.22.171.185:8080/api/banks",
+        "endpoint": "/api/banks?{companyId}&{branchId}",
         "description": "Fetches bank records for a specific branch.",
         "headers": [
           {
@@ -66,7 +66,7 @@
         "id": "update-bank",
         "name": "Update Bank In Branch",
         "method": "PUT",
-        "endpoint": "http://3.22.171.185:8080/api/banks/{bankId}",
+        "endpoint": "/api/banks/{bankId}",
         "description": "Updates bank details by bank ID.",
         "headers": [
           {
@@ -103,7 +103,7 @@
         "id": "delete-bank",
         "name": "Delete Bank",
         "method": "DELETE",
-        "endpoint": "http://3.22.171.185:8080/api/banks/{bankId}",
+        "endpoint": "/api/banks/{bankId}",
         "description": "Deletes a bank record by bank ID.",
         "headers": [
           {
@@ -126,4 +126,3 @@
       }
     ]
   }
-]
