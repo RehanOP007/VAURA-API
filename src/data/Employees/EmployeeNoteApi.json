@@ -1,0 +1,217 @@
+{
+  "module": 34,
+  "category": "Employee Notes APIs",
+  "apis": [
+    {
+      "id": "add-employee-note",
+      "name": "Add Note",
+      "method": "POST",
+      "endpoint": "/api/employee-notes?{companyId}&{branchId}&{employeeId}&{note}&{userId}",
+      "description": "Appends a new documentation note record to a chosen employee profile context utilizing structural string query values.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "required": true,
+          "description": "Note content (URL encoded)"
+        },
+        {
+          "name": "userId",
+          "type": "number",
+          "required": true,
+          "description": "Created user ID"
+        }
+      ],
+      "requestBody": null,
+      "response": {
+        "type": "application/json",
+        "sample": {
+          "success": true,
+          "message": "Notes fetched successfully",
+          "data": [
+            {
+              "id": 10,
+              "note": "Good performance",
+              "createdBy": 5,
+              "createdAt": "2026-05-01T10:30:00"
+            }
+          ]
+        }
+      },
+      "statusCodes": [
+        {
+          "code": 403,
+          "description": "Access denied error response blueprint structure map.",
+          "sample": {
+            "success": false,
+            "message": "Access denied"
+          }
+        }
+      ]
+    },
+    {
+      "id": "get-notes-by-employee",
+      "name": "Get Notes by Employee",
+      "method": "GET",
+      "endpoint": "/api/employee-notes/{id}?{companyId}&{branchId}",
+      "description": "Returns all documented history log entries tracking against the target employee collection reference ID context.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Target employee unique identification mapping anchor"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": {
+        "type": "application/json",
+        "sample": {
+          "success": true,
+          "message": "Notes fetched successfully",
+          "data": [
+            {
+              "id": 10,
+              "note": "Good performance",
+              "createdBy": 5,
+              "createdAt": "2026-05-01T10:30:00"
+            }
+          ]
+        }
+      },
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Successful response",
+          "sample": {
+            "success": true,
+            "message": "Notes fetched successfully",
+            "data": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "delete-employee-note",
+      "name": "Delete Note",
+      "method": "DELETE",
+      "endpoint": "/api/employee-notes/{id}?{companyId}&{branchId}",
+      "description": "Removes a specific isolated documentation note item record out of data management systems by using its distinct primary key target variable identifier.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "The specific isolated note record identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": {
+        "type": "application/json",
+        "sample": {
+          "success": true,
+          "message": "Notes fetched successfully",
+          "data": []
+        }
+      },
+      "statusCodes": [
+        {
+          "code": 403,
+          "description": "Access denied error response blueprint structure map.",
+          "sample": {
+            "success": false,
+            "message": "Access denied"
+          }
+        }
+      ]
+    }
+  ]
+}

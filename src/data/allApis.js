@@ -16,6 +16,7 @@ import EmployeeDepartment from "./Employees/EmployeeDepartmentApi.json";
 import EmployeeDesignationManagement from "./Employees/EmployeeDesignationManagementApis.json";
 import EmployeeLeaveManagement from "./Employees/EmployeeLeavePolicyApi.json";
 import EmployeeShiftManagement from "./Employees/EmployeeShiftManagementApi.json";
+import EmployeeNote from "./Employees/EmployeeNoteApi.json";
 import WorkFromHome from "./WorkFromHome/WfhManagementApi.json";
 import WFHRequest from "./WorkFromHome/WorkFromHomeRequestApi.json";
 import AttendenceManagement from "./Attendence/AttendenceManagementApi.json";
@@ -29,6 +30,8 @@ import PublicCandidate from "./RecruitmentDocumentApi/PublicCandidateApi.json";
 import EmployeeReportDoc from "./RecruitmentDocumentApi/EmployeeReportDocumentationApi.json";
 import AdminMeeting from "./RecruitmentDocumentApi/AdminMeetingApi.json";
 import AdminCandidate from "./RecruitmentDocumentApi/AdminCandidateApi.json";
+import BiometricIntergration from "./BiometricIntergration/BiometricIntergrationApi.json";
+import BiometricEmployee from "./BiometricIntergration/BiometricEmployeeApi.json";
 
 const apiData = [
   {
@@ -97,6 +100,7 @@ const apiData = [
     ...EmployeeDesignationManagement.apis,
     ...EmployeeLeaveManagement.apis,
     ...EmployeeShiftManagement.apis,
+    ...EmployeeNote.apis,
   ],
   subModules: [
     {
@@ -127,6 +131,10 @@ const apiData = [
       name: "Shift Management",
       apis: EmployeeShiftManagement.apis,
     },
+    {
+      name: "Employee Notes",
+      apis: EmployeeNote.apis,
+    }
   ],
 },
   {
@@ -209,7 +217,21 @@ const apiData = [
         apis: AdminCandidate.apis,
       }
     ]
-  }
+  },
+  {
+    category: "Biometric",
+    apis: [...BiometricIntergration.apis, ...BiometricEmployee.apis],
+    subModules: [
+      {
+        name: "Biometric Integration APIs",
+        apis: BiometricIntergration.apis,
+      },
+      {
+        name: "Biometric Employee APIs",
+        apis: BiometricEmployee.apis,
+      }
+    ]
+  },
 ];
 
 export default apiData;
