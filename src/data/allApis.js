@@ -22,6 +22,8 @@ import AttendenceManagement from "./Attendence/AttendenceManagementApi.json";
 import QrAttendance from "./Attendence/QrAttendance.json";
 import OwnAttendance from "./Attendence/EmployeeOwnAttendance.json";
 import ManagerDepartmentAttendance from "./Attendence/ManagerDepartmentApi.json";
+import LeaveRequestManagement from "./LeavePolicy/LeaveRequestManagementApi.json";
+import DigitalPresence from "./DigitalPresence/DigitalPresenceApi.json";
 
 const apiData = [
   {
@@ -62,7 +64,19 @@ const apiData = [
   },
   {
     category: "Leave Policy",
-    apis: Policy.apis,
+    apis:[ Policy.apis,
+      ...LeaveRequestManagement.apis,
+    ],
+    subModules: [
+      {
+        name: "Leave Policy APIs",
+        apis: Policy.apis,
+      },
+      {
+        name: "Leave Request Management APIs",
+        apis: LeaveRequestManagement.apis,
+      }
+    ]
   },
   {
     category: "Holiday",
@@ -149,6 +163,10 @@ const apiData = [
       }
     ]
   },
+  {
+    category: "Digital Presence",
+    apis: DigitalPresence.apis,
+  }
 ];
 
 export default apiData;

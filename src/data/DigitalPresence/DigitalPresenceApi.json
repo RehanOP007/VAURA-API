@@ -1,0 +1,291 @@
+{
+  "module": 24,
+  "category": "Digital Presence API Documentation (Tenant-Scoped)",
+  "apis": [
+    {
+      "id": "create-digital-presence",
+      "name": "Create Digital Presence",
+      "method": "POST",
+      "endpoint": "/api/digital-presence?{companyId}&{branchId}",
+      "description": "Creates a digital presence record (LinkedIn, GitHub, Portfolio, etc.) for an employee under the given tenant scope.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 5,
+          "presence": "LinkedIn",
+          "url": "https://linkedin.com/in/john-doe"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-all-digital-presences-scoped",
+      "name": "Get All Digital Presences (Scoped)",
+      "method": "GET",
+      "endpoint": "/api/digital-presence?{companyId}&{branchId}",
+      "description": "Returns all digital presences only within the given company + branch scope.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "id": 7,
+        "employeeId": 21,
+        "companyId": 1,
+        "branchId": 1,
+        "presence": "LinkedIn",
+        "url": "linkedin.com"
+    },
+    {
+        "id": 8,
+        "employeeId": 22,
+        "companyId": 1,
+        "branchId": 1,
+        "presence": "LinkedIn",
+        "url": "Linked.com"
+    },
+    {
+        "id": 9,
+        "employeeId": 27,
+        "companyId": 1,
+        "branchId": 1,
+        "presence": "Instagram",
+        "url": "insa.com"
+    },
+    {
+        "id": 10,
+        "employeeId": 22,
+        "companyId": 1,
+        "branchId": 1,
+        "presence": "Facebook",
+        "url": "fb.com"
+    },
+    {
+        "id": 11,
+        "employeeId": 47,
+        "companyId": 1,
+        "branchId": 1,
+        "presence": "LinkedIn",
+        "url": "linkedin.com"
+    },
+    {
+        "id": 12,
+        "employeeId": 47,
+        "companyId": 1,
+        "branchId": 1,
+        "presence": "GitHub",
+        "url": "github.com"
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-digital-presence-by-id-scoped",
+      "name": "Get Digital Presence By ID (Scoped)",
+      "method": "GET",
+      "endpoint": "/api/digital-presence/{id}?{companyId}&{branchId}",
+      "description": "Fetch a single digital presence record by ID within tenant scope.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Digital presence record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-digital-presence",
+      "name": "Update Digital Presence",
+      "method": "PUT",
+      "endpoint": "/api/digital-presence/{id}?{companyId}&{branchId}",
+      "description": "Updates an existing digital presence record within tenant scope.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Digital presence record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 5,
+          "presence": "GitHub",
+          "url": "https://github.com/john-doe"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "delete-digital-presence",
+      "name": "Delete Digital Presence",
+      "method": "DELETE",
+      "endpoint": "/api/digital-presence/{id}?{companyId}&{branchId}",
+      "description": "Deletes a digital presence record by ID (scoped to the given tenant).",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Digital presence record ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-digital-presence-by-employee",
+      "name": "Get Digital Presence By Employee",
+      "method": "GET",
+      "endpoint": "/api/digital-presence/employee/{employeeId}?{companyId}&{branchId}",
+      "description": "Returns all digital presence records for a specific employee under the given company + branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

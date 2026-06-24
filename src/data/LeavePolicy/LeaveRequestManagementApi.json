@@ -1,0 +1,503 @@
+{
+  "module": 23,
+  "category": "Leave Request Management APIs",
+  "apis": [
+    {
+      "id": "apply-leave-request",
+      "name": "Apply Leave Request",
+      "method": "POST",
+      "endpoint": "/api/leave-requests/apply?{companyId}&{branchId}",
+      "description": "Employee applies for FULL / HALF / SHORT leave under an assigned leave policy.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": [
+          {
+            "label": "FULL Leave",
+            "sample": {
+              "employeeId": 12,
+              "leavePolicyId": 2,
+              "startDateUtc": "2026-09-17T18:30:00Z",
+              "endDateUtc": "2026-09-17T22:40:59Z",
+              "leaveType": "FULL",
+              "reason": "Family function"
+            }
+          },
+          {
+            "label": "HALF Leave",
+            "sample": {
+              "employeeId": 10,
+              "leavePolicyId": 3,
+              "startDateUtc": "2026-01-20T00:00:00Z",
+              "endDateUtc": "2026-01-20T00:00:00Z",
+              "leaveType": "HALF",
+              "half": 1,
+              "reason": "Doctor visit"
+            }
+          },
+          {
+            "label": "SHORT Leave",
+            "sample": {
+              "employeeId": 10,
+              "leavePolicyId": 3,
+              "startDateUtc": "2026-01-21T00:00:00Z",
+              "endDateUtc": "2026-01-21T00:00:00Z",
+              "leaveType": "SHORT",
+              "half": 3,
+              "reason": "Bank work"
+            }
+          }
+        ]
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "manager-approve-leave-request",
+      "name": "Manager Approve Leave Request",
+      "method": "PUT",
+      "endpoint": "/api/leave-requests/{leaveRequestId}/manager-approve?{companyId}&{branchId}",
+      "description": "Manager approves the leave request submitted by an employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "leaveRequestId",
+          "type": "number",
+          "required": true,
+          "description": "Leave request ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "hr-approve-leave-request",
+      "name": "HR Approve Leave Request",
+      "method": "PUT",
+      "endpoint": "/api/leave-requests/{leaveRequestId}/hr-approve?{companyId}&{branchId}",
+      "description": "HR performs the final approval of a leave request after manager approval.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "leaveRequestId",
+          "type": "number",
+          "required": true,
+          "description": "Leave request ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "reject-leave-request",
+      "name": "Reject Leave Request",
+      "method": "PUT",
+      "endpoint": "/api/leave-requests/{leaveRequestId}/reject?{companyId}&{branchId}",
+      "description": "Rejects a leave request submitted by an employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "leaveRequestId",
+          "type": "number",
+          "required": true,
+          "description": "Leave request ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-all-leave-requests",
+      "name": "Get All Leave Requests",
+      "method": "GET",
+      "endpoint": "/api/leave-requests?{companyId}&{branchId}",
+      "description": "Returns all leave requests for the given company and branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "leaveRequestId": 5,
+        "employeeId": 21,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-06-08T00:00:00Z",
+        "endDateUtc": "2026-06-10T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 3.0,
+        "reason": "annual",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "MANAGER_APPROVED",
+        "appliedAtUtc": "2026-06-03T14:31:45.639705Z"
+    },
+    {
+        "leaveRequestId": 4,
+        "employeeId": 22,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-03-05T00:00:00Z",
+        "endDateUtc": "2026-03-07T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 3.0,
+        "reason": "Personal reason",
+        "medicalDocument": null,
+        "departmentId": 4,
+        "status": "MANAGER_APPROVED",
+        "appliedAtUtc": "2026-03-05T12:11:01.104087Z"
+    },
+    {
+        "leaveRequestId": 3,
+        "employeeId": 21,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-02-27T00:00:00Z",
+        "endDateUtc": "2026-03-04T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 6.0,
+        "reason": "Family function",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-26T18:09:23.589797Z"
+    },
+    {
+        "leaveRequestId": 2,
+        "employeeId": 22,
+        "leavePolicyId": 3,
+        "startDateUtc": "2026-02-27T00:00:00Z",
+        "endDateUtc": "2026-02-27T00:00:00Z",
+        "leaveType": "HALF",
+        "half": 1,
+        "totalDays": 0.5,
+        "reason": "Medical",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-26T17:57:18.95621Z"
+    },
+    {
+        "leaveRequestId": 1,
+        "employeeId": 22,
+        "leavePolicyId": 3,
+        "startDateUtc": "2026-09-17T18:30:00Z",
+        "endDateUtc": "2026-09-17T22:40:59Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 1.0,
+        "reason": "Family function",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-23T12:19:21.554355Z"
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-leave-requests-employee-view",
+      "name": "Get Leave Requests – Employee View",
+      "method": "GET",
+      "endpoint": "/api/leave-requests/employee/{employeeId}?{companyId}&{branchId}",
+      "description": "Returns leave request history of a specific employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "leaveRequestId": 4,
+        "employeeId": 22,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-03-05T00:00:00Z",
+        "endDateUtc": "2026-03-07T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 3.0,
+        "reason": "Personal reason",
+        "medicalDocument": null,
+        "departmentId": 4,
+        "status": "MANAGER_APPROVED",
+        "appliedAtUtc": "2026-03-05T12:11:01.104087Z"
+    },
+    {
+        "leaveRequestId": 2,
+        "employeeId": 22,
+        "leavePolicyId": 3,
+        "startDateUtc": "2026-02-27T00:00:00Z",
+        "endDateUtc": "2026-02-27T00:00:00Z",
+        "leaveType": "HALF",
+        "half": 1,
+        "totalDays": 0.5,
+        "reason": "Medical",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-26T17:57:18.95621Z"
+    },
+    {
+        "leaveRequestId": 1,
+        "employeeId": 22,
+        "leavePolicyId": 3,
+        "startDateUtc": "2026-09-17T18:30:00Z",
+        "endDateUtc": "2026-09-17T22:40:59Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 1.0,
+        "reason": "Family function",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-23T12:19:21.554355Z"
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-leave-requests-department-view",
+      "name": "Get Leave Requests – Department View",
+      "method": "GET",
+      "endpoint": "/api/leave-requests/department/{departmentId}?{companyId}&{branchId}",
+      "description": "Returns leave requests of all employees within a department.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_JWT_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "departmentId",
+          "type": "number",
+          "required": true,
+          "description": "Department identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "leaveRequestId": 5,
+        "employeeId": 21,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-06-08T00:00:00Z",
+        "endDateUtc": "2026-06-10T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 3.0,
+        "reason": "annual",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "MANAGER_APPROVED",
+        "appliedAtUtc": "2026-06-03T14:31:45.639705Z"
+    },
+    {
+        "leaveRequestId": 4,
+        "employeeId": 22,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-03-05T00:00:00Z",
+        "endDateUtc": "2026-03-07T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 3.0,
+        "reason": "Personal reason",
+        "medicalDocument": null,
+        "departmentId": 4,
+        "status": "MANAGER_APPROVED",
+        "appliedAtUtc": "2026-03-05T12:11:01.104087Z"
+    },
+    {
+        "leaveRequestId": 3,
+        "employeeId": 21,
+        "leavePolicyId": 1,
+        "startDateUtc": "2026-02-27T00:00:00Z",
+        "endDateUtc": "2026-03-04T00:00:00Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 6.0,
+        "reason": "Family function",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-26T18:09:23.589797Z"
+    },
+    {
+        "leaveRequestId": 2,
+        "employeeId": 22,
+        "leavePolicyId": 3,
+        "startDateUtc": "2026-02-27T00:00:00Z",
+        "endDateUtc": "2026-02-27T00:00:00Z",
+        "leaveType": "HALF",
+        "half": 1,
+        "totalDays": 0.5,
+        "reason": "Medical",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-26T17:57:18.95621Z"
+    },
+    {
+        "leaveRequestId": 1,
+        "employeeId": 22,
+        "leavePolicyId": 3,
+        "startDateUtc": "2026-09-17T18:30:00Z",
+        "endDateUtc": "2026-09-17T22:40:59Z",
+        "leaveType": "FULL",
+        "half": null,
+        "totalDays": 1.0,
+        "reason": "Family function",
+        "medicalDocument": null,
+        "departmentId": 1,
+        "status": "APPROVED",
+        "appliedAtUtc": "2026-02-23T12:19:21.554355Z"
+    }
+]
+      ],
+      "statusCodes": []
+    }
+  ]
+}
