@@ -351,6 +351,450 @@
       "requestBody": null,
       "response": null,
       "statusCodes": []
+    },
+    {
+      "id": "get-all-job-openings-public",
+      "name": "Get All Job Openings (Public)",
+      "method": "GET",
+      "endpoint": "/api/job-openings",
+      "description": "Returns all job openings from all companies (public careers page).",
+      "headers": [],
+      "queryParams": [],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "id": 2,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Senior Backend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "YES",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 3,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Backend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 4,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Frontend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 5,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Senior Backend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 6,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Senior Backend Engineer",
+        "postImageLink": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/3efbcefc-c539-4e53-a8d6-186f65796fca_git commands.jpeg",
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 7,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "RCM specialist",
+        "postImageLink": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/67140ac8-cd69-4057-b05b-04cd34a40175_git commands.jpeg",
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-04-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 8,
+        "companyId": 2,
+        "companyName": "Innobot",
+        "branchId": 3,
+        "branchName": "Head Branch",
+        "jobTopic": "Automation Lead",
+        "postImageLink": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/6f90c50c-f05f-4a34-8b9e-a2e16115d5fc_git commands.jpeg",
+        "description": "kabdqjewdkqjbdkwqeudkasnkweudqkw vd",
+        "experience": [
+            "2years"
+        ],
+        "responsibility": [
+            "work night shift"
+        ],
+        "qualification": [
+            "UI path",
+            "python"
+        ],
+        "benifite": [
+            "attarctive salary"
+        ],
+        "closingDate": "2026-04-10",
+        "status": "OPEN",
+        "level": "REPLACEMENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "linkedin.com"
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-job-openings-by-company-branch-public",
+      "name": "Get Job Openings by Company/Branch (Public)",
+      "method": "GET",
+      "endpoint": "/api/job-openings?{companyId}&{branchId}",
+      "description": "Returns job openings filtered by company and/or branch (public careers page).",
+      "headers": [],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": false,
+          "description": "Filter jobs by company"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": false,
+          "description": "Filter jobs by branch"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "id": 2,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Senior Backend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "YES",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 3,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Backend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 4,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Frontend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 5,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Senior Backend Engineer",
+        "postImageLink": null,
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 6,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "Senior Backend Engineer",
+        "postImageLink": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/3efbcefc-c539-4e53-a8d6-186f65796fca_git commands.jpeg",
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-03-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    },
+    {
+        "id": 7,
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "jobTopic": "RCM specialist",
+        "postImageLink": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/67140ac8-cd69-4057-b05b-04cd34a40175_git commands.jpeg",
+        "description": "Hiring Backend Developer",
+        "experience": [
+            "3+ years Java",
+            "Spring Boot"
+        ],
+        "responsibility": [
+            "Develop APIs",
+            "Code reviews"
+        ],
+        "qualification": [
+            "BSc SE"
+        ],
+        "benifite": [
+            "Remote Work",
+            "Insurance"
+        ],
+        "closingDate": "2026-04-30",
+        "status": "PUBLISHED",
+        "level": "URGENT",
+        "linkedin": "YES",
+        "topJob": "NO",
+        "link": "https://company.com/jobs/123"
+    }
+]
+      ],
+      "statusCodes": []
     }
   ]
 }

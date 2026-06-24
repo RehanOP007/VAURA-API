@@ -1,0 +1,506 @@
+{
+  "module": 29,
+  "category": "Admin Meeting & Interview APIs",
+  "apis": [
+    {
+      "id": "create-meeting-interview",
+      "name": "Create Meeting (Interview) + Optional Document",
+      "method": "POST",
+      "endpoint": "/api/meetings?{companyId}&{branchId}",
+      "description": "Creates an interview meeting and optionally uploads an interview sheet/document.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "meeting",
+            "type": "application/json",
+            "required": true,
+            "description": "Meeting details object"
+          },
+          {
+            "name": "doc",
+            "type": "file (pdf/doc/docx)",
+            "required": false,
+            "description": "Optional interview sheet or evaluation rubric file"
+          }
+        ],
+        "sample": {
+          "meeting": {
+            "title": "Interview Round 1",
+            "type": "INTERVIEW",
+            "mode": "ONLINE",
+            "meetingLink": "https://meet.google.com/xxx-yyy-zzz",
+            "agenda": "Java + Spring discussion",
+            "startAtUtc": "2026-02-20T10:00:00",
+            "endAtUtc": "2026-02-20T10:30:00",
+            "candidateId": 5,
+            "jobOpeningId": 10,
+            "createdByAdminId": 99
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-meeting-details",
+      "name": "Update Meeting Time / Details (Triggers Conflict Re-check)",
+      "method": "PUT",
+      "endpoint": "/api/meetings/{meetingId}?{companyId}&{branchId}",
+      "description": "Updates meeting time/details and triggers an automated scheduler conflict re-check before saving.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "meetingId",
+          "type": "number",
+          "required": true,
+          "description": "Meeting ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "meeting",
+            "type": "application/json",
+            "required": true,
+            "description": "Updated meeting properties"
+          }
+        ],
+        "sample": {
+          "meeting": {
+            "startAtUtc": "2026-02-20T11:00:00",
+            "endAtUtc": "2026-02-20T11:30:00",
+            "agenda": "Updated agenda"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "cancel-meeting",
+      "name": "Cancel Meeting",
+      "method": "PATCH",
+      "endpoint": "/api/meetings/{meetingId}/cancel?{companyId}&{branchId}",
+      "description": "Cancels an active meeting, updates lifecycle state statuses, and dynamically updates dashboard schedules for candidates and admins.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "meetingId",
+          "type": "number",
+          "required": true,
+          "description": "Meeting ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "add-employee-participant",
+      "name": "Add Employee Participant (Conflict Checked)",
+      "method": "POST",
+      "endpoint": "/api/meetings/{meetingId}/participants?{companyId}&{branchId}",
+      "description": "Adds an internal employee as a participant to the meeting after performing an isolated system timeframe calendar conflict validation check.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "meetingId",
+          "type": "number",
+          "required": true,
+          "description": "Meeting ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 12,
+          "role": "INTERVIEWER",
+          "inviteStatus": "INVITED",
+          "required": true,
+          "addedByAdminId": 99
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "add-external-participant",
+      "name": "Add External Participant (Client/Candidate/Other)",
+      "method": "POST",
+      "endpoint": "/api/meetings/{meetingId}/participants?{companyId}&{branchId}",
+      "description": "Adds an unmanaged third-party external participant configuration profile to the scheduled meeting timeline object.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "meetingId",
+          "type": "number",
+          "required": true,
+          "description": "Meeting ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "externalName": "Client Manager",
+          "externalEmail": "client@company.com",
+          "role": "ATTENDEE",
+          "inviteStatus": "INVITED",
+          "required": true,
+          "addedByAdminId": 99
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "list-meeting-participants",
+      "name": "List Participants",
+      "method": "GET",
+      "endpoint": "/api/meetings/{meetingId}/participants?{companyId}&{branchId}",
+      "description": "Returns all active employee and external participant entities structurally attached to the targeted meeting timeline ID.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "meetingId",
+          "type": "number",
+          "required": true,
+          "description": "Meeting ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        {
+    "success": true,
+    "message": "Participants fetched successfully",
+    "data": []
+}
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-all-meetings-scoped",
+      "name": "Get All Meetings",
+      "method": "GET",
+      "endpoint": "/api/meetings?{companyId}&{branchId}",
+      "description": "Returns all meeting resource objects matching the specific administrative company and branch authentication scopes.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        {
+    "success": true,
+    "message": "Meetings fetched successfully",
+    "data": [
+        {
+            "id": 3,
+            "companyId": 1,
+            "branchId": 1,
+            "title": "round 1",
+            "type": "INTERVIEW",
+            "mode": "ONLINE",
+            "location": null,
+            "meetingLink": "www.lk",
+            "agenda": "",
+            "startAtUtc": "2026-04-29T20:44:00",
+            "endAtUtc": "2026-04-29T22:44:00",
+            "status": "SCHEDULED",
+            "candidateId": 2,
+            "jobOpeningId": 7,
+            "candidateStatusAfterMeeting": null,
+            "calendarInviteUrl": null,
+            "meetingDocumentUrl": null,
+            "meetingDocumentFileName": null,
+            "meetingDocumentContentType": null,
+            "createdByAdminId": 0,
+            "createdAtUtc": "2026-04-29T15:14:50.49638",
+            "updatedAtUtc": "2026-04-29T15:14:50.496386"
+        },
+        {
+            "id": 2,
+            "companyId": 1,
+            "branchId": 1,
+            "title": "ccwf",
+            "type": "INTERVIEW",
+            "mode": "ONLINE",
+            "location": null,
+            "meetingLink": "www.llk",
+            "agenda": "",
+            "startAtUtc": "2026-04-29T20:43:00",
+            "endAtUtc": "2026-04-29T20:43:00",
+            "status": "SCHEDULED",
+            "candidateId": 2,
+            "jobOpeningId": 7,
+            "candidateStatusAfterMeeting": null,
+            "calendarInviteUrl": null,
+            "meetingDocumentUrl": null,
+            "meetingDocumentFileName": null,
+            "meetingDocumentContentType": null,
+            "createdByAdminId": 0,
+            "createdAtUtc": "2026-04-29T15:13:34.70516",
+            "updatedAtUtc": "2026-04-29T15:13:34.705166"
+        },
+        {
+            "id": 1,
+            "companyId": 1,
+            "branchId": 1,
+            "title": "HR interview",
+            "type": "INTERVIEW",
+            "mode": "ONLINE",
+            "location": null,
+            "meetingLink": "https://www.googlemeet.com",
+            "agenda": "HR topics",
+            "startAtUtc": "2026-04-28T20:10:00",
+            "endAtUtc": "2026-04-28T20:20:00",
+            "status": "SCHEDULED",
+            "candidateId": 1,
+            "jobOpeningId": 7,
+            "candidateStatusAfterMeeting": null,
+            "calendarInviteUrl": null,
+            "meetingDocumentUrl": null,
+            "meetingDocumentFileName": null,
+            "meetingDocumentContentType": null,
+            "createdByAdminId": 0,
+            "createdAtUtc": "2026-04-27T15:39:36.817038",
+            "updatedAtUtc": "2026-04-27T15:39:36.817042"
+        }
+    ]
+}
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-single-meeting",
+      "name": "Get Single Meeting",
+      "method": "GET",
+      "endpoint": "/api/meetings/{meetingId}?{companyId}&{branchId}",
+      "description": "Returns comprehensive details of a unique specific meeting mapping schema.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "meetingId",
+          "type": "number",
+          "required": true,
+          "description": "Meeting ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        {
+    "success": true,
+    "message": "Meeting fetched successfully",
+    "data": {
+        "id": 3,
+        "companyId": 1,
+        "branchId": 1,
+        "title": "round 1",
+        "type": "INTERVIEW",
+        "mode": "ONLINE",
+        "location": null,
+        "meetingLink": "www.lk",
+        "agenda": "",
+        "startAtUtc": "2026-04-29T20:44:00",
+        "endAtUtc": "2026-04-29T22:44:00",
+        "status": "SCHEDULED",
+        "candidateId": 2,
+        "jobOpeningId": 7,
+        "candidateStatusAfterMeeting": null,
+        "calendarInviteUrl": null,
+        "meetingDocumentUrl": null,
+        "meetingDocumentFileName": null,
+        "meetingDocumentContentType": null,
+        "createdByAdminId": 0,
+        "createdAtUtc": "2026-04-29T15:14:50.49638",
+        "updatedAtUtc": "2026-04-29T15:14:50.496386"
+    }
+}
+      ],
+      "statusCodes": []
+    }
+  ]
+}

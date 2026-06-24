@@ -1,0 +1,398 @@
+{
+  "module": 31,
+  "category": "Employee Report Documentation APIs",
+  "apis": [
+    {
+      "id": "upload-employee-document",
+      "name": "Employee report documentation upload",
+      "method": "POST",
+      "endpoint": "/api/employee-documents?{companyId}&{branchId}",
+      "description": "Uploads an employee report document configuration using form-data.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "The report file document payload"
+          },
+          {
+            "name": "data",
+            "type": "application/json",
+            "required": true,
+            "description": "Metadata concerning the employee document"
+          }
+        ],
+        "sample": {
+          "data": {
+            "employeeId": 12,
+            "documentType": "POLICE_REPORT",
+            "documentNumber": "PR-2026-001",
+            "issueDate": "2026-03-19",
+            "expiryDate": "2027-03-19",
+            "remarks": "Uploaded from HR panel"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-employee-document-post",
+      "name": "Update Employee report documentation upload (POST)",
+      "method": "POST",
+      "endpoint": "/api/employee-documents/{id}?{companyId}&{branchId}",
+      "description": "Updates an employee report document resource utilizing an alternative POST endpoint with multipart parameters.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Document record identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "The updated report document file binary"
+          },
+          {
+            "name": "data",
+            "type": "application/json",
+            "required": true,
+            "description": "Updated configuration properties"
+          }
+        ],
+        "sample": {
+          "data": {
+            "employeeId": 12,
+            "documentType": "POLICE_REPORT",
+            "documentNumber": "PR-2026-001",
+            "issueDate": "2026-03-19",
+            "expiryDate": "2027-03-19",
+            "remarks": "Uploaded from HR panel"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-employee-document-put",
+      "name": "Update Employee report documentation upload (PUT)",
+      "method": "PUT",
+      "endpoint": "/api/employee-documents/{id}?{companyId}&{branchId}",
+      "description": "Updates an existing employee report document using the standard PUT method paradigm.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Document record identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "The updated file binary map"
+          },
+          {
+            "name": "data",
+            "type": "application/json",
+            "required": true,
+            "description": "Document structure specifications"
+          }
+        ],
+        "sample": {
+          "data": {
+            "employeeId": 12,
+            "documentType": "POLICE_REPORT",
+            "documentNumber": "PR-2026-001",
+            "issueDate": "2026-03-19",
+            "expiryDate": "2027-03-19",
+            "remarks": "Uploaded from HR panel"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-all-employee-documents",
+      "name": "GET ALL Employee report documentation",
+      "method": "GET",
+      "endpoint": "/api/employee-documents?{companyId}&{branchId}",
+      "description": "Returns all documented records tracked inside administrative tenant borders.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "documentId": 3,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 48,
+        "documentType": "NIC_COPY",
+        "documentName": "Screenshot 2025-11-12 152551.png",
+        "documentUrl": "https://venturecrop.s3.us-east-2.amazonaws.com/employee_documents/3cbb7acc-aaa7-4963-a140-aee071d5c226_Screenshot_2025-11-12_152551.png",
+        "documentNumber": "rferferfed",
+        "issueDate": "2026-04-05",
+        "expiryDate": null,
+        "uploadedDate": "2026-04-28",
+        "remarks": null
+    },
+    {
+        "documentId": 6,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 49,
+        "documentType": "NIC_COPY",
+        "documentName": "IT3040_Assignment 5_Semester1_2026.pdf",
+        "documentUrl": "https://venturecrop.s3.us-east-2.amazonaws.com/employee_documents/3d1a502a-a2e6-4e7a-a80e-6d7f86ff1faf_IT3040_Assignment_5_Semester1_2026.pdf",
+        "documentNumber": "qwdqwd",
+        "issueDate": "2026-05-01",
+        "expiryDate": "2026-05-31",
+        "uploadedDate": "2026-05-01",
+        "remarks": null
+    },
+    {
+        "documentId": 7,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 49,
+        "documentType": "POLICE_REPORT",
+        "documentName": "rest API.png",
+        "documentUrl": "https://venturecrop.s3.us-east-2.amazonaws.com/employee_documents/96be9e05-6b37-4054-a0f8-0bb8bc76afaa_rest_API.png",
+        "documentNumber": "qwdqewd",
+        "issueDate": "2026-05-01",
+        "expiryDate": "2026-05-31",
+        "uploadedDate": "2026-05-01",
+        "remarks": null
+    },
+    {
+        "documentId": 8,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 49,
+        "documentType": "BIRTH_CERTIFICATE",
+        "documentName": "IT3040_Assignment 5_Semester1_2026.pdf",
+        "documentUrl": "https://venturecrop.s3.us-east-2.amazonaws.com/employee_documents/8956cf0d-cf8e-495c-b8fc-dacf0905d9d2_IT3040_Assignment_5_Semester1_2026.pdf",
+        "documentNumber": "qed",
+        "issueDate": "2026-05-01",
+        "expiryDate": "2026-05-31",
+        "uploadedDate": "2026-05-01",
+        "remarks": "qdqwd"
+    },
+    {
+        "documentId": 9,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 21,
+        "documentType": "OFFER_LETTER",
+        "documentName": "image.png",
+        "documentUrl": "https://venturecrop.s3.us-east-2.amazonaws.com/employee_documents/f05fae5f-eece-4093-94f9-5b2366bc91db_image.png",
+        "documentNumber": "vae",
+        "issueDate": "2026-06-19",
+        "expiryDate": null,
+        "uploadedDate": "2026-06-19",
+        "remarks": null
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-employee-documents-by-employee-id",
+      "name": "GET Employee VISE report documentation",
+      "method": "GET",
+      "endpoint": "/api/employee-documents/employee/{EmployeeId}?{companyId}&{branchId}",
+      "description": "Returns all associated documentation metadata profiles for a specific isolated employee reference context.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "EmployeeId",
+          "type": "number",
+          "required": true,
+          "description": "Target employee unique identification key"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "documentId": 3,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 48,
+        "documentType": "NIC_COPY",
+        "documentName": "Screenshot 2025-11-12 152551.png",
+        "documentUrl": "https://venturecrop.s3.us-east-2.amazonaws.com/employee_documents/3cbb7acc-aaa7-4963-a140-aee071d5c226_Screenshot_2025-11-12_152551.png",
+        "documentNumber": "rferferfed",
+        "issueDate": "2026-04-05",
+        "expiryDate": null,
+        "uploadedDate": "2026-04-28",
+        "remarks": null
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "delete-employee-document",
+      "name": "DEL Employee VISE report documentation",
+      "method": "DELETE",
+      "endpoint": "/api/employee-documents/{id}?{companyId}&{branchId}",
+      "description": "Deletes a designated unique file upload report reference schema using record ID parameters.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer ADMIN_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Document tracking reference ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

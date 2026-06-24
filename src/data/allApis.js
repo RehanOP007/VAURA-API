@@ -25,6 +25,10 @@ import ManagerDepartmentAttendance from "./Attendence/ManagerDepartmentApi.json"
 import LeaveRequestManagement from "./LeavePolicy/LeaveRequestManagementApi.json";
 import DigitalPresence from "./DigitalPresence/DigitalPresenceApi.json";
 import AdminJobOpenings from "./DigitalPresence/AdminJobOpeningManagementApi.json";
+import PublicCandidate from "./RecruitmentDocumentApi/PublicCandidateApi.json";
+import EmployeeReportDoc from "./RecruitmentDocumentApi/EmployeeReportDocumentationApi.json";
+import AdminMeeting from "./RecruitmentDocumentApi/AdminMeetingApi.json";
+import AdminCandidate from "./RecruitmentDocumentApi/AdminCandidateApi.json";
 
 const apiData = [
   {
@@ -178,6 +182,33 @@ const apiData = [
         apis: AdminJobOpenings.apis,
       }
     ],
+  },
+  {
+    category: "Recruitment Document",
+    apis: [
+      ...PublicCandidate.apis,
+      ...EmployeeReportDoc.apis,
+      ...AdminMeeting.apis,
+      ...AdminCandidate.apis
+    ],
+    subModules: [
+      {
+        name: "Public Candidate APIs",
+        apis: PublicCandidate.apis,
+      },
+      {
+        name: "Employee Report Documentation APIs",
+        apis: EmployeeReportDoc.apis,
+      },
+      {
+        name: "Admin Meeting APIs",
+        apis: AdminMeeting.apis,
+      },
+      {
+        name: "Admin Candidate APIs",
+        apis: AdminCandidate.apis,
+      }
+    ]
   }
 ];
 

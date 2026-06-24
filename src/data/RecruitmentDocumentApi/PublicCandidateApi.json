@@ -1,0 +1,153 @@
+{
+  "module": 27,
+  "category": "Public Candidate Application & Tracking APIs",
+  "apis": [
+    {
+      "id": "candidate-apply-public-with-cv",
+      "name": "Candidate (Public) with CV Upload",
+      "method": "POST",
+      "endpoint": "/api/public/candidates/apply",
+      "description": "Candidate applies for a job publicly and uploads a CV. The response includes a secure tracking accessId (e.g., APP-3F9A2B) which is also dispatched via email if mail configuration is active.",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "candidate",
+            "type": "application/json",
+            "required": true,
+            "description": "Candidate personal profile and application data structures"
+          },
+          {
+            "name": "cv",
+            "type": "file (pdf/doc/docx)",
+            "required": true,
+            "description": "Candidate's curriculum vitae file payload"
+          }
+        ],
+        "sample": {
+          "candidate": {
+            "jobOpeningId": 10,
+            "fullName": "John Silva",
+            "email": "john@gmail.com",
+            "phone": "0771234567",
+            "nic": "200012345678",
+            "currentLocation": "Colombo",
+            "expectedSalary": "200000",
+            "noticePeriod": "1 month",
+            "coverLetter": "I am interested in this role.",
+            "linkedinUrl": "https://linkedin.com/in/john",
+            "portfolioUrl": "https://john.dev",
+            "githubUrl": "https://github.com/john"
+          }
+        }
+      },
+      "response": {
+        "accessId": "APP-3F9A2B",
+        "message": "Application submitted successfully."
+      },
+      "statusCodes": []
+    },
+    {
+      "id": "track-candidate-public",
+      "name": "Track Candidate (Public) using accessId",
+      "method": "GET",
+      "endpoint": "/api/public/candidates/track/{accessId}",
+      "description": "Candidate tracks application lifecycle status securely using their unique accessId tracking token.",
+      "headers": [],
+      "pathVariables": [
+        {
+          "name": "accessId",
+          "type": "string",
+          "required": true,
+          "description": "Candidate tracking ID token (e.g., APP-3F9A2B)"
+        }
+      ],
+      "queryParams": [],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "candidate-view-public-notes",
+      "name": "Candidate Views Only PUBLIC Notes",
+      "method": "GET",
+      "endpoint": "/api/public/candidates/track/{accessId}/notes",
+      "description": "Returns external PUBLIC timeline notes linked to the application. Server-side validation completely ensures INTERNAL notes are omitted.",
+      "headers": [],
+      "pathVariables": [
+        {
+          "name": "accessId",
+          "type": "string",
+          "required": true,
+          "description": "Candidate tracking ID token"
+        }
+      ],
+      "queryParams": [],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "candidate-view-meetings",
+      "name": "Candidate Views Meetings",
+      "method": "GET",
+      "endpoint": "/api/public/candidates/track/{accessId}/meetings",
+      "description": "Returns meeting, interview, and calendar schedules metadata explicitly relevant to the tracking candidate configuration profile.",
+      "headers": [],
+      "pathVariables": [
+        {
+          "name": "accessId",
+          "type": "string",
+          "required": true,
+          "description": "Candidate tracking ID token"
+        }
+      ],
+      "queryParams": [],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-candidate-meetings-public",
+      "name": "Get Candidate Meetings",
+      "method": "GET",
+      "endpoint": "/api/meetings/public/candidate/{accessId}",
+      "description": "Returns all meetings related to a candidate using public access.",
+      "headers": [
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "accessId",
+          "type": "string",
+          "required": true,
+          "description": "Candidate public access ID"
+        }
+      ],
+      "queryParams": [],
+      "requestBody": null,
+      "response": [
+        {
+    "success": true,
+    "message": "Meetings fetched successfully",
+    "data": []
+}
+      ],
+      "statusCodes": []
+    }
+  ]
+}
