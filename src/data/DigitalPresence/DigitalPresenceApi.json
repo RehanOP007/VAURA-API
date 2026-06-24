@@ -159,7 +159,16 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+          "id": 7,
+          "employeeId": 21,
+          "companyId": 1,
+          "branchId": 1,
+          "presence": "LinkedIn",
+          "url": "linkedin.com"
+        }
+      ],
       "statusCodes": []
     },
     {
@@ -284,7 +293,16 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+          "id": 7,
+          "employeeId": 21,
+          "companyId": 1,
+          "branchId": 1,
+          "presence": "LinkedIn",
+          "url": "linkedin.com"
+        }
+      ],
       "statusCodes": []
     }
   ]

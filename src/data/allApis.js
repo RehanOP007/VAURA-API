@@ -24,6 +24,7 @@ import OwnAttendance from "./Attendence/EmployeeOwnAttendance.json";
 import ManagerDepartmentAttendance from "./Attendence/ManagerDepartmentApi.json";
 import LeaveRequestManagement from "./LeavePolicy/LeaveRequestManagementApi.json";
 import DigitalPresence from "./DigitalPresence/DigitalPresenceApi.json";
+import AdminJobOpenings from "./DigitalPresence/AdminJobOpeningManagementApi.json";
 
 const apiData = [
   {
@@ -165,7 +166,18 @@ const apiData = [
   },
   {
     category: "Digital Presence",
-    apis: DigitalPresence.apis,
+    apis: [DigitalPresence.apis, 
+      ...AdminJobOpenings.apis],
+    subModules: [
+      {
+        name: "Digital Presence APIs",
+        apis: DigitalPresence.apis,
+      },
+      {
+        name: "Admin Job Openings APIs",
+        apis: AdminJobOpenings.apis,
+      }
+    ],
   }
 ];
 

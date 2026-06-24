@@ -1,0 +1,356 @@
+{
+  "module": 25,
+  "category": "Admin Job Opening Management APIs",
+  "apis": [
+    {
+      "id": "create-job-opening-with-image",
+      "name": "Create Job Opening (With Image)",
+      "method": "POST",
+      "endpoint": "/api/job-openings?{companyId}&{branchId}",
+      "description": "Admin creates a job opening under a specific company + branch with an uploaded poster/image.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "job",
+            "type": "application/json",
+            "required": true,
+            "description": "Job description configurations and details"
+          },
+          {
+            "name": "file",
+            "type": "file (image)",
+            "required": true,
+            "description": "Job poster or banner image"
+          }
+        ],
+        "sample": {
+          "job": {
+            "jobTopic": "Senior Backend Engineer",
+            "description": "Hiring Backend Developer",
+            "experience": ["3+ years Java", "Spring Boot"],
+            "responsibility": ["Develop APIs", "Code reviews"],
+            "qualification": ["BSc SE"],
+            "benifite": ["Remote Work", "Insurance"],
+            "closingDate": "2026-03-30",
+            "status": "OPEN",
+            "level": "URGENT",
+            "linkedin": "YES",
+            "topJob": "NO",
+            "link": "https://company.com/jobs/123"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "create-job-opening-no-image",
+      "name": "Create Job Opening (No Image)",
+      "method": "POST",
+      "endpoint": "/api/job-openings?{companyId}&{branchId}",
+      "description": "Admin creates a job opening without uploading an image.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "job",
+            "type": "application/json",
+            "required": true,
+            "description": "Job description configurations and details"
+          }
+        ],
+        "sample": {
+          "job": {
+            "jobTopic": "Senior Backend Engineer",
+            "description": "Hiring Backend Developer",
+            "experience": ["3+ years Java", "Spring Boot"],
+            "responsibility": ["Develop APIs", "Code reviews"],
+            "qualification": ["BSc SE"],
+            "benifite": ["Remote Work", "Insurance"],
+            "closingDate": "2026-03-30",
+            "status": "OPEN",
+            "level": "URGENT",
+            "linkedin": "YES",
+            "topJob": "NO",
+            "link": "https://company.com/jobs/123"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-job-opening-with-image",
+      "name": "Update Job Opening (With Image)",
+      "method": "PUT",
+      "endpoint": "/api/job-openings/{id}?{companyId}&{branchId}",
+      "description": "Admin updates job details and replaces/updates the job poster image.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Job opening ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "job",
+            "type": "application/json",
+            "required": true,
+            "description": "Updated job fields"
+          },
+          {
+            "name": "file",
+            "type": "file (image)",
+            "required": true,
+            "description": "New job poster or banner image"
+          }
+        ],
+        "sample": {
+          "job": {
+            "jobTopic": "Backend Updated",
+            "experience": ["5+ years Java", "AWS"],
+            "responsibility": ["Lead Team"],
+            "qualification": ["BSc SE"],
+            "benifite": ["Bonus"],
+            "status": "PUBLISHED"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-job-opening-no-image",
+      "name": "Update Job Opening (No Image)",
+      "method": "PUT",
+      "endpoint": "/api/job-openings/{id}?{companyId}&{branchId}",
+      "description": "Admin updates only job fields without uploading or changing the image.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_ADMIN_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Job opening ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "job",
+            "type": "application/json",
+            "required": true,
+            "description": "Updated job fields"
+          }
+        ],
+        "sample": {
+          "job": {
+            "jobTopic": "Backend Updated Only",
+            "status": "OPEN"
+          }
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "patch-job-status-only",
+      "name": "Patch Job Status Only",
+      "method": "PATCH",
+      "endpoint": "/api/job-openings/{id}/status?{companyId}&{branchId}&{status=PUBLISHED}",
+      "description": "Updates only the status of the job opening (fast status workflow).",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_ADMIN_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Job opening ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": true,
+          "description": "New job status workflow value. Valid values: OPEN, WAITING_APPROVAL, DRAFT, PUBLISHED, DENIED, COMPLETED"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "delete-job-opening",
+      "name": "Delete Job Opening",
+      "method": "DELETE",
+      "endpoint": "/api/job-openings/{id}?{companyId}&{branchId}",
+      "description": "Deletes a job opening under the specified tenant scope.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_ADMIN_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Job opening ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identifier"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identifier"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}
