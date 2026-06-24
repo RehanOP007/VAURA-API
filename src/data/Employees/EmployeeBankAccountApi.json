@@ -211,16 +211,21 @@
         "requestBody": null,
         "response": [
             {
-              "status": 403,
-              "error": "Forbidden",
-              "message": "Employee does not belong to given company/branch",
-              "timestamp": "2026-06-22T15:28:25.387002505Z"
-            }
+    "id": 1,
+    "employeeId": 17,
+    "employeeName": "John Michael Doe",
+    "bankId": 3,
+    "bankBranchName": "Malabe",
+    "bankBranchCode": "MLB001",
+    "accountNumber": "1234567890",
+    "accountHolderName": "Kasun Perera",
+    "bankDocumentAttachment": null
+}
         ],
         "statusCodes": [
             {
-            "code": 403,
-            "description": "Forbidden"
+            "code": 200,
+            "description": "Success"
           }
         ]
       }

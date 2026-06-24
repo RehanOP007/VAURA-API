@@ -201,7 +201,28 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        [
+    {
+        "id": 1,
+        "employeeId": 17,
+        "leavePolicyId": 1,
+        "leavePolicyName": "Annual Leave ",
+        "effectiveFromUtc": "2026-01-01T18:30:00Z",
+        "expireDateUtc": null,
+        "priority": 1
+    },
+    {
+        "id": 2,
+        "employeeId": 17,
+        "leavePolicyId": 3,
+        "leavePolicyName": "Casual Leave",
+        "effectiveFromUtc": "2026-02-08T18:30:00Z",
+        "expireDateUtc": null,
+        "priority": 1
+    }
+]
+      ],
       "statusCodes": []
     },
     {
@@ -245,7 +266,32 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        [
+    {
+        "id": 1,
+        "employeeId": 17,
+        "leavePolicyId": 1,
+        "leavePolicyName": "Annual Leave ",
+        "year": 2026,
+        "openingBalance": 24.0,
+        "used": 0.0,
+        "remaining": 24.0,
+        "lastUpdatedUtc": "2026-02-09T13:35:10.976378Z"
+    },
+    {
+        "id": 2,
+        "employeeId": 17,
+        "leavePolicyId": 3,
+        "leavePolicyName": "Casual Leave",
+        "year": 2026,
+        "openingBalance": 12.0,
+        "used": 0.0,
+        "remaining": 12.0,
+        "lastUpdatedUtc": "2026-02-09T14:19:07.739189Z"
+    }
+]
+      ],
       "statusCodes": []
     },
     {

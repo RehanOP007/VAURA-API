@@ -123,15 +123,17 @@
       "requestBody": null,
       "response": [
         {
-               "success": false,
-               "message": "403 FORBIDDEN \"Employee does not belong to given company/branch\"",
-              "data": null
-        }
+    "id": 3,
+    "employeeId": 17,
+    "departmentId": 3,
+    "startDate": "2026-02-09",
+    "endDate": null
+}
       ],
       "statusCodes": [
          {
-            "code": 400,
-            "description": "Bad Request "
+            "code": 200,
+            "description": "Successfully retrieved the current department of the employee."
           }
       ]
     },
@@ -170,7 +172,31 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        [
+    {
+        "id": 2,
+        "employeeId": 17,
+        "departmentId": 4,
+        "startDate": "2026-02-09",
+        "endDate": "2026-02-09"
+    },
+    {
+        "id": 3,
+        "employeeId": 17,
+        "departmentId": 3,
+        "startDate": "2026-02-09",
+        "endDate": null
+    },
+    {
+        "id": 1,
+        "employeeId": 17,
+        "departmentId": 1,
+        "startDate": "2026-02-06",
+        "endDate": "2026-02-09"
+    }
+]
+      ],
       "statusCodes": []
     },
     {

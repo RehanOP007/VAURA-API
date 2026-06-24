@@ -114,11 +114,56 @@
       ],
       "requestBody": null,
       "response": [
-        {
-           "success": false,
-           "message": "403 FORBIDDEN \"Employee does not belong to given company/branch\"",
-           "data": null
-      }
+        [
+    {
+        "employeeAssetId": 2,
+        "employeeId": 17,
+        "assetId": 1,
+        "assignedDate": "2026-02-06",
+        "returnedDate": "2026-02-19",
+        "assetCode": "HR-AS-0001",
+        "assetName": "Dell Laptop",
+        "category": "IT",
+        "brand": "Dell",
+        "model": "Latitude 5420",
+        "serialNumber": "DL12345678",
+        "conditionStatus": "NEW",
+        "description": "Office laptop assigned to HR department",
+        "active": true
+    },
+    {
+        "employeeAssetId": 3,
+        "employeeId": 17,
+        "assetId": 3,
+        "assignedDate": "2026-02-06",
+        "returnedDate": "2026-02-06",
+        "assetCode": "HR-AS-0003s",
+        "assetName": "Office Table",
+        "category": "FURNITURE",
+        "brand": "Damro",
+        "model": "Office Table Brown",
+        "serialNumber": "OFT-0023",
+        "conditionStatus": "GOOD",
+        "description": "",
+        "active": true
+    },
+    {
+        "employeeAssetId": 5,
+        "employeeId": 17,
+        "assetId": 3,
+        "assignedDate": "2026-02-19",
+        "returnedDate": "2026-02-19",
+        "assetCode": "HR-AS-0003s",
+        "assetName": "Office Table",
+        "category": "FURNITURE",
+        "brand": "Damro",
+        "model": "Office Table Brown",
+        "serialNumber": "OFT-0023",
+        "conditionStatus": "GOOD",
+        "description": "",
+        "active": true
+    }
+]
       ],
       "statusCodes": [
          {

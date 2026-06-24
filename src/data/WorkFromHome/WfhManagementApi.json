@@ -135,7 +135,62 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        [
+    {
+        "id": 44,
+        "employeeId": 17,
+        "employeeName": "John Michael Doe",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/3934a3a2-13cb-4a68-8a21-cf83430be8f9_Spidy_.jpeg",
+        "departmentId": 3,
+        "departmentName": "Human Resource Department",
+        "designationId": 3,
+        "designationName": "Business Analyst",
+        "startDate": "2026-05-27",
+        "endDate": "2026-05-29"
+    },
+    {
+        "id": 13,
+        "employeeId": 17,
+        "employeeName": "John Michael Doe",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/3934a3a2-13cb-4a68-8a21-cf83430be8f9_Spidy_.jpeg",
+        "departmentId": 3,
+        "departmentName": "Human Resource Department",
+        "designationId": 3,
+        "designationName": "Business Analyst",
+        "startDate": "2026-02-09",
+        "endDate": "2026-02-13"
+    },
+    {
+        "id": 11,
+        "employeeId": 17,
+        "employeeName": "John Michael Doe",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/3934a3a2-13cb-4a68-8a21-cf83430be8f9_Spidy_.jpeg",
+        "departmentId": 3,
+        "departmentName": "Human Resource Department",
+        "designationId": 3,
+        "designationName": "Business Analyst",
+        "startDate": "2026-02-02",
+        "endDate": "2026-02-06"
+    },
+    {
+        "id": 12,
+        "employeeId": 17,
+        "employeeName": "John Michael Doe",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/3934a3a2-13cb-4a68-8a21-cf83430be8f9_Spidy_.jpeg",
+        "departmentId": 3,
+        "departmentName": "Human Resource Department",
+        "designationId": 3,
+        "designationName": "Business Analyst",
+        "startDate": "2026-01-05",
+        "endDate": "2026-01-09"
+    }
+]
+      ],
       "statusCodes": []
     },
     {

@@ -79,7 +79,15 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+    "companyId": 1,
+    "branchId": 1,
+    "epochSec": 1782233022,
+    "token": "6dfvK1H0wkfamAFb",
+    "validForSeconds": 60
+}
+      ],
       "statusCodes": []
     }
   ]
