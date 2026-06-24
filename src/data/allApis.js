@@ -32,6 +32,8 @@ import AdminMeeting from "./RecruitmentDocumentApi/AdminMeetingApi.json";
 import AdminCandidate from "./RecruitmentDocumentApi/AdminCandidateApi.json";
 import BiometricIntergration from "./BiometricIntergration/BiometricIntergrationApi.json";
 import BiometricEmployee from "./BiometricIntergration/BiometricEmployeeApi.json";
+import TeamManagement from "./TeamManagement/TeamManagementApi.json";
+import EmployeeTeamManagement from "./TeamManagement/EmployeeTeamManagementApi.json";
 
 const apiData = [
   {
@@ -229,6 +231,20 @@ const apiData = [
       {
         name: "Biometric Employee APIs",
         apis: BiometricEmployee.apis,
+      }
+    ]
+  },
+  {
+    category: "Teams",
+    apis: [TeamManagement.apis, ...EmployeeTeamManagement.apis],
+    subModules: [
+      {
+        name: "Team Management APIs",
+        apis: TeamManagement.apis,
+      },
+      {
+        name: "Employee Team Management APIs",
+        apis: EmployeeTeamManagement.apis,
       }
     ]
   },

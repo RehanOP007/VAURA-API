@@ -1,0 +1,360 @@
+{
+  "module": 36,
+  "category": "Employee Team Assignment Management APIs",
+  "apis": [
+    {
+      "id": "assign-employee-team",
+      "name": "Assign Employee to Team",
+      "method": "POST",
+      "endpoint": "/api/employee-teams/assign?companyId&branchId",
+      "description": "Assigns an employee to a specific team with configuration tracking fields.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "employeeId": 10,
+          "teamId": 2,
+          "startDate": "2026-05-12",
+          "primaryTeam": true
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-employee-teams-history",
+      "name": "Get Employee Teams",
+      "method": "GET",
+      "endpoint": "/api/employee-teams/employee/{id}?companyId&branchId",
+      "description": "Returns all historical team assignments of a selected employee.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Employee identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-distinct-employees-under-team-tree",
+      "name": "Get Distinct Employees Under Team + Child Teams",
+      "method": "GET",
+      "endpoint": "/api/employee-teams/team/{id}/employees?companyId&branchId",
+      "description": "Returns all unique employees assigned to the selected team and all recursively nested child teams.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Team identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "id": null,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 22,
+        "employeeName": "John Michael Dd",
+        "teamId": null,
+        "teamName": null,
+        "teamPath": null,
+        "departmentId": null,
+        "departmentName": null,
+        "startDate": null,
+        "endDate": null,
+        "primaryTeam": null,
+        "teamLead": null,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": null
+    },
+    {
+        "id": null,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 21,
+        "employeeName": "John Michael Doe",
+        "teamId": null,
+        "teamName": null,
+        "teamPath": null,
+        "departmentId": null,
+        "departmentName": null,
+        "startDate": null,
+        "endDate": null,
+        "primaryTeam": null,
+        "teamLead": null,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": null
+    },
+    {
+        "id": null,
+        "companyId": 1,
+        "branchId": 1,
+        "employeeId": 23,
+        "employeeName": "John Michael Doe",
+        "teamId": null,
+        "teamName": null,
+        "teamPath": null,
+        "departmentId": null,
+        "departmentName": null,
+        "startDate": null,
+        "endDate": null,
+        "primaryTeam": null,
+        "teamLead": null,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": null
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "unassign-employee-team",
+      "name": "Unassign Employee Team",
+      "method": "PUT",
+      "endpoint": "/api/employee-teams/{id}/unassign?companyId&branchId&endDate",
+      "description": "Marks an existing employee-team assignment structure as ended using the provided end date logic parameter.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "The unique employee-team assignment link configuration ID record"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "endDate",
+          "type": "string",
+          "required": true,
+          "description": "ISO date timeline end constraint mapping (YYYY-MM-DD)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-employee-active-teams-by-date",
+      "name": "Get Employee Active Teams by Date",
+      "method": "GET",
+      "endpoint": "/api/employee-teams/employee/{id}?companyId&branchId&date",
+      "description": "Returns employee team assignments active on the provided date. Note: If date parameter is not provided, the endpoint defaults to returning full assignment history.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Employee identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": false,
+          "description": "Filter active team assignments for a specific timeline slice (YYYY-MM-DD)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-active-assigned-employees-for-team-by-date",
+      "name": "Get Active Assigned emps for a Team by Date",
+      "method": "GET",
+      "endpoint": "/api/employee-teams/team/{id}?companyId&branchId&date",
+      "description": "Returns active employee assignments situated under the selected isolated team for the targeted date. Note: If date is not provided, the endpoint returns full historical records.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Team identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": false,
+          "description": "Filter active assignments for a specific timeline slice (YYYY-MM-DD)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-distinct-active-employees-under-parent-team-by-date",
+      "name": "Get Distinct Active Employees Under Parent Team + Child Teams by Date",
+      "method": "GET",
+      "endpoint": "/api/employee-teams/team/{id}/employees?companyId&branchId&date",
+      "description": "Returns all distinct active employees assigned to the selected parent team and all downstream nested child structures for the provided date context block. Note: If date query parameter is omitted, this endpoint automatically uses the current systemic date.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "id",
+          "type": "number",
+          "required": true,
+          "description": "Parent team identifier"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": false,
+          "description": "Filter active employees for a specific structural date marker (YYYY-MM-DD)"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    }
+  ]
+}

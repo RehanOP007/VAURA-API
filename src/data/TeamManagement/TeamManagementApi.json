@@ -1,0 +1,443 @@
+{
+  "module": 35,
+  "category": "Team Management APIs",
+  "apis": [
+    {
+      "id": "create-parent-team",
+      "name": "Create Parent Team",
+      "method": "POST",
+      "endpoint": "/api/teams?companyId&branchId",
+      "description": "Creates a main parent team under a department.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "departmentId": 1,
+          "teamName": "Factory Team"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "create-sub-team",
+      "name": "Create Sub-Team",
+      "method": "POST",
+      "endpoint": "/api/teams?companyId&branchId",
+      "description": "Creates a child team under an existing parent team.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": {
+        "type": "application/json",
+        "sample": {
+          "departmentId": 1,
+          "parentTeamId": 1,
+          "teamName": "Night Team"
+        }
+      },
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "update-team",
+      "name": "Update Team",
+      "method": "PUT",
+      "endpoint": "/api/teams/{teamId}?companyId&branchId",
+      "description": "Updates an existing team's core setup using path variables and query scopes.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "teamId",
+          "type": "number",
+          "required": true,
+          "description": "Team ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "delete-team",
+      "name": "Delete Team",
+      "method": "DELETE",
+      "endpoint": "/api/teams/{teamId}?companyId&branchId",
+      "description": "Deletes a team. Rule: A team can only be deleted if it does not contain child teams and does not have active employee assignments.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "pathVariables": [
+        {
+          "name": "teamId",
+          "type": "number",
+          "required": true,
+          "description": "Team ID"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": null,
+      "statusCodes": []
+    },
+    {
+      "id": "get-all-teams",
+      "name": "Get All Teams",
+      "method": "GET",
+      "endpoint": "/api/teams?companyId&branchId",
+      "description": "Returns all teams for the selected company and branch.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "teamId": 2,
+        "companyId": 1,
+        "branchId": 1,
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "parentTeamId": null,
+        "teamName": "BA Team",
+        "path": "Software Engineering Department > BA Team",
+        "children": [
+            {
+                "teamId": 6,
+                "companyId": 1,
+                "branchId": 1,
+                "departmentId": 1,
+                "departmentName": "Software Engineering Department",
+                "parentTeamId": 2,
+                "teamName": "BA-Morning Team",
+                "path": "Software Engineering Department > BA Team > BA-Morning Team",
+                "children": []
+            },
+            {
+                "teamId": 4,
+                "companyId": 1,
+                "branchId": 1,
+                "departmentId": 1,
+                "departmentName": "Software Engineering Department",
+                "parentTeamId": 2,
+                "teamName": "Frontend-night Team",
+                "path": "Software Engineering Department > BA Team > Frontend-night Team",
+                "children": []
+            }
+        ]
+    },
+    {
+        "teamId": 1,
+        "companyId": 1,
+        "branchId": 1,
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "parentTeamId": null,
+        "teamName": "Dev Team",
+        "path": "Software Engineering Department > Dev Team",
+        "children": [
+            {
+                "teamId": 3,
+                "companyId": 1,
+                "branchId": 1,
+                "departmentId": 1,
+                "departmentName": "Software Engineering Department",
+                "parentTeamId": 1,
+                "teamName": "Frontend Team",
+                "path": "Software Engineering Department > Dev Team > Frontend Team",
+                "children": [
+                    {
+                        "teamId": 8,
+                        "companyId": 1,
+                        "branchId": 1,
+                        "departmentId": 1,
+                        "departmentName": "Software Engineering Department",
+                        "parentTeamId": 3,
+                        "teamName": "Frontend-morning team",
+                        "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-morning team",
+                        "children": [
+                            {
+                                "teamId": 9,
+                                "companyId": 1,
+                                "branchId": 1,
+                                "departmentId": 1,
+                                "departmentName": "Software Engineering Department",
+                                "parentTeamId": 8,
+                                "teamName": "React",
+                                "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-morning team > React",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "teamId": 5,
+                        "companyId": 1,
+                        "branchId": 1,
+                        "departmentId": 1,
+                        "departmentName": "Software Engineering Department",
+                        "parentTeamId": 3,
+                        "teamName": "Frontend-night Team",
+                        "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-night Team",
+                        "children": [
+                            {
+                                "teamId": 7,
+                                "companyId": 1,
+                                "branchId": 1,
+                                "departmentId": 1,
+                                "departmentName": "Software Engineering Department",
+                                "parentTeamId": 5,
+                                "teamName": "React Team",
+                                "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-night Team > React Team",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
+      ],
+      "statusCodes": []
+    },
+    {
+      "id": "get-team-tree",
+      "name": "Get Team Tree",
+      "method": "GET",
+      "endpoint": "/api/teams/tree?companyId&branchId&departmentId",
+      "description": "Returns a hierarchical team structure including nested parent and child teams filtered by department mapping.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer YOUR_TOKEN"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
+          "name": "departmentId",
+          "type": "number",
+          "required": true,
+          "description": "Department ID"
+        }
+      ],
+      "requestBody": null,
+      "response": [
+        [
+    {
+        "teamId": 2,
+        "companyId": 1,
+        "branchId": 1,
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "parentTeamId": null,
+        "teamName": "BA Team",
+        "path": "Software Engineering Department > BA Team",
+        "children": [
+            {
+                "teamId": 6,
+                "companyId": 1,
+                "branchId": 1,
+                "departmentId": 1,
+                "departmentName": "Software Engineering Department",
+                "parentTeamId": 2,
+                "teamName": "BA-Morning Team",
+                "path": "Software Engineering Department > BA Team > BA-Morning Team",
+                "children": []
+            },
+            {
+                "teamId": 4,
+                "companyId": 1,
+                "branchId": 1,
+                "departmentId": 1,
+                "departmentName": "Software Engineering Department",
+                "parentTeamId": 2,
+                "teamName": "Frontend-night Team",
+                "path": "Software Engineering Department > BA Team > Frontend-night Team",
+                "children": []
+            }
+        ]
+    },
+    {
+        "teamId": 1,
+        "companyId": 1,
+        "branchId": 1,
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "parentTeamId": null,
+        "teamName": "Dev Team",
+        "path": "Software Engineering Department > Dev Team",
+        "children": [
+            {
+                "teamId": 3,
+                "companyId": 1,
+                "branchId": 1,
+                "departmentId": 1,
+                "departmentName": "Software Engineering Department",
+                "parentTeamId": 1,
+                "teamName": "Frontend Team",
+                "path": "Software Engineering Department > Dev Team > Frontend Team",
+                "children": [
+                    {
+                        "teamId": 8,
+                        "companyId": 1,
+                        "branchId": 1,
+                        "departmentId": 1,
+                        "departmentName": "Software Engineering Department",
+                        "parentTeamId": 3,
+                        "teamName": "Frontend-morning team",
+                        "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-morning team",
+                        "children": [
+                            {
+                                "teamId": 9,
+                                "companyId": 1,
+                                "branchId": 1,
+                                "departmentId": 1,
+                                "departmentName": "Software Engineering Department",
+                                "parentTeamId": 8,
+                                "teamName": "React",
+                                "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-morning team > React",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "teamId": 5,
+                        "companyId": 1,
+                        "branchId": 1,
+                        "departmentId": 1,
+                        "departmentName": "Software Engineering Department",
+                        "parentTeamId": 3,
+                        "teamName": "Frontend-night Team",
+                        "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-night Team",
+                        "children": [
+                            {
+                                "teamId": 7,
+                                "companyId": 1,
+                                "branchId": 1,
+                                "departmentId": 1,
+                                "departmentName": "Software Engineering Department",
+                                "parentTeamId": 5,
+                                "teamName": "React Team",
+                                "path": "Software Engineering Department > Dev Team > Frontend Team > Frontend-night Team > React Team",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
+      ],
+      "statusCodes": []
+    }
+  ]
+}
