@@ -48,7 +48,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-available-assets",
@@ -77,8 +90,38 @@
           }
         ],
         "requestBody": null,
-        "response": null,
-        "statusCodes": []
+        "response": [
+    {
+        "assetId": 3,
+        "companyId": 1,
+        "branchId": 1,
+        "assetCode": "HR-AS-0003s",
+        "assetName": "Office Table",
+        "category": "FURNITURE",
+        "brand": "Damro",
+        "model": "Office Table Brown",
+        "serialNumber": "OFT-0023",
+        "conditionStatus": "GOOD",
+        "description": "",
+        "active": true,
+        "assignedEmployeeId": null,
+        "assigned": false
+    }
+],
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-assets-in-branch",
@@ -107,8 +150,86 @@
           }
         ],
         "requestBody": null,
-        "response": null,
-        "statusCodes": []
+        "response": [
+    {
+        "assetId": 1,
+        "companyId": 1,
+        "branchId": 1,
+        "assetCode": "HR-AS-0001",
+        "assetName": "Dell Laptop",
+        "category": "IT",
+        "brand": "Dell",
+        "model": "Latitude 5420",
+        "serialNumber": "DL12345678",
+        "conditionStatus": "NEW",
+        "description": "Office laptop assigned to HR department",
+        "active": true,
+        "assignedEmployeeId": 19,
+        "assigned": true
+    },
+    {
+        "assetId": 2,
+        "companyId": 1,
+        "branchId": 1,
+        "assetCode": "HR-AS-0001",
+        "assetName": "Dell Laptop",
+        "category": "IT",
+        "brand": "Dell",
+        "model": "Latitude 5420",
+        "serialNumber": "DL12345678",
+        "conditionStatus": "NEW",
+        "description": "Office laptop assigned to HR department",
+        "active": true,
+        "assignedEmployeeId": 27,
+        "assigned": true
+    },
+    {
+        "assetId": 3,
+        "companyId": 1,
+        "branchId": 1,
+        "assetCode": "HR-AS-0003s",
+        "assetName": "Office Table",
+        "category": "FURNITURE",
+        "brand": "Damro",
+        "model": "Office Table Brown",
+        "serialNumber": "OFT-0023",
+        "conditionStatus": "GOOD",
+        "description": "",
+        "active": true,
+        "assignedEmployeeId": null,
+        "assigned": false
+    },
+    {
+        "assetId": 5,
+        "companyId": 1,
+        "branchId": 1,
+        "assetCode": "HR-RT-0001",
+        "assetName": "Dialog router",
+        "category": "OFFICE_EQUIPMENT",
+        "brand": "Dialog",
+        "model": "wef",
+        "serialNumber": "DRT-35454",
+        "conditionStatus": "NEW",
+        "description": "",
+        "active": true,
+        "assignedEmployeeId": 18,
+        "assigned": true
+    }
+],
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-asset",
@@ -163,7 +284,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-asset",
@@ -185,10 +319,30 @@
             "description": "Asset ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+          {
+            "name": "assetId",
+            "type": "number",
+            "required": true,
+            "description": "Asset ID"
+          }
+        ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

@@ -40,7 +40,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-departments-in-branch",
@@ -69,8 +82,70 @@
           }
         ],
         "requestBody": null,
-        "response": null,
-        "statusCodes": []
+        "response": [
+          [
+    {
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "managerId": 21,
+        "managerName": null
+    },
+    {
+        "departmentId": 3,
+        "departmentName": "Human Resource Department",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "managerId": null,
+        "managerName": null
+    },
+    {
+        "departmentId": 4,
+        "departmentName": "Finance Department",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "managerId": null,
+        "managerName": null
+    },
+    {
+        "departmentId": 5,
+        "departmentName": "Automation Department",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "managerId": null,
+        "managerName": null
+    },
+    {
+        "departmentId": 10,
+        "departmentName": "Audit Department",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch",
+        "managerId": null,
+        "managerName": null
+    }
+]
+        ],
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-department",
@@ -107,7 +182,19 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }]
       },
       {
         "id": "delete-department",
@@ -132,7 +219,16 @@
         "queryParams": [],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

@@ -47,7 +47,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-leave-policy-in-branch",
@@ -76,8 +89,61 @@
           }
         ],
         "requestBody": null,
-        "response": null,
-        "statusCodes": []
+        "response": [
+    {
+        "leavePolicyId": 1,
+        "companyId": 1,
+        "branchId": 1,
+        "name": "Annual Leave ",
+        "leaveType": "FULL",
+        "maxPerMonth": 3,
+        "maxPerYear": 24,
+        "medicalRequired": false,
+        "allowHalfDay": true,
+        "allowShortLeave": false,
+        "carryForward": true
+    },
+    {
+        "leavePolicyId": 3,
+        "companyId": 1,
+        "branchId": 1,
+        "name": "Casual Leave",
+        "leaveType": "FULL",
+        "maxPerMonth": 1,
+        "maxPerYear": 12,
+        "medicalRequired": false,
+        "allowHalfDay": true,
+        "allowShortLeave": true,
+        "carryForward": true
+    },
+    {
+        "leavePolicyId": 5,
+        "companyId": 1,
+        "branchId": 1,
+        "name": "Sick Leave",
+        "leaveType": "FULL",
+        "maxPerMonth": 3,
+        "maxPerYear": 36,
+        "medicalRequired": true,
+        "allowHalfDay": true,
+        "allowShortLeave": true,
+        "carryForward": true
+    }
+],
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-leave-policy",
@@ -131,7 +197,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-leave-policy",
@@ -169,7 +248,20 @@
         ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

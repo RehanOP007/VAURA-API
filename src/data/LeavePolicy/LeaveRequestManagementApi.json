@@ -73,7 +73,20 @@
         ]
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "manager-approve-leave-request",
@@ -111,7 +124,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "hr-approve-leave-request",
@@ -149,7 +175,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "reject-leave-request",
@@ -187,7 +226,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "get-all-leave-requests",
@@ -295,7 +347,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "get-leave-requests-employee-view",
@@ -381,7 +446,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "get-leave-requests-department-view",
@@ -497,7 +575,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     }
   ]
 }

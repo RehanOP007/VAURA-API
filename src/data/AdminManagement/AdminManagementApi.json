@@ -7,7 +7,7 @@
         "id": "create-admin-branch-company",
         "name": "Create Admin (Branch / Company)",
         "method": "POST",
-        "endpoint": "/api/admins/create?{username}&{password}&roles=SUPERADMIN",
+        "endpoint": "/api/admins/create?{username}&{password}&{roles=SUPERADMIN}",
         "description": "Creates a new administrator account for a branch or company. The admin is restricted to the assigned company and branch. Must be executed by SUPERADMIN.",
         "headers": [
           {
@@ -90,7 +90,20 @@
   }
 },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "create-superadmin",
@@ -153,7 +166,20 @@
   }
 },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
   "id": "get-all-admins",
@@ -362,7 +388,14 @@
             "description": "Admin ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+          {
+            "name": "adminId",
+            "type": "number",
+            "required": true,
+            "description": "Admin ID"
+          }
+        ],
         "requestBody": null,
         "response": [
           {
@@ -370,7 +403,16 @@
             "message": "Admin deleted successfully"
          } 
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "create-employee-admin",
@@ -485,7 +527,20 @@
               }
          } 
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

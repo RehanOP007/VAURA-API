@@ -64,13 +64,26 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-branch-by-id",
         "name": "Get Branch By ID",
         "method": "GET",
-        "endpoint": "/api/branches/{id}",
+        "endpoint": "/api/branches/{BranchId}",
         "description": "Fetches a specific branch profile.",
         "headers": [
           {
@@ -80,13 +93,20 @@
         ],
         "pathVariables": [
           {
+            "name": "BranchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
+        "queryParams": [
+          {
             "name": "id",
             "type": "number",
             "required": true,
             "description": "Branch ID"
           }
         ],
-        "queryParams": [],
         "requestBody": null,
         "response": [
           {
@@ -123,7 +143,20 @@
     "companyId": 1
 }
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-branches-by-company",
@@ -247,13 +280,26 @@
         "companyId": 1
     }
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-branch",
         "name": "Update Branch",
         "method": "PUT",
-        "endpoint": "/api/branches/{id}",
+        "endpoint": "/api/branches/{BranchId}",
         "description": "Updates branch details.",
         "headers": [
           {
@@ -267,13 +313,20 @@
         ],
         "pathVariables": [
           {
-            "name": "id",
+            "name": "BranchId",
             "type": "number",
             "required": true,
             "description": "Branch ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+          {
+            "name": "BranchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
         "requestBody": {
           "type": "multipart/form-data",
           "fields": [
@@ -310,13 +363,26 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-branch",
         "name": "Delete Branch",
         "method": "DELETE",
-        "endpoint": "/api/branches/{id}",
+        "endpoint": "/api/branches/{BranchId}",
         "description": "Deletes a branch.",
         "headers": [
           {
@@ -326,16 +392,36 @@
         ],
         "pathVariables": [
           {
-            "name": "id",
+            "name": "BranchId",
             "type": "number",
             "required": true,
             "description": "Branch ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+          {
+            "name": "BranchId",
+            "type": "number",
+            "required": true,
+            "description": "Branch ID"
+          }
+        ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

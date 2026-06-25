@@ -30,7 +30,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-bank-in-branch",
@@ -59,8 +72,32 @@
           }
         ],
         "requestBody": null,
-        "response": null,
-        "statusCodes": []
+        "response": [
+          {
+        "bankId": 3,
+        "bankName": "Commercial Bank PLC",
+        "bankCode": "7055",
+        "companyId": 1,
+        "branchId": 1
+    },
+    {
+        "bankId": 5,
+        "bankName": "Bank Of Ceylon",
+        "bankCode": "7054",
+        "companyId": 1,
+        "branchId": 1
+    }
+        ],
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-bank",
@@ -97,7 +134,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-bank",
@@ -122,7 +172,16 @@
         "queryParams": [],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

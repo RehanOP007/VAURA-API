@@ -70,7 +70,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "create-job-opening-no-image",
@@ -134,7 +147,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "update-job-opening-with-image",
@@ -206,7 +232,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "update-job-opening-no-image",
@@ -268,7 +307,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "patch-job-status-only",
@@ -312,7 +364,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "delete-job-opening",
@@ -350,7 +415,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "get-all-job-openings-public",
@@ -580,7 +658,16 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     },
     {
       "id": "get-job-openings-by-company-branch-public",
@@ -794,7 +881,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+          "code": 200,
+          "description": "Ok"
+        },
+        {
+          "code": 401,
+          "description": "Invalid credentials"
+        },
+        {
+          "code": 500,
+          "description": "Internal server error"
+        }
+      ]
     }
   ]
 }

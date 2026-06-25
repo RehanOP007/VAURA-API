@@ -41,7 +41,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-designations-in-branch",
@@ -70,8 +83,87 @@
           }
         ],
         "requestBody": null,
-        "response": null,
-        "statusCodes": []
+        "response": [
+          [
+    {
+        "designationId": 1,
+        "designationName": "Software Engineer",
+        "hierarchyLevel": "1",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    },
+    {
+        "designationId": 2,
+        "designationName": "QA Engineer",
+        "hierarchyLevel": "4",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    },
+    {
+        "designationId": 3,
+        "designationName": "Business Analyst",
+        "hierarchyLevel": "3",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    },
+    {
+        "designationId": 5,
+        "designationName": "RCM Associate",
+        "hierarchyLevel": "3",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    },
+    {
+        "designationId": 6,
+        "designationName": "senior Software Engineer",
+        "hierarchyLevel": "2",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    },
+    {
+        "designationId": 7,
+        "designationName": "junior Software Engineer",
+        "hierarchyLevel": "1",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    },
+    {
+        "designationId": 8,
+        "designationName": "intern Software Engineer",
+        "hierarchyLevel": "1",
+        "companyId": 1,
+        "companyName": "Collective",
+        "branchId": 1,
+        "branchName": "Head Branch"
+    }
+]
+        ],
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-designation",
@@ -111,7 +203,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-designation",
@@ -149,7 +254,20 @@
         ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

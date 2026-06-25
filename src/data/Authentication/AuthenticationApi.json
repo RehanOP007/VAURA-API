@@ -46,17 +46,21 @@
                 "password":"admin1234"
           }
         },
-        "response": {
-          "description": "Returns JWT access token. Token is used for authorized APIs.",
-          "sample": {
-            "success": true,
-            "token": "jwt_token_here",
-            "user": {
-              "id": 1,
-              "name": "John Doe"
-            }
-          }
-        },
+        "response": [
+          {
+             "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlcmFkbWluMSIsInJvbGVzIjoiU1VQRVJBRE1JTiIsImlhdCI6MTc4MjM4Mzk2MCwiZXhwIjoxNzgyNDcwMzYwfQ.Z6xLb08x_kN9znqxvsWr0zUbMl7--mXvTLt8hIpfJWE",
+             "adminId": 2,
+             "employeeId": null,
+             "companyId": null,
+             "branchId": null,
+             "departmentId": null,
+             "username": "superadmin1",
+             "roles": [
+                 "SUPERADMIN"
+                ],
+            "status": "ACTIVE"
+      }
+        ],
         "statusCodes": [
           {
             "code": 200,
@@ -102,7 +106,20 @@
         ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }

@@ -46,13 +46,26 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-shifts-in-branch",
         "name": "Get Shift In Branch",
         "method": "GET",
-        "endpoint": "http://localhost:8080/api/work-shifts?companyId=1&branchId=1",
+        "endpoint": "/api/work-shifts?{companyId}&{branchId}",
         "description": "Fetches all work shifts for a specific branch.",
         "headers": [
           {
@@ -116,13 +129,26 @@
         "timezone": "Asia/Colombo"
     }
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-shift",
         "name": "Update Shift In Branch",
         "method": "PUT",
-        "endpoint": "http://localhost:8080/api/work-shifts/1?companyId=1&branchId=1",
+        "endpoint": "/api/work-shifts/{shiftId}?{companyId}&{branchId}",
         "description": "Updates an existing work shift by ID.",
         "headers": [
           {
@@ -168,13 +194,26 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-shift",
         "name": "Delete Shift",
         "method": "DELETE",
-        "endpoint": "http://localhost:8080/api/work-shifts/2?companyId=1&branchId=2",
+        "endpoint": "/api/work-shifts/{shiftId}?{companyId}&{branchId}",
         "description": "Deletes a work shift by ID.",
         "headers": [
           {
@@ -206,7 +245,20 @@
         ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }
