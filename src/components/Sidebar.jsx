@@ -170,6 +170,7 @@ function Sidebar({ onSelectApi, selectedApiId }) {
                          const methodClass =
                            methodColors[methodUpper] ||
                            "bg-slate-700 text-slate-300";
+                        
 
                         return (
                          <button
@@ -226,6 +227,7 @@ function Sidebar({ onSelectApi, selectedApiId }) {
                {api.name}
              </span>
            </button>
+
          );
        })
       )}
@@ -241,6 +243,9 @@ function Sidebar({ onSelectApi, selectedApiId }) {
           </div>
         )}
       </div>
+          <div className="p-2 border-t border-slate-800 text-center">
+              <p className="text-xs text-slate-500">Developer Documentation Version 0.1</p>
+          </div>
     </div>
   );
 }

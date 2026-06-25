@@ -1,0 +1,57 @@
+{
+  "module": 40,
+  "category": "Onboarding Excel Import Execution APIs",
+  "apis": [
+    {
+      "id": "import-onboarding-data-excel-actual-v2",
+      "name": "Import Onboarding Data from Excel (Actual Import)",
+      "method": "POST",
+      "endpoint": "/api/onboarding-import/excel?{companyId}&{branchId}&{dryRun=false}",
+      "description": "Imports and permanently saves onboarding master data and employee structural database records from the uploaded Excel template sheet. Returns an operational import summary compiling direct success allocations and tracking error properties.",
+      "headers": [
+        {
+          "key": "Authorization",
+          "value": "Bearer your_jwt_token"
+        },
+        {
+          "key": "Content-Type",
+          "value": "multipart/form-data"
+        }
+      ],
+      "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company identification code"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch identification code"
+        },
+        {
+          "name": "dryRun",
+          "type": "boolean",
+          "required": true,
+          "description": "Flag set to false to process active transactional database updates directly"
+        }
+      ],
+      "requestBody": {
+        "type": "multipart/form-data",
+        "fields": [
+          {
+            "name": "file",
+            "type": "file (.xlsx)",
+            "required": true,
+            "description": "Onboarding master data template workbook file binary payload"
+          }
+        ],
+        "sample": null
+      },
+      "response":null,
+      "statusCodes": []
+    }
+  ]
+}

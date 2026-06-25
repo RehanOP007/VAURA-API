@@ -34,6 +34,9 @@ import BiometricIntergration from "./BiometricIntergration/BiometricIntergration
 import BiometricEmployee from "./BiometricIntergration/BiometricEmployeeApi.json";
 import TeamManagement from "./TeamManagement/TeamManagementApi.json";
 import EmployeeTeamManagement from "./TeamManagement/EmployeeTeamManagementApi.json";
+import Dashboard from "./Dashboard/DashboardApi.json";
+import ValidationImport from "./OnboardingImport/OnboardingImportValidationApi.json";
+import ExecutionImport from "./OnboardingImport/OnboardingImportExecutionApi.json"; 
 
 const apiData = [
   {
@@ -248,6 +251,24 @@ const apiData = [
       }
     ]
   },
+  {
+    category: "Dashboard",
+    apis: Dashboard.apis,
+  },
+  {
+    category: "Onboarding Import",
+    apis: [ValidationImport.apis, ...ExecutionImport.apis],
+    subModules: [
+      {
+        name: "Onboarding Import Validation APIs",
+        apis: ValidationImport.apis,
+      },
+      {
+        name: "Onboarding Import Execution APIs",
+        apis: ExecutionImport.apis,
+      }
+    ]
+  }
 ];
 
 export default apiData;
