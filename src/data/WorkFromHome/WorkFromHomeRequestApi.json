@@ -6,7 +6,7 @@
       "id": "apply-wfh-request",
       "name": "Apply WFH Request",
       "method": "POST",
-      "endpoint": "/api/wfh-request/apply",
+      "endpoint": "/api/wfh-request/apply?{companyId}&{branchId}&{employeeId}",
       "description": "Creates a work-from-home request for an employee. If the requester is a manager, the request becomes manager-approved automatically.",
       "headers": [
         {
@@ -58,7 +58,7 @@
       "id": "manager-approve-wfh-request",
       "name": "Manager Approve WFH Request",
       "method": "PUT",
-      "endpoint": "/api/wfh-request/manager-approve/{requestId}",
+      "endpoint": "/api/wfh-request/manager-approve/{requestId}?{companyId}&{branchId}",
       "description": "Manager approves a pending WFH request.",
       "headers": [
         {
@@ -110,7 +110,7 @@
       "id": "final-admin-approve-wfh-request",
       "name": "Final Admin Approve WFH Request",
       "method": "PUT",
-      "endpoint": "/api/wfh-request/final-approve/{requestId}",
+      "endpoint": "/api/wfh-request/final-approve/{requestId}?{companyId}&{branchId}",
       "description": "Admin gives final approval to a WFH request. After this, the actual Work From Home record is created.",
       "headers": [
         {
@@ -162,7 +162,7 @@
       "id": "reject-wfh-request",
       "name": "Reject WFH Request",
       "method": "PUT",
-      "endpoint": "/api/wfh-request/reject/{requestId}",
+      "endpoint": "/api/wfh-request/reject/{requestId}?{companyId}&{branchId}",
       "description": "Rejects a pending or manager-approved WFH request.",
       "headers": [
         {
@@ -214,7 +214,7 @@
       "id": "get-wfh-requests-by-employee",
       "name": "Get WFH Requests By Employee",
       "method": "GET",
-      "endpoint": "/api/wfh-request/employee/{employeeId}",
+      "endpoint": "/api/wfh-request/employee/{employeeId}?{companyId}&{branchId}",
       "description": "Returns WFH request history for a specific employee.",
       "headers": [
         {
@@ -301,7 +301,7 @@
       "id": "get-department-wise-wfh-requests-manager",
       "name": "Get Department-wise WFH Requests (Manager)",
       "method": "GET",
-      "endpoint": "/api/wfh-request/manager/department",
+      "endpoint": "/api/wfh-request/manager/department/{companyId}&{branchId}&{managerId}",
       "description": "Returns all WFH requests for the departments managed by the specified manager.",
       "headers": [
         {

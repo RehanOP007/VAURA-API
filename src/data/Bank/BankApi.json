@@ -19,7 +19,32 @@
             "value": "Bearer JWT_TOKEN"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+            {
+    "name": "companyId",
+    "type": "number",
+    "required": true,
+    "description": "Company ID"
+  },
+  {
+    "name": "branchId",
+    "type": "number",
+    "required": true,
+    "description": "Branch ID"
+  },
+  {
+    "name": "bankName",
+    "type": "string",
+    "required": true,
+    "description": "Bank name"
+  },
+  {
+    "name": "bankCode",
+    "type": "string",
+    "required": true,
+    "description": "Unique bank code"
+  }
+        ],
         "requestBody": {
           "type": "application/json",
           "sample": {
@@ -123,7 +148,32 @@
             "description": "Bank ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+            {
+    "name": "companyId",
+    "type": "number",
+    "required": true,
+    "description": "Company ID"
+  },
+  {
+    "name": "branchId",
+    "type": "number",
+    "required": true,
+    "description": "Branch ID"
+  },
+  {
+    "name": "bankName",
+    "type": "string",
+    "required": true,
+    "description": "Bank name"
+  },
+  {
+    "name": "bankCode",
+    "type": "string",
+    "required": true,
+    "description": "Unique bank code"
+  }   
+        ],
         "requestBody": {
           "type": "application/json",
           "sample": {
@@ -169,7 +219,14 @@
             "description": "Bank ID"
           }
         ],
-        "queryParams": [],
+        "queryParams": [
+                      {
+    "name": "bankId",
+    "type": "number",
+    "required": true,
+    "description": "Company ID"
+  }
+        ],
         "requestBody": null,
         "response": null,
         "statusCodes": [

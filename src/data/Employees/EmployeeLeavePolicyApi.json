@@ -308,6 +308,18 @@
       ],
       "queryParams": [
         {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
+        {
           "name": "activeOnly",
           "type": "boolean",
           "required": false,
@@ -331,6 +343,18 @@
         }
       ],
       "queryParams": [
+        {
+          "name": "companyId",
+          "type": "number",
+          "required": true,
+          "description": "Company ID"
+        },
+        {
+          "name": "branchId",
+          "type": "number",
+          "required": true,
+          "description": "Branch ID"
+        },
         {
           "name": "year",
           "type": "number",

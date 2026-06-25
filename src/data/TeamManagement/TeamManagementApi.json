@@ -6,7 +6,7 @@
       "id": "create-parent-team",
       "name": "Create Parent Team",
       "method": "POST",
-      "endpoint": "/api/teams?companyId&branchId",
+      "endpoint": "/api/teams?{companyId}&{branchId}",
       "description": "Creates a main parent team under a department.",
       "headers": [
         {
@@ -46,7 +46,7 @@
       "id": "create-sub-team",
       "name": "Create Sub-Team",
       "method": "POST",
-      "endpoint": "/api/teams?companyId&branchId",
+      "endpoint": "/api/teams?{companyId}&{branchId}",
       "description": "Creates a child team under an existing parent team.",
       "headers": [
         {
@@ -87,7 +87,7 @@
       "id": "update-team",
       "name": "Update Team",
       "method": "PUT",
-      "endpoint": "/api/teams/{teamId}?companyId&branchId",
+      "endpoint": "/api/teams/{teamId}?{companyId}&{branchId}",
       "description": "Updates an existing team's core setup using path variables and query scopes.",
       "headers": [
         {
@@ -125,7 +125,7 @@
       "id": "delete-team",
       "name": "Delete Team",
       "method": "DELETE",
-      "endpoint": "/api/teams/{teamId}?companyId&branchId",
+      "endpoint": "/api/teams/{teamId}?{companyId}&{branchId}",
       "description": "Deletes a team. Rule: A team can only be deleted if it does not contain child teams and does not have active employee assignments.",
       "headers": [
         {
@@ -163,7 +163,7 @@
       "id": "get-all-teams",
       "name": "Get All Teams",
       "method": "GET",
-      "endpoint": "/api/teams?companyId&branchId",
+      "endpoint": "/api/teams?{companyId}&{branchId}",
       "description": "Returns all teams for the selected company and branch.",
       "headers": [
         {
@@ -300,7 +300,7 @@
       "id": "get-team-tree",
       "name": "Get Team Tree",
       "method": "GET",
-      "endpoint": "/api/teams/tree?companyId&branchId&departmentId",
+      "endpoint": "/api/teams/tree?{companyId}&{branchId}&{departmentId}",
       "description": "Returns a hierarchical team structure including nested parent and child teams filtered by department mapping.",
       "headers": [
         {

@@ -34,7 +34,7 @@
       ],
       "requestBody": {
         "type": "application/json",
-        "variants": [
+        "sample": [
           {
             "label": "Temporary WFH",
             "sample": {
@@ -228,7 +228,13 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+    "success": false,
+    "message": "No active WFH found",
+    "data": null
+}
+      ],
       "statusCodes": []
     },
     {

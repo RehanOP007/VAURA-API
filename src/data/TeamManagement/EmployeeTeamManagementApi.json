@@ -6,7 +6,7 @@
       "id": "assign-employee-team",
       "name": "Assign Employee to Team",
       "method": "POST",
-      "endpoint": "/api/employee-teams/assign?companyId&branchId",
+      "endpoint": "/api/employee-teams/assign?{companyId}&{branchId}",
       "description": "Assigns an employee to a specific team with configuration tracking fields.",
       "headers": [
         {
@@ -48,7 +48,7 @@
       "id": "get-employee-teams-history",
       "name": "Get Employee Teams",
       "method": "GET",
-      "endpoint": "/api/employee-teams/employee/{id}?companyId&branchId",
+      "endpoint": "/api/employee-teams/employee/{id}?{companyId}&{branchId}",
       "description": "Returns all historical team assignments of a selected employee.",
       "headers": [
         {
@@ -86,7 +86,7 @@
       "id": "get-distinct-employees-under-team-tree",
       "name": "Get Distinct Employees Under Team + Child Teams",
       "method": "GET",
-      "endpoint": "/api/employee-teams/team/{id}/employees?companyId&branchId",
+      "endpoint": "/api/employee-teams/team/{id}/employees?{companyId}&{branchId}",
       "description": "Returns all unique employees assigned to the selected team and all recursively nested child teams.",
       "headers": [
         {
@@ -184,7 +184,7 @@
       "id": "unassign-employee-team",
       "name": "Unassign Employee Team",
       "method": "PUT",
-      "endpoint": "/api/employee-teams/{id}/unassign?companyId&branchId&endDate",
+      "endpoint": "/api/employee-teams/{id}/unassign?{companyId}&{branchId}&{endDate}",
       "description": "Marks an existing employee-team assignment structure as ended using the provided end date logic parameter.",
       "headers": [
         {
@@ -228,7 +228,7 @@
       "id": "get-employee-active-teams-by-date",
       "name": "Get Employee Active Teams by Date",
       "method": "GET",
-      "endpoint": "/api/employee-teams/employee/{id}?companyId&branchId&date",
+      "endpoint": "/api/employee-teams/employee/{id}?{companyId}&{branchId}&{date}",
       "description": "Returns employee team assignments active on the provided date. Note: If date parameter is not provided, the endpoint defaults to returning full assignment history.",
       "headers": [
         {
@@ -272,7 +272,7 @@
       "id": "get-active-assigned-employees-for-team-by-date",
       "name": "Get Active Assigned emps for a Team by Date",
       "method": "GET",
-      "endpoint": "/api/employee-teams/team/{id}?companyId&branchId&date",
+      "endpoint": "/api/employee-teams/team/{id}?{companyId}&{branchId}&{date}",
       "description": "Returns active employee assignments situated under the selected isolated team for the targeted date. Note: If date is not provided, the endpoint returns full historical records.",
       "headers": [
         {
@@ -316,7 +316,7 @@
       "id": "get-distinct-active-employees-under-parent-team-by-date",
       "name": "Get Distinct Active Employees Under Parent Team + Child Teams by Date",
       "method": "GET",
-      "endpoint": "/api/employee-teams/team/{id}/employees?companyId&branchId&date",
+      "endpoint": "/api/employee-teams/team/{id}/employees?{companyId}&{branchId}&{date}",
       "description": "Returns all distinct active employees assigned to the selected parent team and all downstream nested child structures for the provided date context block. Note: If date query parameter is omitted, this endpoint automatically uses the current systemic date.",
       "headers": [
         {

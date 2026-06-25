@@ -110,7 +110,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-employee",
@@ -217,7 +230,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-employees-in-branch",
@@ -1201,7 +1227,20 @@
         "emergencyContactNumber": ""
     }
         ],
-        "statusCodes": []
+        "statusCodes": [
+                    {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-active-employees-in-department",
@@ -1430,7 +1469,20 @@
     }
 ]
         ],
-        "statusCodes": []
+        "statusCodes": [
+                    {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-past-employees-in-department",
@@ -1753,7 +1805,20 @@
     }
 ]
         ],
-        "statusCodes": []
+        "statusCodes": [
+                    {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-specific-employee",
@@ -1839,7 +1904,20 @@
     "emergencyContactNumber": null
 }
         ],
-        "statusCodes": []
+        "statusCodes": [
+                    {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-employee",
@@ -1877,7 +1955,20 @@
         ],
         "requestBody": null,
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+                    {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
     ]
   }
