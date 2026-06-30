@@ -294,7 +294,7 @@
       "id": "get-designation-history-of-employee",
       "name": "Get Designation History of an Employee",
       "method": "GET",
-      "endpoint": "/api/employee-designation/end-current?{companyId}&{branchId}&{employeeId}&{endDate}",
+      "endpoint": "/api/employee-designation/history/{employeeId}?{companyId}&{branchId}",
       "description": "Fetches the full designation history of a specific employee.",
       "headers": [
         {
@@ -312,6 +312,12 @@
       ],
       "queryParams": [
         {
+          "name": "employeeId",
+          "type": "number",
+          "required": true,
+          "description": "Employee ID"
+        },
+        {
           "name": "companyId",
           "type": "number",
           "required": true,
@@ -325,7 +331,50 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 16,
+        "employeeId": 17,
+        "designationId": 3,
+        "startDate": "2026-03-10",
+        "endDate": "2026-03-28"
+    },
+    {
+        "id": 9,
+        "employeeId": 17,
+        "designationId": 2,
+        "startDate": "2026-02-11",
+        "endDate": "2026-03-09"
+    },
+    {
+        "id": 4,
+        "employeeId": 17,
+        "designationId": 1,
+        "startDate": "2026-02-09",
+        "endDate": "2026-02-11"
+    },
+    {
+        "id": 2,
+        "employeeId": 17,
+        "designationId": 2,
+        "startDate": "2026-02-09",
+        "endDate": "2026-02-09"
+    },
+    {
+        "id": 3,
+        "employeeId": 17,
+        "designationId": 3,
+        "startDate": "2026-02-09",
+        "endDate": "2026-02-09"
+    },
+    {
+        "id": 1,
+        "employeeId": 17,
+        "designationId": 1,
+        "startDate": "2026-02-06",
+        "endDate": "2026-02-09"
+    }
+      ],
       "statusCodes": []
     },
     {

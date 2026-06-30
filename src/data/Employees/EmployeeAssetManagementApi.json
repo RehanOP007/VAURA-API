@@ -180,8 +180,16 @@
       ],
       "statusCodes": [
          {
-            "code": 400,
-            "description": "Bad Request"
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
           }
       ]
     }

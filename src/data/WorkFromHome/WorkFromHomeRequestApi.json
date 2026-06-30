@@ -250,7 +250,71 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 3,
+        "employeeId": 22,
+        "employeeName": "John Michael Dd",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/a504f215-0bd5-477f-b494-efd789cd9fc8_Spidy_.jpeg",
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "designationId": 7,
+        "designationName": "junior Software Engineer",
+        "startDate": "2026-05-27",
+        "endDate": "2026-05-28",
+        "reason": "going to kandy",
+        "status": "APPROVED",
+        "appliedAt": "2026-05-27",
+        "managerNotes": null,
+        "adminNotes": "",
+        "managerApprovedAt": null,
+        "finalApprovedAt": "2026-05-27T15:34:17.066015",
+        "rejectedAt": null
+    },
+    {
+        "id": 2,
+        "employeeId": 22,
+        "employeeName": "John Michael Dd",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/a504f215-0bd5-477f-b494-efd789cd9fc8_Spidy_.jpeg",
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "designationId": 7,
+        "designationName": "junior Software Engineer",
+        "startDate": "2026-05-04",
+        "endDate": "2026-05-06",
+        "reason": "personal reason",
+        "status": "APPROVED",
+        "appliedAt": "2026-04-28",
+        "managerNotes": null,
+        "adminNotes": "",
+        "managerApprovedAt": null,
+        "finalApprovedAt": "2026-05-27T15:28:32.681754",
+        "rejectedAt": null
+    },
+    {
+        "id": 1,
+        "employeeId": 22,
+        "employeeName": "John Michael Dd",
+        "employeePreferredName": "John",
+        "employeePhoto": "https://pub-b03dfc6dcf224e309fc60e25b859bf2c.r2.dev/a504f215-0bd5-477f-b494-efd789cd9fc8_Spidy_.jpeg",
+        "departmentId": 1,
+        "departmentName": "Software Engineering Department",
+        "designationId": 7,
+        "designationName": "junior Software Engineer",
+        "startDate": "2026-04-29",
+        "endDate": "2026-05-01",
+        "reason": "Need to work from home due to personal reason",
+        "status": "APPROVED",
+        "appliedAt": "2026-04-28",
+        "managerNotes": "",
+        "adminNotes": "cover up the work",
+        "managerApprovedAt": "2026-05-05T18:20:38.141277",
+        "finalApprovedAt": "2026-05-05T18:26:06.315724",
+        "rejectedAt": null
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -272,7 +336,29 @@
       ],
       "queryParams": [],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 5,
+        "employeeId": 71,
+        "employeeName": "Tharindu Silva",
+        "employeePreferredName": "Tharindu",
+        "employeePhoto": null,
+        "departmentId": 20,
+        "departmentName": "Engineering",
+        "designationId": 20,
+        "designationName": "Senior Software Engineer",
+        "startDate": "2026-06-01",
+        "endDate": "2026-06-16",
+        "reason": "Health Problem",
+        "status": "PENDING",
+        "appliedAt": "2026-06-29",
+        "managerNotes": null,
+        "adminNotes": null,
+        "managerApprovedAt": null,
+        "finalApprovedAt": null,
+        "rejectedAt": null
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -294,7 +380,27 @@
       ],
       "queryParams": [],
       "requestBody": null,
-      "response": null,
+      "response": [{
+        "id": 7,
+        "employeeId": 81,
+        "employeeName": "Nikini Sakunthala Wanniarachchi",
+        "employeePreferredName": "Nikini",
+        "employeePhoto": null,
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "designationId": null,
+        "designationName": null,
+        "startDate": "2026-06-03",
+        "endDate": "2026-06-18",
+        "reason": "Health problem",
+        "status": "MANAGER_APPROVED",
+        "appliedAt": "2026-06-29",
+        "managerNotes": "",
+        "adminNotes": null,
+        "managerApprovedAt": "2026-06-29T16:45:10.227956",
+        "finalApprovedAt": null,
+        "rejectedAt": null
+    }],
       "statusCodes": []
     },
     {
@@ -335,7 +441,29 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 7,
+        "employeeId": 81,
+        "employeeName": "Nikini Sakunthala Wanniarachchi",
+        "employeePreferredName": "Nikini",
+        "employeePhoto": null,
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "designationId": null,
+        "designationName": null,
+        "startDate": "2026-06-03",
+        "endDate": "2026-06-18",
+        "reason": "Health problem",
+        "status": "MANAGER_APPROVED",
+        "appliedAt": "2026-06-29",
+        "managerNotes": "",
+        "adminNotes": null,
+        "managerApprovedAt": "2026-06-29T16:45:10.227956",
+        "finalApprovedAt": null,
+        "rejectedAt": null
+    }
+      ],
       "statusCodes": []
     }
   ]
