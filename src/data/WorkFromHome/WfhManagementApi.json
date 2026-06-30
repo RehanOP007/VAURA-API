@@ -230,9 +230,17 @@
       "requestBody": null,
       "response": [
         {
-    "success": false,
-    "message": "No active WFH found",
-    "data": null
+    "id": 63,
+    "employeeId": 70,
+    "employeeName": "Nimal Perera",
+    "employeePreferredName": "Nimal",
+    "employeePhoto": null,
+    "departmentId": 19,
+    "departmentName": "Human Resources",
+    "designationId": 18,
+    "designationName": "HR Manager",
+    "startDate": "2026-06-29",
+    "endDate": "2026-07-10"
 }
       ],
       "statusCodes": []
@@ -314,7 +322,21 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+    "employeeId": 70,
+    "timeUtc": "2026-06-29T00:00:00Z",
+    "date": "2026-06-29",
+    "attendanceDate": "2026-06-29",
+    "active": false,
+    "wfhAvailable": false,
+    "attendanceExists": false,
+    "shiftAssigned": true,
+    "shiftStarted": false,
+    "insideShiftWindow": false,
+    "message": "No matching shift window found for this time."
+}
+      ],
       "statusCodes": []
     },
     {

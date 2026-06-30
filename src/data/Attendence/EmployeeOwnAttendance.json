@@ -35,7 +35,56 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "attendanceId": 1324,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 81,
+        "employeeName": "Nikini Sakunthala Wanniarachchi",
+        "employeePreferredName": "Nikini",
+        "employeeCode": "NIKI001",
+        "designationId": null,
+        "designationName": null,
+        "shiftId": 12,
+        "shiftName": "Day Shift",
+        "attendanceDate": "2026-06-30",
+        "firstInTime": null,
+        "lastOutTime": null,
+        "workedMinutes": null,
+        "lateMinutes": null,
+        "earlyLeaveMinutes": null,
+        "overtimeMinutes": null,
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "teams": [
+            {
+                "id": 28,
+                "companyId": 11,
+                "branchId": 10,
+                "employeeId": 81,
+                "employeeName": "Nikini Sakunthala Wanniarachchi",
+                "teamId": 17,
+                "teamName": "HR Operations",
+                "teamPath": "Human Resources > HR Operations",
+                "departmentId": 19,
+                "departmentName": "Human Resources",
+                "startDate": "2026-06-29",
+                "endDate": null,
+                "primaryTeam": false,
+                "teamLead": false,
+                "teamLeadId": null,
+                "primaryLead": null,
+                "status": "ACTIVE"
+            }
+        ],
+        "status": "ABSENT",
+        "leaveType": null,
+        "leaveQuarter": null,
+        "location": "OFFICE",
+        "leavePolicyId": null
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -77,7 +126,56 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "attendanceId": 1324,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 81,
+        "employeeName": "Nikini Sakunthala Wanniarachchi",
+        "employeePreferredName": "Nikini",
+        "employeeCode": "NIKI001",
+        "designationId": null,
+        "designationName": null,
+        "shiftId": 12,
+        "shiftName": "Day Shift",
+        "attendanceDate": "2026-06-30",
+        "firstInTime": null,
+        "lastOutTime": null,
+        "workedMinutes": null,
+        "lateMinutes": null,
+        "earlyLeaveMinutes": null,
+        "overtimeMinutes": null,
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "teams": [
+            {
+                "id": 28,
+                "companyId": 11,
+                "branchId": 10,
+                "employeeId": 81,
+                "employeeName": "Nikini Sakunthala Wanniarachchi",
+                "teamId": 17,
+                "teamName": "HR Operations",
+                "teamPath": "Human Resources > HR Operations",
+                "departmentId": 19,
+                "departmentName": "Human Resources",
+                "startDate": "2026-06-29",
+                "endDate": null,
+                "primaryTeam": false,
+                "teamLead": false,
+                "teamLeadId": null,
+                "primaryLead": null,
+                "status": "ACTIVE"
+            }
+        ],
+        "status": "ABSENT",
+        "leaveType": null,
+        "leaveQuarter": null,
+        "location": "OFFICE",
+        "leavePolicyId": null
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -113,7 +211,56 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "attendanceId": 1324,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 81,
+        "employeeName": "Nikini Sakunthala Wanniarachchi",
+        "employeePreferredName": "Nikini",
+        "employeeCode": "NIKI001",
+        "designationId": null,
+        "designationName": null,
+        "shiftId": 12,
+        "shiftName": "Day Shift",
+        "attendanceDate": "2026-06-30",
+        "firstInTime": null,
+        "lastOutTime": null,
+        "workedMinutes": null,
+        "lateMinutes": null,
+        "earlyLeaveMinutes": null,
+        "overtimeMinutes": null,
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "teams": [
+            {
+                "id": 28,
+                "companyId": 11,
+                "branchId": 10,
+                "employeeId": 81,
+                "employeeName": "Nikini Sakunthala Wanniarachchi",
+                "teamId": 17,
+                "teamName": "HR Operations",
+                "teamPath": "Human Resources > HR Operations",
+                "departmentId": 19,
+                "departmentName": "Human Resources",
+                "startDate": "2026-06-29",
+                "endDate": null,
+                "primaryTeam": false,
+                "teamLead": false,
+                "teamLeadId": null,
+                "primaryLead": null,
+                "status": "ACTIVE"
+            }
+        ],
+        "status": "ABSENT",
+        "leaveType": null,
+        "leaveQuarter": null,
+        "location": "OFFICE",
+        "leavePolicyId": null
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -149,7 +296,56 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "attendanceId": 1324,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 81,
+        "employeeName": "Nikini Sakunthala Wanniarachchi",
+        "employeePreferredName": "Nikini",
+        "employeeCode": "NIKI001",
+        "designationId": null,
+        "designationName": null,
+        "shiftId": 12,
+        "shiftName": "Day Shift",
+        "attendanceDate": "2026-06-30",
+        "firstInTime": null,
+        "lastOutTime": null,
+        "workedMinutes": null,
+        "lateMinutes": null,
+        "earlyLeaveMinutes": null,
+        "overtimeMinutes": null,
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "teams": [
+            {
+                "id": 28,
+                "companyId": 11,
+                "branchId": 10,
+                "employeeId": 81,
+                "employeeName": "Nikini Sakunthala Wanniarachchi",
+                "teamId": 17,
+                "teamName": "HR Operations",
+                "teamPath": "Human Resources > HR Operations",
+                "departmentId": 19,
+                "departmentName": "Human Resources",
+                "startDate": "2026-06-29",
+                "endDate": null,
+                "primaryTeam": false,
+                "teamLead": false,
+                "teamLeadId": null,
+                "primaryLead": null,
+                "status": "ACTIVE"
+            }
+        ],
+        "status": "ABSENT",
+        "leaveType": null,
+        "leaveQuarter": null,
+        "location": "OFFICE",
+        "leavePolicyId": null
+    }
+      ],
       "statusCodes": []
     }
   ]

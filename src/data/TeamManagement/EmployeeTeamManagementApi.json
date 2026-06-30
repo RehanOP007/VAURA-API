@@ -79,7 +79,27 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 18,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 70,
+        "employeeName": "Nimal Perera",
+        "teamId": 17,
+        "teamName": "HR Operations",
+        "teamPath": "Human Resources > HR Operations",
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "startDate": "2025-01-15",
+        "endDate": null,
+        "primaryTeam": true,
+        "teamLead": false,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": "ACTIVE"
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -265,7 +285,27 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 18,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 70,
+        "employeeName": "Nimal Perera",
+        "teamId": 17,
+        "teamName": "HR Operations",
+        "teamPath": "Human Resources > HR Operations",
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "startDate": "2025-01-15",
+        "endDate": null,
+        "primaryTeam": true,
+        "teamLead": false,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": "ACTIVE"
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -309,7 +349,27 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": 18,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 70,
+        "employeeName": "Nimal Perera",
+        "teamId": 17,
+        "teamName": "HR Operations",
+        "teamPath": "Human Resources > HR Operations",
+        "departmentId": 19,
+        "departmentName": "Human Resources",
+        "startDate": "2025-01-15",
+        "endDate": null,
+        "primaryTeam": true,
+        "teamLead": false,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": "ACTIVE"
+    }
+      ],
       "statusCodes": []
     },
     {
@@ -353,7 +413,27 @@
         }
       ],
       "requestBody": null,
-      "response": null,
+      "response": [
+        {
+        "id": null,
+        "companyId": 11,
+        "branchId": 10,
+        "employeeId": 70,
+        "employeeName": "Nimal Perera",
+        "teamId": null,
+        "teamName": null,
+        "teamPath": null,
+        "departmentId": null,
+        "departmentName": null,
+        "startDate": null,
+        "endDate": null,
+        "primaryTeam": null,
+        "teamLead": null,
+        "teamLeadId": null,
+        "primaryLead": null,
+        "status": null
+    }
+      ],
       "statusCodes": []
     }
   ]
