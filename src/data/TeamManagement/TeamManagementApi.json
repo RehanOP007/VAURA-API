@@ -40,7 +40,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "create-sub-team",
@@ -81,7 +94,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "update-team",
@@ -119,7 +145,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "delete-team",
@@ -157,7 +196,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-all-teams",
@@ -294,7 +346,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-team-tree",
@@ -437,7 +502,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     }
   ]
 }

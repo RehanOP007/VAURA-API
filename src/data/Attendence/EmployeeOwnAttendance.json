@@ -85,7 +85,20 @@
         "leavePolicyId": null
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "employee-own-attendance-year-month",
@@ -176,7 +189,20 @@
         "leavePolicyId": null
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "employee-own-attendance-year-only",
@@ -261,7 +287,20 @@
         "leavePolicyId": null
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "employee-own-attendance-month-only",
@@ -346,7 +385,20 @@
         "leavePolicyId": null
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     }
   ]
 }

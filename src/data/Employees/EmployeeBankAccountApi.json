@@ -67,7 +67,20 @@
         "response": {
           "sample": "Employee bank account created successfully"
         },
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "update-employee-bank-account",
@@ -132,7 +145,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "delete-employee-bank-account",
@@ -172,7 +198,20 @@
         "response": {
           "sample": "Employee bank account deleted successfully"
         },
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-employee-bank-account",
@@ -225,7 +264,15 @@
         "statusCodes": [
             {
             "code": 200,
-            "description": "Success"
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
           }
         ]
       }

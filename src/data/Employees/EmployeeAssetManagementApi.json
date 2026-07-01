@@ -89,7 +89,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-assets-assigned-to-employee",

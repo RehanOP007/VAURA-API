@@ -42,7 +42,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-employee-teams-history",
@@ -100,7 +113,20 @@
         "status": "ACTIVE"
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-distinct-employees-under-team-tree",
@@ -198,7 +224,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "unassign-employee-team",
@@ -242,7 +281,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-employee-active-teams-by-date",
@@ -306,7 +358,20 @@
         "status": "ACTIVE"
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-active-assigned-employees-for-team-by-date",
@@ -370,7 +435,20 @@
         "status": "ACTIVE"
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-distinct-active-employees-under-parent-team-by-date",
@@ -434,7 +512,20 @@
         "status": null
     }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     }
   ]
 }

@@ -60,7 +60,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "update-employee-document-post",
@@ -128,7 +141,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "update-employee-document-put",
@@ -196,7 +222,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-all-employee-documents",
@@ -299,7 +338,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-employee-documents-by-employee-id",
@@ -354,7 +406,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "delete-employee-document",
@@ -392,7 +457,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     }
   ]
 }

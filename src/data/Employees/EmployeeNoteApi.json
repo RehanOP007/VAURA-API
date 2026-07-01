@@ -72,13 +72,17 @@
       },
       "statusCodes": [
         {
-          "code": 403,
-          "description": "Access denied error response blueprint structure map.",
-          "sample": {
-            "success": false,
-            "message": "Access denied"
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
           }
-        }
       ]
     },
     {
@@ -141,14 +145,17 @@
       },
       "statusCodes": [
         {
-          "code": 200,
-          "description": "Successful response",
-          "sample": {
-            "success": true,
-            "message": "Notes fetched successfully",
-            "data": []
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
           }
-        }
       ]
     },
     {
@@ -204,13 +211,17 @@
       },
       "statusCodes": [
         {
-          "code": 403,
-          "description": "Access denied error response blueprint structure map.",
-          "sample": {
-            "success": false,
-            "message": "Access denied"
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
           }
-        }
       ]
     }
   ]

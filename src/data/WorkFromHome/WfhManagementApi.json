@@ -54,7 +54,20 @@
         ]
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes":[
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "end-wfh",
@@ -98,7 +111,20 @@
       ],
       "requestBody": null,
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-wfh-history-by-employee",
@@ -191,7 +217,20 @@
     }
 ]
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "get-current-active-wfh-of-employee",
@@ -243,7 +282,19 @@
     "endDate": "2026-07-10"
 }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }]
     },
     {
       "id": "delete-wfh-record",
@@ -337,7 +388,20 @@
     "message": "No matching shift window found for this time."
 }
       ],
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
       "id": "mark-attendance-through-wfh",
@@ -376,7 +440,20 @@
         }
       },
       "response": null,
-      "statusCodes": []
+      "statusCodes": [
+        {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+      ]
     },
     {
         "id": "bulk-assign-wfh",
@@ -446,7 +523,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "bulk-assign-wfh-selected-dates",
@@ -527,7 +617,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "bulk-end-wfh",
@@ -590,7 +693,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "edit-single-wfh",
@@ -657,7 +773,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "bulk-edit-wfh",
@@ -727,7 +856,20 @@
           }
         },
         "response": null,
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-active-wfh-records",
@@ -804,7 +946,20 @@
     "empty": true
 }
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "get-branch-wfh-history",
@@ -881,7 +1036,20 @@
     "empty": true
 }
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       },
       {
         "id": "search-wfh-records",
@@ -964,7 +1132,20 @@
     "empty": true
 }
         ],
-        "statusCodes": []
+        "statusCodes": [
+          {
+            "code": 200,
+            "description": "Ok"
+          },
+          {
+            "code": 401,
+            "description": "Invalid credentials"
+          },
+          {
+            "code": 500,
+            "description": "Internal server error"
+          }
+        ]
       }
   ]
 }
